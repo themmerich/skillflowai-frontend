@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-organisation-list',
+  selector: 'sf-organisation-list',
   imports: [],
   templateUrl: './organisation-list.component.html',
   styleUrl: './organisation-list.component.scss'
