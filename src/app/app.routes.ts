@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {NotFoundComponent} from './general/not-found/not-found.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NotFoundComponent } from './general/not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -15,11 +15,11 @@ export const routes: Routes = [
   },
   {
     path: 'general',
-    loadChildren: () => import('./general/general.routes').then(m => m.generalRoutes),
+    loadChildren: () => import('./general/general.routes').then((m) => m.generalRoutes),
   },
   {
     path: '**',
     component: NotFoundComponent,
     title: '404',
-  }
+  },
 ];

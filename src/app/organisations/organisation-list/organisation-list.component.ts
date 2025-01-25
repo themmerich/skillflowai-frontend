@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'sf-organisation-list',
   imports: [],
   templateUrl: './organisation-list.component.html',
-  styleUrl: './organisation-list.component.scss'
+  styleUrl: './organisation-list.component.scss',
 })
-export class OrganisationListComponent {
-
-}
+export class OrganisationListComponent {}
