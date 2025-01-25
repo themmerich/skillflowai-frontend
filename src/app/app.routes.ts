@@ -14,6 +14,10 @@ export const routes: Routes = [
     title: 'Dashboard',
   },
   {
+    path: 'organizations',
+    loadChildren: () => import('./organizations/organizations.routes').then((m) => m.organizationsRoutes),
+  },
+  {
     path: 'general',
     loadChildren: () => import('./general/general.routes').then((m) => m.generalRoutes),
   },

@@ -1,1 +1,21 @@
-<div>Welcome to the Dashboard!</div>
+<p>Welcome to the Dashboard!</p>
+<p-table [value]="organizations" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template #header>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Members</th>
+      <th>Created</th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-organization>
+    <tr>
+      <td>{{ organization.id }}</td>
+      <td>{{ organization.name }}</td>
+      <td>{{ organization.description }}</td>
+      <td>{{ organization.members }}</td>
+      <td>{{ organization.created }}</td>
+    </tr>
+  </ng-template>
+</p-table>

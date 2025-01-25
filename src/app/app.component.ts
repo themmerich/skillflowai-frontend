@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
         icon: 'pi pi-fw pi-info-circle',
         items: [
           { label: 'About', icon: 'pi pi-fw pi-info-circle', route: '/general/about' },
-          { label: 'FAQ', icon: 'pi pi-fw pi-question-circle', route: '/general/faq' },
+          { label: 'Organisations', icon: 'pi pi-fw pi-question-circle', route: '/organizations' },
           { label: '404', icon: 'pi pi-fw pi-envelope', route: '/general/not-found' },
         ],
       },
