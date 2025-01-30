@@ -7,24 +7,10 @@ import { Organization } from './organization';
   providedIn: 'root',
 })
 export class OrganizationsService {
-  public apiUrl = '';
+  public apiUrl = 'http://localhost:8080';
   private http = inject(HttpClient);
 
   getAll(): Observable<Organization[]> {
-    let org1: Organization = {
-      id: 1234,
-      name: 'Freuerwehr Grafenrheinfeld',
-      description: 'Die freiwillige Feuerwehr in Grafenrheinfeld.',
-      members: 15,
-      created: new Date(),
-    };
-    let org2: Organization = {
-      id: 2345,
-      name: 'Freuerwehr Bergrheinfeld',
-      description: 'Die freiwillige Feuerwehr in Bergrheinfeld.',
-      members: 5,
-      created: new Date(),
-    };
-    return of([org1, org2]);
+    return this.http.get<Organization[]>(this.apiUrl + '/organizations');
   }
 }

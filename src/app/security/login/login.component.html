@@ -1,0 +1,15 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <p>
+    <p-floatlabel variant="on">
+      <input id="username" type="text" pInputText formControlName="username" autocomplete="off" />
+      <label for="username">Username</label>
+    </p-floatlabel>
+  </p>
+  <p>
+    <p-floatlabel variant="on">
+      <p-password id="password" formControlName="password" [toggleMask]="true" />
+      <label for="password">Password</label>
+    </p-floatlabel>
+  </p>
+  <p-button type="submit" label="Login"></p-button>
+</form>

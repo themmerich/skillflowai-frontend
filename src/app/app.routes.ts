@@ -1,25 +1,48 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './general/not-found/not-found.component';
+import { authGuard } from './security/guards/auth.guard';
+import { LoginComponent } from './security/login/login.component';
+import { NavbarComponent } from './general/navbar/navbar.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
-    path: 'dashboard',
-    component: DashboardComponent,
-    title: 'Dashboard',
+    path: 'home',
+    component: NavbarComponent,
+    title: 'SkillFlowAI',
+    children: [
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [authGuard],
+        title: 'Dashboard',
+      },
+      {
+        path: 'organizations',
+        canActivate: [authGuard],
+        loadChildren: () => import('./organizations/organizations.routes').then((m) => m.organizationsRoutes),
+      },
+      {
+        path: 'general',
+        canActivate: [authGuard],
+        loadChildren: () => import('./general/general.routes').then((m) => m.generalRoutes),
+      },
+    ],
   },
   {
-    path: 'organizations',
-    loadChildren: () => import('./organizations/organizations.routes').then((m) => m.organizationsRoutes),
-  },
-  {
-    path: 'general',
-    loadChildren: () => import('./general/general.routes').then((m) => m.generalRoutes),
+    path: 'login',
+    component: LoginComponent,
+    title: 'Login',
   },
   {
     path: '**',

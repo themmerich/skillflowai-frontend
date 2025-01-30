@@ -1,32 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { Menubar } from 'primeng/menubar';
-import { NgIf } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { MenuItem } from 'primeng/api';
+import { Component, inject } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { PrimeNG } from 'primeng/config';
+import Lara from '@primeng/themes/lara';
 
 @Component({
   selector: 'sf-root',
-  imports: [Menubar, NgIf, RouterLink, RouterOutlet],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit {
-  items: MenuItem[] | undefined;
+export class AppComponent {
+  primeNgConfig = inject(PrimeNG);
 
-  ngOnInit() {
-    this.items = [
-      { label: 'Dashboard', icon: 'pi pi-fw pi-home', route: '/dashboard' },
-      {
-        label: 'General',
-        icon: 'pi pi-fw pi-info-circle',
-        items: [
-          { label: 'About', icon: 'pi pi-fw pi-info-circle', route: '/general/about' },
-          { label: 'Organisations', icon: 'pi pi-fw pi-question-circle', route: '/organizations' },
-          { label: '404', icon: 'pi pi-fw pi-envelope', route: '/general/not-found' },
-        ],
+  constructor() {
+    this.primeNgConfig.theme.set({
+      preset: Lara,
+      options: {
+        darkModeSelector: '.dark',
       },
-      { label: 'FAQ', icon: 'pi pi-fw pi-question-circle', route: '/general/faq' },
-      { label: '404', icon: 'pi pi-fw pi-envelope', route: '/general/not-found' },
-    ];
+    });
   }
 }
