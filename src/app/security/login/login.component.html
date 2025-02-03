@@ -1,15 +1,37 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-  <p>
-    <p-floatlabel variant="on">
-      <input id="username" type="text" pInputText formControlName="username" autocomplete="off" />
-      <label for="username">Username</label>
-    </p-floatlabel>
-  </p>
-  <p>
-    <p-floatlabel variant="on">
-      <p-password id="password" formControlName="password" [toggleMask]="true" />
-      <label for="password">Password</label>
-    </p-floatlabel>
-  </p>
-  <p-button type="submit" label="Login"></p-button>
-</form>
+<div class="px-6 py-20 md:px-12 lg:px-20 flex items-center justify-center">
+  <div class="p-12 shadow text-center lg:w-[30rem] backdrop-blur-md rounded-xl bg-[rgba(255,255,255,0.1)]">
+    <div class="text-4xl font-medium mb-12 text-primary-contrast">Welcome</div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <p-floatlabel variant="on">
+        <input
+          id="username"
+          placeholder="{{ 'app.username' | translate }}"
+          class="!appearance-none placeholder:!text-primary-contrast/40 !border-0 !p-4 !w-full !outline-0 !text-xl !block !mb-6 !bg-white/10 !text-primary-contrast/70 !rounded-full"
+          type="text"
+          pInputText
+          formControlName="username"
+          autocomplete="off"
+        />
+      </p-floatlabel>
+      <p-floatlabel variant="on">
+        <input
+          id="password"
+          placeholder="{{ 'app.password' | translate }}"
+          class="!appearance-none placeholder:!text-primary-contrast/40 !border-0 !p-4 !w-full !outline-0 !text-xl !block !mb-6 !bg-white/10 !text-primary-contrast/70 !rounded-full"
+          type="password"
+          pInputText
+          formControlName="password"
+          autocomplete="off"
+        />
+      </p-floatlabel>
+
+      <button
+        type="submit"
+        class="max-w-40 w-full rounded-full apearance-none border-0 p-4 outline-0 text-xl mb-6 font-medium bg-white/30 hover:bg-white/40 active:bg-white/20 text-primary-contrast/80 cursor-pointer transition-colors duration-150"
+      >
+        {{ 'app.login' | translate }}
+      </button>
+      <a class="cursor-pointer font-medium block text-center text-primary-contrast">Forgot Password?</a>
+    </form>
+  </div>
+</div>

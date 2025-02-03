@@ -1,14 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Button } from 'primeng/button';
-import { Menubar } from 'primeng/menubar';
-import { NgIf } from '@angular/common';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../security/service/auth.service';
 import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'sf-navbar',
-  imports: [Button, Menubar, NgIf, RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
@@ -37,5 +34,11 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  onThemeSwitch() {
+    const element = document.querySelector('html');
+    // @ts-ignore
+    element.classList.toggle('my-app-dark');
   }
 }

@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PrimeNG } from 'primeng/config';
-import Lara from '@primeng/themes/lara';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'sf-root',
@@ -10,14 +9,11 @@ import Lara from '@primeng/themes/lara';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  primeNgConfig = inject(PrimeNG);
+  private translateService = inject(TranslateService);
 
   constructor() {
-    this.primeNgConfig.theme.set({
-      preset: Lara,
-      options: {
-        darkModeSelector: '.dark',
-      },
-    });
+    this.translateService.addLangs(['en', 'de']);
+    this.translateService.setDefaultLang('de');
+    this.translateService.use('de');
   }
 }

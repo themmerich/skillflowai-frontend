@@ -1,11 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{html,ts}", // Include all HTML and TypeScript files in the src folder
+    './src/**/*.{html,ts}', // Include all HTML and TypeScript files in the src folder
   ],
   theme: {
-    extend: {},
+    colors: {
+      //primary: '#5c6ac4',
+      //secondary: '#ecc94b',
+      // ...
+    },
   },
-  plugins: [],
-}
-
+  plugins: [require('tailwindcss-primeui')],
+};
