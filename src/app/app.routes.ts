@@ -33,6 +33,11 @@ export const routes: Routes = [
         loadChildren: () => import('./organizations/organizations.routes').then((m) => m.organizationsRoutes),
       },
       {
+        path: 'user',
+        canActivate: [authGuard],
+        loadChildren: () => import('./user/user.routes').then((m) => m.userRoutes),
+      },
+      {
         path: 'general',
         canActivate: [authGuard],
         loadChildren: () => import('./general/general.routes').then((m) => m.generalRoutes),

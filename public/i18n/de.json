@@ -1,7 +1,58 @@
 {
-  "app": {
+  "general": {
+    "datePattern": "dd.mm.yyyy"
+  },
+  "button": {
     "login": "Einloggen",
+    "cancel": "Abbrechen",
+    "save": "Speichern"
+  },
+  "login": {
+    "title": "Willkommen",
     "username": "Benutzer",
-    "password": "Passwort"
+    "password": "Passwort",
+    "forgotPassword": "Passwort vergessen?"
+  },
+  "notFound": {
+    "title": "Bist du verloren?",
+    "message": "Tut mir leid, wir konnten die Seite nicht finden.",
+    "backButton": "Zurück zur Startseite"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "members": "Mitglieder",
+    "faq": "FAQ",
+    "not-found": "404",
+    "theme-switch": "Theme Switch",
+    "logout": "Ausloggen"
+  },
+  "user": {
+    "firstname": "Vorname",
+    "lastname": "Nachname",
+    "birthdate": "Geburtsdatum",
+    "email": "E-Mail",
+    "created": "Angelegt am",
+    "roles": "Rollen",
+    "table": {
+    },
+    "create": {
+      "title": "Benutzer anlegen"
+    },
+    "edit": {
+      "title": "Benutzer bearbeiten"
+    },
+    "error": {
+      "firstnameRequired": "Vorname wird benötigt.",
+      "lastnameRequired": "Nachname wird benötigt.",
+      "emailRequired": "E-Mail wird benötigt.",
+      "emailInvalid": "E-Mail ist nicht valide."
+    }
+  },
+  "address": {
+    "street": "Straße",
+    "number": "Hausnummer",
+    "zip": "PLZ",
+    "city": "Ort",
+    "country": "Land"
   }
 }

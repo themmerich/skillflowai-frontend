@@ -31,10 +31,4 @@ export class DashboardComponent implements OnInit {
       return (this.organizations = organizations);
     });
   }
-
-  toggleDarkMode() {
-    const element = document.querySelector('html');
-    // @ts-ignore
-    element.classList.toggle('my-app-dark');
-  }
 }

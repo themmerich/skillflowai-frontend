@@ -23,12 +23,7 @@
       <div class="flex">
         <p-iconfield iconPosition="left" class="ml-auto">
           <p-inputicon><i class="pi pi-search"></i></p-inputicon>
-          <input
-            pInputText
-            type="text"
-            (input)="dt2.filterGlobal($any($event.target).value, 'contains')"
-            placeholder="Search keyword"
-          />
+          <input pInputText type="text" (input)="dt2.filterGlobal($any($event.target).value, 'contains')" placeholder="Search keyword" />
         </p-iconfield>
       </div>
     </ng-template>
@@ -44,13 +39,7 @@
         <th pSortableColumn="name">
           <div class="flex items-center">
             Name <p-sortIcon field="name" />
-            <p-columnFilter
-              type="text"
-              field="name"
-              placeholder="Search by Name"
-              ariaLabel="Filter Name"
-              display="menu"
-            />
+            <p-columnFilter type="text" field="name" placeholder="Search by Name" ariaLabel="Filter Name" display="menu" />
           </div>
         </th>
         <th pSortableColumn="description">Description <p-sortIcon field="description" /></th>

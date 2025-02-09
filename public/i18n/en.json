@@ -1,7 +1,58 @@
 {
-  "app": {
+  "general": {
+    "datePattern": "mm/dd/yyyy"
+  },
+  "button": {
     "login": "Login",
-    "username": "User Name",
-    "password": "Password"
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "login": {
+    "title": "Welcome",
+    "username": "User name",
+    "password": "Password",
+    "forgotPassword": "Forgot Password?"
+  },
+  "notFound": {
+    "title": "Are you lost?",
+    "message": "Sorry, we couldn't find the page.",
+    "backButton": "Go back to home page"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "members": "Members",
+    "faq": "FAQ",
+    "not-found": "404",
+    "theme-switch": "Theme Switch",
+    "logout": "Logout"
+  },
+  "user": {
+    "firstname": "First name",
+    "lastname": "Last namne",
+    "birthdate": "Birth date",
+    "email": "Email address",
+    "created": "Created on",
+    "roles": "Roles",
+    "table": {
+    },
+    "create": {
+      "title": "Create user"
+    },
+    "edit": {
+      "title": "Edit user"
+    },
+    "error": {
+      "firstnameRequired": "First name is required.",
+      "lastnameRequired": "Last name is required.",
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Input is not a valid email."
+    }
+  },
+  "address": {
+    "street": "Street",
+    "number": "Number",
+    "zip": "Zip code",
+    "city": "City",
+    "country": "Country"
   }
 }

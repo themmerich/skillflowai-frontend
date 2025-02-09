@@ -51,22 +51,36 @@
               <i class="pi pi-chevron-down"></i>
             </div>
             <ul class="list-none p-0 m-0 overflow-hidden">
+              <!-- Dashboard -->
               <li>
                 <a
                   routerLink="dashboard"
                   class="rounded-full flex items-center cursor-pointer p-4 text-surface-300 hover:bg-white/40 duration-150 transition-colors"
                 >
                   <i class="pi pi-home mr-2"></i>
-                  <span class="font-medium">Dashboard</span>
+                  <span class="font-medium">{{ 'nav.dashboard' | translate }}</span>
                 </a>
               </li>
+
+              <!-- Members -->
+              <li>
+                <a
+                  routerLink="user/list"
+                  class="rounded-full flex items-center cursor-pointer p-4 text-surface-300 hover:bg-white/40 duration-150 transition-colors"
+                >
+                  <i class="pi pi-user mr-2"></i>
+                  <span class="font-medium">{{ 'nav.members' | translate }}</span>
+                </a>
+              </li>
+
+              <!-- FAQ -->
               <li>
                 <a
                   routerLink="general/faq"
                   class="rounded-full flex items-center cursor-pointer p-4 text-surface-300 hover:bg-white/40 duration-150 transition-colors"
                 >
                   <i class="pi pi-list mr-2"></i>
-                  <span class="font-medium">FAQ</span>
+                  <span class="font-medium">{{ 'nav.faq' | translate }}</span>
                 </a>
               </li>
               <li>
@@ -75,7 +89,7 @@
                   class="rounded-full flex items-center cursor-pointer p-4 text-surface-300 hover:bg-white/40 duration-150 transition-colors"
                 >
                   <i class="pi pi-ban mr-2"></i>
-                  <span class="font-medium">404</span>
+                  <span class="font-medium">{{ 'nav.not-found' | translate }}</span>
                 </a>
               </li>
               <li>
@@ -84,7 +98,7 @@
                   class="rounded-full flex items-center cursor-pointer p-4 text-surface-300 hover:bg-white/40 duration-150 transition-colors"
                 >
                   <i class="pi pi-arrow-right-arrow-left mr-2"></i>
-                  <span class="font-medium">Theme Switch</span>
+                  <span class="font-medium">{{ 'nav.theme-switch' | translate }}</span>
                 </a>
               </li>
               <li>
@@ -93,7 +107,7 @@
                   class="rounded-full flex items-center cursor-pointer p-4 text-surface-300 hover:bg-white/40 duration-150 transition-colors"
                 >
                   <i class="pi pi-power-off mr-2"></i>
-                  <span class="font-medium">Logout</span>
+                  <span class="font-medium">{{ 'nav.logout' | translate }}</span>
                 </a>
               </li>
             </ul>
@@ -196,9 +210,7 @@
           </a>
         </li>
         <li class="border-t lg:border-t-0 lg:mt-0 mt-2 lg:pt-0 pt-2 border-white/20">
-          <a
-            class="rounded-md flex p-2 items-center hover:bg-surface-50/10 font-medium cursor-pointer duration-150 transition-colors"
-          >
+          <a class="rounded-md flex p-2 items-center hover:bg-surface-50/10 font-medium cursor-pointer duration-150 transition-colors">
             <img
               src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/render/image/public/block.images/blocks/avatars/circle/avatar-f-1.png"
               class="mr-4 lg:mr-0 w-8 h-8"

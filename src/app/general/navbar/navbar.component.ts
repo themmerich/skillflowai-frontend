@@ -2,10 +2,11 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../security/service/auth.service';
 import { MenuItem } from 'primeng/api';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'sf-navbar',
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, TranslatePipe],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
