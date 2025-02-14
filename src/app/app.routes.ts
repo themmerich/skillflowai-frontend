@@ -5,6 +5,7 @@ import { authGuard } from './security/guards/auth.guard';
 import { LoginComponent } from './security/login/login.component';
 import { NavbarComponent } from './general/navbar/navbar.component';
 import { RegisterComponent } from './security/register/register.component';
+import { Navbar2Component } from './general/navbar2/navbar2.component';
 
 export const routes: Routes = [
   {
@@ -14,7 +15,7 @@ export const routes: Routes = [
   },
   {
     path: 'home',
-    component: NavbarComponent,
+    component: Navbar2Component,
     title: 'SkillFlowAI',
     children: [
       {
