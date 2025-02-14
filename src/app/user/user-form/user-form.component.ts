@@ -39,6 +39,9 @@ export class UserFormComponent implements OnChanges, OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   form = new FormGroup({
+    id: new FormControl<number | undefined>(undefined, {
+      nonNullable: true,
+    }),
     firstname: new FormControl<string>('', {
       nonNullable: true,
       validators: Validators.required,
@@ -73,6 +76,7 @@ export class UserFormComponent implements OnChanges, OnInit, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.user) {
+      this.form.reset();
       this.form.patchValue(this.user);
     } else {
       this.form.reset();

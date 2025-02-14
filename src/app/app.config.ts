@@ -12,6 +12,7 @@ import { HttpClient, provideHttpClient, withInterceptors } from '@angular/common
 import { authInterceptor } from './security/interceptor/auth.interceptor';
 import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ConfirmationService } from 'primeng/api';
 
 const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (http: HttpClient) =>
   new TranslateHttpLoader(http, './i18n/', '.json');
@@ -38,5 +39,6 @@ export const appConfig: ApplicationConfig = {
         deps: [HttpClient],
       },
     }),
+    ConfirmationService,
   ],
 };

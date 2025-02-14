@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../security/service/auth.service';
 import { MenuItem } from 'primeng/api';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'sf-navbar',
@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   items: MenuItem[] | undefined;
   authService = inject(AuthService);
   router = inject(Router);
+  translationService = inject(TranslateService);
 
   ngOnInit() {
     this.items = [
@@ -41,5 +42,14 @@ export class NavbarComponent implements OnInit {
     const element = document.querySelector('html');
     // @ts-ignore
     element.classList.toggle('my-app-dark');
+  }
+
+  onLanguageChange() {
+    const currentLang = this.translationService.currentLang;
+    if (currentLang === 'de') {
+      this.translationService.use('en');
+    } else {
+      this.translationService.use('de');
+    }
   }
 }

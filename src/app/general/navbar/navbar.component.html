@@ -103,6 +103,15 @@
               </li>
               <li>
                 <a
+                  (click)="onLanguageChange()"
+                  class="rounded-full flex items-center cursor-pointer p-4 text-surface-300 hover:bg-white/40 duration-150 transition-colors"
+                >
+                  <i class="pi pi-language mr-2"></i>
+                  <span class="font-medium">{{ 'nav.language-switch' | translate }}</span>
+                </a>
+              </li>
+              <li>
+                <a
                   (click)="logout()"
                   class="rounded-full flex items-center cursor-pointer p-4 text-surface-300 hover:bg-white/40 duration-150 transition-colors"
                 >
