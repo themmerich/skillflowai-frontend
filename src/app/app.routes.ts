@@ -4,6 +4,7 @@ import { NotFoundComponent } from './general/not-found/not-found.component';
 import { authGuard } from './security/guards/auth.guard';
 import { LoginComponent } from './security/login/login.component';
 import { NavbarComponent } from './general/navbar/navbar.component';
+import { RegisterComponent } from './security/register/register.component';
 
 export const routes: Routes = [
   {
@@ -43,6 +44,11 @@ export const routes: Routes = [
         loadChildren: () => import('./general/general.routes').then((m) => m.generalRoutes),
       },
     ],
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    title: 'Register',
   },
   {
     path: 'login',

@@ -1,4 +1,4 @@
-import { patchState, signalStore, type, withHooks, withMethods, withState } from '@ngrx/signals';
+import { patchState, signalStore, withHooks, withMethods, withState } from '@ngrx/signals';
 import { User } from './user';
 import { inject } from '@angular/core';
 import { UserService } from './user.service';

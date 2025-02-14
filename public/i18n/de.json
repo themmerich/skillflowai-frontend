@@ -5,13 +5,23 @@
   "button": {
     "login": "Einloggen",
     "cancel": "Abbrechen",
-    "save": "Speichern"
+    "save": "Speichern",
+    "register": "Registrieren"
   },
   "login": {
     "title": "Willkommen",
     "username": "Benutzer",
+    "firstname": "Vorname",
+    "lastname": "Nachname",
+    "email": "E-Mail",
+    "organization": "Organisation",
     "password": "Passwort",
-    "forgotPassword": "Passwort vergessen?"
+    "forgotPassword": "Passwort vergessen?",
+    "register": "Registrieren"
+  },
+  "register": {
+    "title": "Registration",
+    "terms": "Mit click auf Registieren, erklären Sie sich mit unseren Bestimmungen einverstanden."
   },
   "notFound": {
     "title": "Bist du verloren?",

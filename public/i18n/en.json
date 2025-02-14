@@ -5,13 +5,23 @@
   "button": {
     "login": "Login",
     "cancel": "Cancel",
-    "save": "Save"
+    "save": "Save",
+    "register": "Register"
   },
   "login": {
     "title": "Welcome",
     "username": "User name",
+    "firstname": "First name",
+    "lastname": "Last name",
+    "email": "Email address",
+    "organization": "Organization",
     "password": "Password",
-    "forgotPassword": "Forgot Password?"
+    "forgotPassword": "Forgot Password?",
+    "register": "Register"
+  },
+  "register": {
+    "title": "Registration",
+    "terms": "By clicking Register, you agree on our terms and conditions."
   },
   "notFound": {
     "title": "Are you lost?",

@@ -1,14 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { InputText } from 'primeng/inputtext';
-import { FloatLabel } from 'primeng/floatlabel';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../service/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { LoginInputComponent } from '../../shared/components/login-input/login-input.component';
 
 @Component({
   selector: 'sf-login',
-  imports: [InputText, FloatLabel, ReactiveFormsModule, TranslatePipe],
+  imports: [ReactiveFormsModule, TranslatePipe, LoginInputComponent, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
