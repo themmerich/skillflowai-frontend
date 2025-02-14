@@ -1,8 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LoginInputComponent } from '../../shared/components/login-input/login-input.component';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'sf-register',
@@ -10,10 +10,15 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   router = inject(Router);
+  route = inject(ActivatedRoute);
 
   registerForm = new FormGroup({
+    organization: new FormControl('', {
+      validators: [Validators.required, Validators.minLength(3), Validators.maxLength(100)],
+      nonNullable: true,
+    }),
     firstname: new FormControl('', {
       validators: [Validators.required, Validators.minLength(3), Validators.maxLength(100)],
       nonNullable: true,
@@ -26,15 +31,20 @@ export class RegisterComponent {
       validators: [Validators.required, Validators.minLength(3), Validators.maxLength(100), Validators.email],
       nonNullable: true,
     }),
-    organization: new FormControl('', {
-      validators: [Validators.required, Validators.minLength(3), Validators.maxLength(100)],
-      nonNullable: true,
-    }),
     password: new FormControl('', {
       validators: [Validators.required, Validators.minLength(3), Validators.maxLength(100)],
       nonNullable: true,
     }),
   });
+
+  ngOnInit() {
+    const organizationId = this.route.snapshot.paramMap.get('organizationId');
+
+    if (organizationId) {
+      // TODO: load oranization, set value in form and disable field
+      this.registerForm.controls.organization.setValue(organizationId);
+    }
+  }
 
   register() {
     if (this.registerForm.valid) {

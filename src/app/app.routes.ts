@@ -29,7 +29,7 @@ export const routes: Routes = [
         title: 'Dashboard',
       },
       {
-        path: 'organizations',
+        path: 'organization',
         canActivate: [authGuard],
         loadChildren: () => import('./organizations/organizations.routes').then((m) => m.organizationsRoutes),
       },
@@ -44,6 +44,11 @@ export const routes: Routes = [
         loadChildren: () => import('./general/general.routes').then((m) => m.generalRoutes),
       },
     ],
+  },
+  {
+    path: 'register/:organizationId',
+    component: RegisterComponent,
+    title: 'Register',
   },
   {
     path: 'register',

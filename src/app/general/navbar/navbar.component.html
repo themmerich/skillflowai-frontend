@@ -62,6 +62,17 @@
                 </a>
               </li>
 
+              <!-- Organization -->
+              <li>
+                <a
+                  routerLink="organization"
+                  class="rounded-full flex items-center cursor-pointer p-4 text-surface-300 hover:bg-white/40 duration-150 transition-colors"
+                >
+                  <i class="pi pi-home mr-2"></i>
+                  <span class="font-medium">{{ 'nav.organization' | translate }}</span>
+                </a>
+              </li>
+
               <!-- Members -->
               <li>
                 <a
@@ -83,6 +94,19 @@
                   <span class="font-medium">{{ 'nav.faq' | translate }}</span>
                 </a>
               </li>
+
+              <!-- Admin -->
+              <li>
+                <a
+                  routerLink="user/list"
+                  class="rounded-full flex items-center cursor-pointer p-4 text-surface-300 hover:bg-white/40 duration-150 transition-colors"
+                >
+                  <i class="pi pi-user mr-2"></i>
+                  <span class="font-medium">{{ 'nav.admin' | translate }}</span>
+                </a>
+              </li>
+
+              <!-- 404 -->
               <li>
                 <a
                   routerLink="general/not-found"
@@ -92,6 +116,8 @@
                   <span class="font-medium">{{ 'nav.not-found' | translate }}</span>
                 </a>
               </li>
+
+              <!-- Theme Switch -->
               <li>
                 <a
                   (click)="onThemeSwitch()"
@@ -101,6 +127,8 @@
                   <span class="font-medium">{{ 'nav.theme-switch' | translate }}</span>
                 </a>
               </li>
+
+              <!-- Language Switch -->
               <li>
                 <a
                   (click)="onLanguageChange()"
@@ -110,6 +138,8 @@
                   <span class="font-medium">{{ 'nav.language-switch' | translate }}</span>
                 </a>
               </li>
+
+              <!-- Logout -->
               <li>
                 <a
                   (click)="logout()"

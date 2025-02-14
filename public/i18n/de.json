@@ -30,8 +30,10 @@
   },
   "nav": {
     "dashboard": "Dashboard",
+    "organization": "Organisation",
     "members": "Mitglieder",
     "faq": "FAQ",
+    "admin": "Admin",
     "not-found": "404",
     "theme-switch": "Theme Switch",
     "language-switch": "Sprache Ändern",
@@ -67,6 +69,13 @@
       "ok": "Löschen",
       "cancel": "Abbrechen"
     }
+  },
+  "organization": {
+    "name": "Name",
+    "website": "Webseite",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "notes": "Notizen"
   },
   "address": {
     "street": "Straße",

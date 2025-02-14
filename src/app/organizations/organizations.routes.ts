@@ -1,11 +1,17 @@
 import { Routes } from '@angular/router';
 import { OrganizationListComponent } from './organization-list/organization-list.component';
+import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 
 export const organizationsRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'list',
+    redirectTo: 'details',
     pathMatch: 'full',
+  },
+  {
+    path: 'details',
+    component: OrganizationDetailsComponent,
+    title: 'Organisation',
   },
   {
     path: 'list',

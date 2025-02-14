@@ -1,7 +1,14 @@
+import { Address } from '../../user/shared/address';
+
 export interface Organization {
   id: number;
   name: string;
-  description: string;
+  notes: string;
   members: number;
+  address: Address;
+  email: string;
+  phone: string;
+  logo: string;
+  website: string;
   created: Date;
 }
