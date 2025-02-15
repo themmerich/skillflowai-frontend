@@ -7,10 +7,11 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { OrganizationStore } from '../shared/organization.store';
 import { AddressAutocompleteComponent, MappedAddress } from '../../shared/components/address-autocomplete/address-autocomplete.component';
 import { Textarea } from 'primeng/textarea';
+import { Divider } from 'primeng/divider';
 
 @Component({
   selector: 'sf-organization-details',
-  imports: [Button, FloatLabel, InputText, ReactiveFormsModule, TranslatePipe, AddressAutocompleteComponent, Textarea],
+  imports: [Button, FloatLabel, InputText, ReactiveFormsModule, TranslatePipe, AddressAutocompleteComponent, Textarea, Divider],
   templateUrl: './organization-details.component.html',
   styleUrl: './organization-details.component.scss',
 })

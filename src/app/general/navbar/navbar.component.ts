@@ -41,7 +41,7 @@ export class NavbarComponent implements OnInit {
   onThemeSwitch() {
     const element = document.querySelector('html');
     // @ts-ignore
-    element.classList.toggle('my-app-dark');
+    element.classList.toggle('dark');
   }
 
   onLanguageChange() {
