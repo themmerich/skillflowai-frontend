@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { User } from './user';
 import { Role } from './role';
-import { Address } from './address';
+import { Address } from '../../shared/model/address';
 
 @Injectable({
   providedIn: 'root',

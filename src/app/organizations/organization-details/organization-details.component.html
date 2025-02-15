@@ -1,9 +1,10 @@
-<div class="bg-surface-0 dark:bg-surface-900 p-8 shadow rounded-border flex-auto">
+<div class="bg-surface-0 dark:bg-surface-900 p-8 shadow rounded-border flex-auto h-full">
+  <p-toast />
   <div class="text-surface-900 dark:text-surface-0 font-semibold text-lg mt-4">Organisation</div>
   <p-divider />
   <div class="flex gap-8 flex-col-reverse md:flex-row">
     <div class="flex-auto p-fluid">
-      <form [formGroup]="orgForm" class="w-full">
+      <form [formGroup]="orgForm" (ngSubmit)="onSubmit()" class="w-full">
         <!-- name -->
         <div class="mb-4">
           <p-floatlabel variant="on" class="w-full">
@@ -67,18 +68,19 @@
 
         <!-- buttons -->
         <div>
-          <p-button label="Update Profile" class="w-auto" />
+          <p-button type="submit" class="w-auto">{{ 'button.save' | translate }}</p-button>
         </div>
       </form>
     </div>
 
     <!-- profile picture -->
     <div class="flex flex-col items-center">
-      <span class="font-medium text-surface-900 dark:text-surface-0 mb-2">Profile Picture</span>
+      <span class="font-medium text-surface-900 dark:text-surface-0 mb-2">{{ 'organization.picture' | translate }}</span>
       <img
         src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/render/image/public/block.images/blocks/avatars/circle-big/avatar-f-2.png"
         class="h-40 w-40"
       />
+      <!--p-fileupload mode="basic" [auto]="true" chooseIcon="pi pi-pencil" chooseLabel="Edit" accept="image/*" class="-mt-6" /-->
       <p-button type="button" icon="pi pi-pencil" class="-mt-6" rounded></p-button>
     </div>
   </div>

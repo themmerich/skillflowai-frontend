@@ -8,6 +8,12 @@
     "save": "Save",
     "register": "Register"
   },
+  "message": {
+    "success": "Success",
+    "info": "Info",
+    "warn": "Warning",
+    "error": "Error"
+  },
   "login": {
     "title": "Welcome",
     "username": "User name",
@@ -75,7 +81,11 @@
     "website": "Website",
     "phone": "Phone",
     "email": "Email",
-    "notes": "Notes"
+    "notes": "Notes",
+    "picture": "Profil Picture",
+    "messages": {
+      "updated": "Organization has been updated"
+    }
   },
   "address": {
     "street": "Street",

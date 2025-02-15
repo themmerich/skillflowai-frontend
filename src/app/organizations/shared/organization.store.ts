@@ -27,6 +27,9 @@ export const OrganizationStore = signalStore(
       load(): void {
         orgService.getById(1).subscribe((org) => patchState(state, { organization: org }));
       },
+      update(updatedOrg: Organization): void {
+        patchState(state, { organization: updatedOrg });
+      },
     };
   }),
   withHooks({

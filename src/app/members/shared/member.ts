@@ -1,13 +1,11 @@
-import { Role } from './role';
 import { Address } from '../../shared/model/address';
 
-export interface User {
+export interface Member {
   id?: number;
   firstname: string;
   lastname: string;
   email: string;
   emailVerified?: boolean;
-  roles: Role[];
   birthdate: Date | null;
   created?: Date;
   address?: Address;
