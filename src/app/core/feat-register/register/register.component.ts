@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
-import { LoginInputComponent } from '../../../shared/components/login-input/login-input.component';
+import { LoginInputComponent } from '@components/login-input/login-input.component';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

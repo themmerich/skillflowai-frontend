@@ -3,7 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from '../../../shared/security/service/auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { LoginInputComponent } from '../../../shared/components/login-input/login-input.component';
+import { LoginInputComponent } from '@components/login-input/login-input.component';
 
 @Component({
   selector: 'sf-login',

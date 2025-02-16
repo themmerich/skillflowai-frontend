@@ -5,7 +5,7 @@ import { InputText } from 'primeng/inputtext';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { OrganizationStore } from '../../data/organization.store';
-import { AddressAutocompleteComponent } from '../../../../shared/components/address-autocomplete/address-autocomplete.component';
+import { AddressAutocompleteComponent } from '@components/address-autocomplete/address-autocomplete.component';
 import { Textarea } from 'primeng/textarea';
 import { Divider } from 'primeng/divider';
 import { Organization } from '../../model/organization';
