@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-// @ts-ignore
+// @ts-expect-error needed for google feature
 import { google } from 'google-maps';
 import { FloatLabel } from 'primeng/floatlabel';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,9 +12,7 @@ export enum AddressType {
   GEOCODE = 'geocode',
 }
 
-export type MappedAddress = {
-  [key: string]: string;
-};
+export type MappedAddress = Record<string, string>;
 
 @Component({
   selector: 'sf-address-autocomplete',
@@ -28,7 +26,7 @@ export class AddressAutocompleteComponent implements OnInit {
   @Input() countryRestrictions: string[] = ['US', 'DE'];
   @Input() adressTypes: AddressType[] = [AddressType.ESTABLISHMENT, AddressType.GEOCODE];
 
-  @Output() setAddress: EventEmitter<MappedAddress> = new EventEmitter();
+  @Output() setAddress: EventEmitter<MappedAddress> = new EventEmitter<MappedAddress>();
   @ViewChild('addressInput', { static: true }) addressInput: any;
 
   autocompleteInput?: string;
@@ -63,12 +61,12 @@ export class AddressAutocompleteComponent implements OnInit {
   }
 
   set addressText(addressComponents: google.maps.GeocoderAddressComponent[] | undefined) {
-    if (!!addressComponents) {
+    if (addressComponents) {
       this.mappedAddress = addressComponents
         .map((item: google.maps.GeocoderAddressComponent) => {
           return { [item.types[0]]: item.long_name };
         })
-        .reduce((prev, curr, currentIndex, {}) => {
+        .reduce((prev, curr) => {
           return { ...prev, ...curr };
         });
     }

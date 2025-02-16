@@ -25,6 +25,9 @@
     "forgotPassword": "Passwort vergessen?",
     "register": "Registrieren"
   },
+  "dashboard": {
+    "title": "Dashboard"
+  },
   "register": {
     "title": "Registration",
     "terms": "Mit click auf Registieren, erklären Sie sich mit unseren Bestimmungen einverstanden."
@@ -57,6 +60,9 @@
     "roles": "Rollen",
     "table": {
     },
+    "list": {
+      "title": "Mitglieder"
+    },
     "create": {
       "title": "Benutzer anlegen"
     },
@@ -77,6 +83,7 @@
     }
   },
   "organization": {
+    "title": "Organisation",
     "name": "Name",
     "website": "Webseite",
     "phone": "Telefon",

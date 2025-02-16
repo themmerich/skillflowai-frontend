@@ -1,0 +1,87 @@
+<div class="bg-surface-0 dark:bg-surface-900 p-8 shadow rounded-border flex-auto h-full">
+  <p-toast />
+  <div class="text-surface-900 dark:text-surface-0 font-semibold text-lg mt-4">{{ 'organization.title' | translate }}</div>
+  <p-divider />
+  <div class="flex gap-8 flex-col-reverse md:flex-row">
+    <div class="flex-auto p-fluid">
+      <form [formGroup]="orgForm" (ngSubmit)="onSubmit()" class="w-full">
+        <!-- name -->
+        <div class="mb-4">
+          <p-floatlabel variant="on" class="w-full">
+            <input pInputText id="name" class="w-full" autocomplete="off" formControlName="name" />
+            <label for="name" class="font-semibold">{{ 'organization.name' | translate }} <span class="text-red-500">*</span></label>
+          </p-floatlabel>
+        </div>
+
+        <!-- website -->
+        <div class="mb-4">
+          <p-floatlabel variant="on" class="w-full">
+            <input pInputText id="website" class="w-full" autocomplete="off" formControlName="website" />
+            <label for="website" class="font-semibold">{{ 'organization.website' | translate }}</label>
+          </p-floatlabel>
+        </div>
+
+        <!-- phone -->
+        <div class="mb-4">
+          <p-floatlabel variant="on" class="w-full">
+            <input pInputText id="phone" class="w-full" autocomplete="off" formControlName="phone" />
+            <label for="phone" class="font-semibold">{{ 'organization.phone' | translate }}</label>
+          </p-floatlabel>
+        </div>
+
+        <!-- email -->
+        <div class="mb-4">
+          <p-floatlabel variant="on" class="w-full">
+            <input pInputText id="email" class="w-full" autocomplete="off" formControlName="email" />
+            <label for="email" class="font-semibold">{{ 'organization.email' | translate }}</label>
+          </p-floatlabel>
+        </div>
+
+        <!-- street and number -->
+        <div class="mb-4 grid grid-cols-3 gap-4" formGroupName="address">
+          <sf-address-autocomplete [formGroup]="orgForm.controls.address" class="col-span-2 w-full" (setAddress)="updateAddress($event)" />
+          <p-floatlabel variant="on" class="w-full">
+            <input pInputText id="number" class="w-full" autocomplete="off" formControlName="number" />
+            <label for="number" class="font-semibold">{{ 'address.number' | translate }}</label>
+          </p-floatlabel>
+        </div>
+
+        <!-- zip and city -->
+        <div class="mb-4 grid grid-cols-3 gap-4" formGroupName="address">
+          <p-floatlabel variant="on" class="w-full">
+            <input pInputText id="zip" class="w-full" autocomplete="off" formControlName="zip" />
+            <label for="zip" class="font-semibold">{{ 'address.zip' | translate }}</label>
+          </p-floatlabel>
+          <p-floatlabel variant="on" class="col-span-2 w-full">
+            <input pInputText id="city" class="w-full" autocomplete="off" formControlName="city" />
+            <label for="city" class="font-semibold">{{ 'address.city' | translate }}</label>
+          </p-floatlabel>
+        </div>
+
+        <!-- notes -->
+        <div class="mb-4">
+          <p-floatlabel variant="on" class="w-full">
+            <textarea pTextarea id="notes" rows="5" class="w-full" autocomplete="off" formControlName="notes"></textarea>
+            <label for="notes" class="font-semibold">{{ 'organization.notes' | translate }}</label>
+          </p-floatlabel>
+        </div>
+
+        <!-- buttons -->
+        <div>
+          <p-button type="submit" class="w-auto">{{ 'button.save' | translate }}</p-button>
+        </div>
+      </form>
+    </div>
+
+    <!-- profile picture -->
+    <div class="flex flex-col items-center">
+      <span class="font-medium text-surface-900 dark:text-surface-0 mb-2">{{ 'organization.picture' | translate }}</span>
+      <img
+        src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/render/image/public/block.images/blocks/avatars/circle-big/avatar-f-2.png"
+        class="h-40 w-40"
+      />
+      <!--p-fileupload mode="basic" [auto]="true" chooseIcon="pi pi-pencil" chooseLabel="Edit" accept="image/*" class="-mt-6" /-->
+      <p-button type="button" icon="pi pi-pencil" class="-mt-6" rounded></p-button>
+    </div>
+  </div>
+</div>

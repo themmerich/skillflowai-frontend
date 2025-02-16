@@ -1,11 +1,10 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { NotFoundComponent } from './general/not-found/not-found.component';
-import { authGuard } from './security/guards/auth.guard';
-import { LoginComponent } from './security/login/login.component';
-import { NavbarComponent } from './general/navbar/navbar.component';
-import { RegisterComponent } from './security/register/register.component';
-import { Navbar2Component } from './general/navbar2/navbar2.component';
+import { DashboardComponent } from './core/feat-dashboard/dashboard/dashboard.component';
+import { NotFoundComponent } from './core/feat-about/not-found/not-found.component';
+import { authGuard } from './shared/security/guards/auth.guard';
+import { LoginComponent } from './core/feat-login/login/login.component';
+import { RegisterComponent } from './core/feat-register/register/register.component';
+import { Navbar2Component } from './core/feat-navigation/navbar2/navbar2.component';
 
 export const routes: Routes = [
   {
@@ -32,17 +31,17 @@ export const routes: Routes = [
       {
         path: 'organization',
         canActivate: [authGuard],
-        loadChildren: () => import('./organizations/organizations.routes').then((m) => m.organizationsRoutes),
+        loadChildren: () => import('./domains/organization/api/organizations.routes').then((m) => m.organizationsRoutes),
       },
       {
         path: 'user',
         canActivate: [authGuard],
-        loadChildren: () => import('./user/user.routes').then((m) => m.userRoutes),
+        loadChildren: () => import('./domains/admin/api/user.routes').then((m) => m.userRoutes),
       },
       {
         path: 'general',
         canActivate: [authGuard],
-        loadChildren: () => import('./general/general.routes').then((m) => m.generalRoutes),
+        loadChildren: () => import('./core/api/core.routes').then((m) => m.coreRoutes),
       },
     ],
   },

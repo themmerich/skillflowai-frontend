@@ -1,6 +1,0 @@
-<sf-table [data]="data()" [columns]="columns" [showButtons]="true" (delete)="onDelete($event)" (edit)="onEdit($event)" />
-<div class="flex justify-end mt-4">
-  <p-button icon="pi pi-plus" [rounded]="true" (click)="addUser()" />
-  <sf-user-create [visible]="showCreateDialog" (showCreateDialog)="onHideCreateDialog($event)" />
-  <sf-user-edit [visible]="showEditDialog" [user]="selectedUser" (showEditDialog)="onHideEditDialog($event)" />
-</div>

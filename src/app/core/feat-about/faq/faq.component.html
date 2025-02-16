@@ -1,0 +1,14 @@
+<div class="bg-surface-0 dark:bg-surface-900 p-8 shadow rounded-border flex-auto h-full">
+  <h4 class="text-2xl font-bold text-surface-900 dark:text-surface-0">Frequently Asked Questions</h4>
+  <p class="leading-6 text-surface-700 dark:text-surface-300 mt-2">
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-24 gap-y-12">
+    @for (item of items; track item.title) {
+      <div>
+        <h5 class="text-lg font-semibold text-surface-900 dark:text-surface-0">{{ item.title }}</h5>
+        <p class="leading-6 text-surface-700 dark:text-surface-300 mt-2">{{ item.description }}</p>
+      </div>
+    }
+  </div>
+</div>
