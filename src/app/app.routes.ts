@@ -2,9 +2,9 @@ import { Routes } from '@angular/router';
 import { DashboardComponent } from './core/feat-dashboard/dashboard/dashboard.component';
 import { NotFoundComponent } from '@ui/not-found/not-found.component';
 import { authGuard } from './shared/security/guards/auth.guard';
-import { LoginComponent } from './core/feat-login/login/login.component';
 import { RegisterComponent } from './core/feat-login/register/register.component';
 import { Navbar2Component } from './core/feat-navigation/navbar2/navbar2.component';
+import { Login2Component } from './core/feat-login/login2/login2.component';
 
 export const routes: Routes = [
   {
@@ -57,7 +57,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent,
+    component: Login2Component,
     title: 'Login',
   },
   {

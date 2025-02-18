@@ -9,6 +9,8 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { InputGroup } from 'primeng/inputgroup';
 import { InputGroupAddon } from 'primeng/inputgroupaddon';
 import { AuthService } from '../../../shared/security/service/auth.service';
+import { GlobalStore } from '../../data/global.store';
+import { updatePrimaryPalette } from '@primeng/themes';
 
 @Component({
   selector: 'sf-navbar2',
@@ -20,10 +22,39 @@ export class Navbar2Component implements OnInit {
   translationService = inject(TranslateService);
   authService = inject(AuthService);
   router = inject(Router);
+  globalStore = inject(GlobalStore);
 
   selectedNav?: string = 'nav.dashboard';
   bottomNavs: MenuItem[] = [];
   navs: MenuItem[] = [];
+
+  colors: string[] = [
+    'emerald',
+    'green',
+    'lime',
+    'red',
+    'orange',
+    'amber',
+    'yellow',
+    'teal',
+    'cyan',
+    'sky',
+    'blue',
+    'indigo',
+    'violet',
+    'purple',
+    'fuchsia',
+    'pink',
+    'rose',
+    'slate',
+    'gray',
+    'zinc',
+    'neutral',
+    'stone',
+  ];
+  colorIndex = 0;
+  currentLanguage = this.globalStore.language;
+  currentThemeMode = this.globalStore.themeMode;
 
   ngOnInit() {
     this.bottomNavs = [
@@ -37,11 +68,15 @@ export class Navbar2Component implements OnInit {
         label: 'nav.admin',
         routerLink: 'home/admin',
       },
+      {
+        icon: 'pi pi-power-off',
+        label: 'nav.logout',
+      },
     ];
 
     this.navs = [
       {
-        icon: 'pi pi-home',
+        icon: 'pi pi-gauge',
         label: 'nav.dashboard',
         routerLink: 'home/dashboard',
       },
@@ -53,24 +88,12 @@ export class Navbar2Component implements OnInit {
       {
         icon: 'pi pi-users',
         label: 'nav.members',
-        routerLink: 'home/admin',
+        routerLink: 'home/organization/list',
       },
       {
-        icon: 'pi pi-comments',
-        label: 'nav.not-found',
-        routerLink: 'home/core/not-found',
-      },
-      {
-        icon: 'pi pi-arrow-right-arrow-left',
-        label: 'nav.theme-switch',
-      },
-      {
-        icon: 'pi pi-language',
-        label: 'nav.language-switch',
-      },
-      {
-        icon: 'pi pi-power-off',
-        label: 'nav.logout',
+        icon: 'pi pi-stopwatch',
+        label: 'nav.trainings',
+        routerLink: 'home/organization/list',
       },
     ];
   }
@@ -95,15 +118,48 @@ export class Navbar2Component implements OnInit {
   onThemeSwitch() {
     const element = document.querySelector('html');
     element?.classList.toggle('dark');
+
+    if (this.currentThemeMode() === 'dark') {
+      this.globalStore.switchTheme('light');
+    } else {
+      this.globalStore.switchTheme('dark');
+    }
   }
 
   onLanguageChange() {
     const currentLang = this.translationService.currentLang;
     if (currentLang === 'de') {
       this.translationService.use('en');
+      this.globalStore.switchLanguage('en');
     } else {
       this.translationService.use('de');
+      this.globalStore.switchLanguage('de');
     }
+  }
+
+  onColorChange() {
+    if (this.colorIndex < this.colors.length - 1) {
+      this.colorIndex++;
+    } else {
+      this.colorIndex = 0;
+    }
+
+    const currentColor = this.colors[this.colorIndex];
+    this.globalStore.switchColor(currentColor);
+
+    updatePrimaryPalette({
+      50: '{' + currentColor + '.50}',
+      100: '{' + currentColor + '.100}',
+      200: '{' + currentColor + '.200}',
+      300: '{' + currentColor + '.300}',
+      400: '{' + currentColor + '.400}',
+      500: '{' + currentColor + '.500}',
+      600: '{' + currentColor + '.600}',
+      700: '{' + currentColor + '.700}',
+      800: '{' + currentColor + '.800}',
+      900: '{' + currentColor + '.900}',
+      950: '{' + currentColor + '.950}',
+    });
   }
 
   logout() {

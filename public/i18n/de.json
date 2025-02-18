@@ -15,14 +15,18 @@
     "error": "Fehler"
   },
   "login": {
-    "title": "Willkommen",
+    "title": "Willkommen Zurück",
+    "or": "Oder",
     "username": "Benutzer",
     "firstname": "Vorname",
     "lastname": "Nachname",
     "email": "E-Mail",
     "organization": "Organisation",
     "password": "Passwort",
+    "rememberMe": "Angemeldet bleiben",
     "forgotPassword": "Passwort vergessen?",
+    "noAccount": "Noch keinen Account?",
+    "createOne": "Lege einen an!",
     "register": "Registrieren"
   },
   "dashboard": {
@@ -41,6 +45,7 @@
     "dashboard": "Dashboard",
     "organization": "Organisation",
     "members": "Mitglieder",
+    "trainings": "Schulungen",
     "faq": "FAQ",
     "admin": "Admin",
     "not-found": "404",
@@ -50,6 +55,36 @@
   },
   "table": {
     "currentPageReport": "Zeige {first} bis {last} von {totalRecords} Einträgen"
+  },
+  "member": {
+    "firstname": "Vorname",
+    "lastname": "Nachname",
+    "birthdate": "Geburtsdatum",
+    "email": "E-Mail",
+    "created": "Angelegt am",
+    "table": {
+    },
+    "list": {
+      "title": "Mitglieder"
+    },
+    "create": {
+      "title": "Benutzer anlegen"
+    },
+    "edit": {
+      "title": "Benutzer bearbeiten"
+    },
+    "error": {
+      "firstnameRequired": "Vorname wird benötigt.",
+      "lastnameRequired": "Nachname wird benötigt.",
+      "emailRequired": "E-Mail wird benötigt.",
+      "emailInvalid": "E-Mail ist nicht valide."
+    },
+    "delete": {
+      "title": "Benutzer löschen",
+      "message": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?",
+      "ok": "Löschen",
+      "cancel": "Abbrechen"
+    }
   },
   "user": {
     "firstname": "Vorname",

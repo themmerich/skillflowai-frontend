@@ -1,0 +1,31 @@
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Dialog } from 'primeng/dialog';
+import { TranslatePipe } from '@ngx-translate/core';
+import { MemberFormComponent } from '../member-form/member-form.component';
+import { Member } from '../../model/member';
+import { MemberStore } from '../../data/member.store';
+
+@Component({
+  selector: 'sf-member-edit',
+  imports: [Dialog, TranslatePipe, MemberFormComponent],
+  templateUrl: './member-edit.component.html',
+  styleUrl: './member-edit.component.scss',
+})
+export class MemberEditComponent {
+  @Input() visible: boolean = false;
+  @Input() member?: Member;
+  @Output() showEditDialog = new EventEmitter<boolean>();
+  memberStore = inject(MemberStore);
+
+  update(member: Member) {
+    this.memberStore.updateMember(member);
+
+    this.visible = false;
+    this.showEditDialog.emit(false);
+  }
+
+  cancel() {
+    this.visible = false;
+    this.showEditDialog.emit(false);
+  }
+}

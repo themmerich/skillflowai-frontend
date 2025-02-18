@@ -11,4 +11,5 @@ export interface Organization {
   logo?: string;
   website?: string;
   created?: Date;
+  profileImg?: string;
 }

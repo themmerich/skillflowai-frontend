@@ -15,14 +15,18 @@
     "error": "Error"
   },
   "login": {
-    "title": "Welcome",
+    "title": "Welcome Back",
+    "or": "Or",
     "username": "User name",
     "firstname": "First name",
     "lastname": "Last name",
     "email": "Email address",
     "organization": "Organization",
     "password": "Password",
-    "forgotPassword": "Forgot Password?",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot your Password?",
+    "noAccount": "Don't have an account?",
+    "createOne": "Create today!",
     "register": "Register"
   },
   "dashboard": {
@@ -41,6 +45,7 @@
     "dashboard": "Dashboard",
     "organization": "Organization",
     "members": "Members",
+    "trainings": "Trainings",
     "faq": "FAQ",
     "admin": "Admin",
     "not-found": "404",
@@ -50,6 +55,37 @@
   },
   "table": {
     "currentPageReport": "Showing {first} to {last} of {totalRecords} entries"
+  },
+  "member": {
+    "firstname": "First name",
+    "lastname": "Last name",
+    "birthdate": "Birth date",
+    "email": "Email address",
+    "created": "Created on",
+    "roles": "Roles",
+    "table": {
+    },
+    "list": {
+      "title": "Members"
+    },
+    "create": {
+      "title": "Create user"
+    },
+    "edit": {
+      "title": "Edit user"
+    },
+    "error": {
+      "firstnameRequired": "First name is required.",
+      "lastnameRequired": "Last name is required.",
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Input is not a valid email."
+    },
+    "delete": {
+      "title": "Delete User",
+      "message": "Are you sure you want to delete this user?",
+      "ok": "Delete",
+      "cancel": "Cancel"
+    }
   },
   "user": {
     "firstname": "First name",

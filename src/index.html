@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <title>SkillFlowAI</title>
+    <style>
+      .loading-container {
+        @apply fixed inset-0 flex items-center justify-center;
+      }
+    </style>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -10,7 +15,9 @@
   </head>
   <body>
     <sf-root>
-      <div class="loader">Loading...</div>
+      <div class="loading-container">
+        <i class="pi pi-spin pi-spinner text-blue-500 text-4xl"></i>
+      </div>
     </sf-root>
   </body>
 </html>

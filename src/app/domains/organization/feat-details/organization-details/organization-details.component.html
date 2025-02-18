@@ -75,13 +75,27 @@
 
     <!-- profile picture -->
     <div class="flex flex-col items-center">
-      <span class="font-medium text-surface-900 dark:text-surface-0 mb-2">{{ 'organization.picture' | translate }}</span>
-      <img
-        src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/render/image/public/block.images/blocks/avatars/circle-big/avatar-f-2.png"
-        class="h-40 w-40"
+      <p-image [src]="profileImage" [preview]="true" alt="Image" width="250">
+        <ng-template #indicator>
+          <i class="pi pi-search"></i>
+        </ng-template>
+        <ng-template #image>
+          <img [src]="profileImage" alt="image" width="250" />
+        </ng-template>
+        <ng-template #preview let-style="style" let-previewCallback="previewCallback">
+          <img [src]="profileImage" alt="image" [style]="style" (click)="previewCallback()" />
+        </ng-template>
+      </p-image>
+      <p-fileupload
+        mode="basic"
+        [auto]="true"
+        chooseIcon="pi pi-pencil"
+        customUpload="false"
+        chooseLabel="Edit"
+        accept="image/*"
+        class="-mt-6"
+        (onUpload)="onUpload($event)"
       />
-      <!--p-fileupload mode="basic" [auto]="true" chooseIcon="pi pi-pencil" chooseLabel="Edit" accept="image/*" class="-mt-6" /-->
-      <p-button type="button" icon="pi pi-pencil" class="-mt-6" rounded></p-button>
     </div>
   </div>
 </div>

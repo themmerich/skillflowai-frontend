@@ -75,12 +75,24 @@
 
       <!-- Notifications & Avatar -->
       <div class="flex items-center gap-2">
+        <button pButton icon="pi pi-palette" class="p-button-outlined p-button-secondary text-xs" (click)="onColorChange()"></button>
+
+        <!-- language switch -->
+        @if (currentLanguage() === 'de') {
+          <button pButton class="p-button-outlined p-button-secondary text-xs" (click)="onLanguageChange()">DE</button>
+        } @else {
+          <button pButton class="p-button-outlined p-button-secondary text-xs" (click)="onLanguageChange()">EN</button>
+        }
+
+        <!-- theme switch -->
+        @if (currentThemeMode() === 'dark') {
+          <button pButton icon="pi pi-sun" class="p-button-outlined p-button-secondary" (click)="onThemeSwitch()"></button>
+        } @else {
+          <button pButton icon="pi pi-moon" class="p-button-outlined p-button-secondary" (click)="onThemeSwitch()"></button>
+        }
+
         <button pButton icon="pi pi-bell" class="p-button-outlined p-button-secondary"></button>
-        <p-avatar
-          image="https://fqjltiegiezfetthbags.supabase.co/storage/v1/render/image/public/block.images/blocks/avatars/circle/avatar-f-1.png"
-          size="large"
-          shape="square"
-        ></p-avatar>
+        <p-avatar image="profile/angular.png" size="large" shape="circle"></p-avatar>
       </div>
     </div>
 

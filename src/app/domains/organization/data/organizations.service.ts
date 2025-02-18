@@ -29,6 +29,7 @@ export class OrganizationsService {
         city: 'Grafenrheinnfeld',
       } as Address,
       website: 'https://www.feuerwehr-grafenrheinfeld.de',
+      profileImg: 'geraetehaus.jpg',
     } as Organization);
   }
 }
