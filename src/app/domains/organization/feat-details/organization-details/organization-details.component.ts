@@ -83,7 +83,7 @@ export class OrganizationDetailsComponent implements OnInit {
     return org.profileImg ? 'organization/' + org.profileImg : 'organization/noImage.jpg';
   }
 
-  onUpload(event: any): void {
+  onUpload(event: FileUploadEvent): void {
     console.log(event);
     this.translateService.get(['message.success', 'organization.messages.updated']).subscribe((translations) => {
       this.messageService.add({
