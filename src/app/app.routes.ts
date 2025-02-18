@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './core/feat-dashboard/dashboard/dashboard.component';
-import { NotFoundComponent } from './core/feat-about/not-found/not-found.component';
+import { NotFoundComponent } from '@ui/not-found/not-found.component';
 import { authGuard } from './shared/security/guards/auth.guard';
 import { LoginComponent } from './core/feat-login/login/login.component';
-import { RegisterComponent } from './core/feat-register/register/register.component';
+import { RegisterComponent } from './core/feat-login/register/register.component';
 import { Navbar2Component } from './core/feat-navigation/navbar2/navbar2.component';
 
 export const routes: Routes = [
@@ -34,12 +34,12 @@ export const routes: Routes = [
         loadChildren: () => import('./domains/organization/api/organizations.routes').then((m) => m.organizationsRoutes),
       },
       {
-        path: 'user',
+        path: 'admin',
         canActivate: [authGuard],
-        loadChildren: () => import('./domains/admin/api/user.routes').then((m) => m.userRoutes),
+        loadChildren: () => import('./domains/admin/api/admin.routes').then((m) => m.adminRoutes),
       },
       {
-        path: 'general',
+        path: 'core',
         canActivate: [authGuard],
         loadChildren: () => import('./core/api/core.routes').then((m) => m.coreRoutes),
       },

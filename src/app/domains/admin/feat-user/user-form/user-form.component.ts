@@ -9,9 +9,9 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { TranslatePipe } from '@ngx-translate/core';
 import { Role } from '../../model/role';
 import { User } from '../../model/user';
-import { RoleService } from '../../api/role.service';
+import { RoleService } from '../../data/role.service';
 import { Subject, takeUntil } from 'rxjs';
-import { AddressAutocompleteComponent } from '@components/address-autocomplete/address-autocomplete.component';
+import { AddressAutocompleteComponent } from '@ui/address-autocomplete/address-autocomplete.component';
 
 @Component({
   selector: 'sf-user-form',

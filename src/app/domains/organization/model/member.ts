@@ -1,4 +1,4 @@
-import { Address } from '../../../shared/model/address';
+import { Address } from './address';
 
 export interface Member {
   id?: number;

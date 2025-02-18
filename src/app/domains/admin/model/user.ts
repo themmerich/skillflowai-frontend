@@ -1,5 +1,5 @@
 import { Role } from './role';
-import { Address } from '../../../shared/model/address';
+import { Address } from './address';
 
 export interface User {
   id?: number;

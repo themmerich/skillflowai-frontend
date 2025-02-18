@@ -1,19 +1,16 @@
 import { Organization } from '../model/organization';
-import { User } from '../../admin/model/user';
 import { patchState, signalStore, withHooks, withMethods, withState } from '@ngrx/signals';
 import { inject } from '@angular/core';
-import { OrganizationsService } from '../api/organizations.service';
+import { OrganizationsService } from './organizations.service';
 
 interface OrganizationState {
   organization: Organization;
-  members: User[];
   isLoading: boolean;
   filter: { query: string; order: 'asc' | 'desc' };
 }
 
 const initalState: OrganizationState = {
   organization: {} as Organization,
-  members: [],
   isLoading: false,
   filter: { query: '', order: 'asc' },
 };

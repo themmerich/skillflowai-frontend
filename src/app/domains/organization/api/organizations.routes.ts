@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { OrganizationListComponent } from '../../admin/feat-orgs/organization-list/organization-list.component';
 import { OrganizationDetailsComponent } from '../feat-details/organization-details/organization-details.component';
+import { NotFoundComponent } from '@ui/not-found/not-found.component';
 
 export const organizationsRoutes: Routes = [
   {
@@ -14,12 +14,7 @@ export const organizationsRoutes: Routes = [
     title: 'Organisation',
   },
   {
-    path: 'list',
-    component: OrganizationListComponent,
-    title: 'Organisations',
-  },
-  {
     path: '**',
-    redirectTo: 'list',
+    component: NotFoundComponent,
   },
 ];

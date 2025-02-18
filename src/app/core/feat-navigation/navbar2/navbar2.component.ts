@@ -30,12 +30,12 @@ export class Navbar2Component implements OnInit {
       {
         icon: 'pi pi-question-circle',
         label: 'nav.faq',
-        routerLink: 'home/general/faq',
+        routerLink: 'home/core/faq',
       },
       {
         icon: 'pi pi-cog',
         label: 'nav.admin',
-        routerLink: 'home/user/list',
+        routerLink: 'home/admin',
       },
     ];
 
@@ -53,12 +53,12 @@ export class Navbar2Component implements OnInit {
       {
         icon: 'pi pi-users',
         label: 'nav.members',
-        routerLink: 'home/user/list',
+        routerLink: 'home/admin',
       },
       {
         icon: 'pi pi-comments',
         label: 'nav.not-found',
-        routerLink: 'home/general/not-found',
+        routerLink: 'home/core/not-found',
       },
       {
         icon: 'pi pi-arrow-right-arrow-left',

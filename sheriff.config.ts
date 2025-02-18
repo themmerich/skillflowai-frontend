@@ -1,19 +1,30 @@
-import { SheriffConfig } from '@softarc/sheriff-core';
-
-/**
-  * Minimal configuration for Sheriff
-  * Assigns the 'noTag' tag to all modules and
-  * allows all modules to depend on each other.
-  */
+import { noDependencies, sameTag, SheriffConfig } from '@softarc/sheriff-core';
 
 export const config: SheriffConfig = {
-  modules: {}, // apply tags to your modules
+  entryFile: 'src/main.ts',
+  enableBarrelLess: true,
+  encapsulatedFolderNameForBarrelLess: 'internal',
+  modules: {
+    'src/app': {
+      'core/feat-<name>': ['core', 'type:feature'],
+      'core/<type>': ['core', 'type:<type>'],
+      'shared/<type>': ['shared', 'type:<type>'],
+      domains: {
+        '<domain>/feat-<name>': ['domain:<domain>', 'type:feature'],
+        '<domain>/<type>': ['domain:<domain>', 'type:<type>'],
+      },
+    },
+  },
   depRules: {
-    // root is a virtual module, which contains all files not being part
-    // of any module, e.g. application shell, main.ts, etc.
-    'root': 'noTag',
-    'noTag': 'noTag',
-
-    // add your dependency rules here
+    root: ['type:api', 'core', 'shared', ({ to }) => to.startsWith('domain')],
+    core: [sameTag, 'shared', 'root', 'noTag'],
+    'domain:*': [sameTag, 'shared', 'root', 'noTag'],
+    'type:api': ['type:feature', 'type:ui'],
+    'type:feature': ['type:model', 'type:ui', 'type:data', 'type:security'],
+    'type:data': ['type:model', 'root'],
+    'type:ui': ['type:model'],
+    'type:model': noDependencies,
+    'type:security': ['root'],
+    shared: ['shared', 'root'],
   },
 };

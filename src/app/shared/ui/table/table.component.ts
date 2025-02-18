@@ -3,7 +3,7 @@ import { TableModule } from 'primeng/table';
 import { ConfirmationService, SortMeta } from 'primeng/api';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { DatePipe } from '@angular/common';
-import { RoleNamesPipe } from '../../pipes/role.pipe';
+import { RoleNamesPipe } from '../pipes/role.pipe';
 import { ButtonDirective } from 'primeng/button';
 import { ConfirmDialog } from 'primeng/confirmdialog';
 

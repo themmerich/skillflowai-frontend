@@ -1,7 +1,7 @@
 import { patchState, signalStore, withHooks, withMethods, withState } from '@ngrx/signals';
 import { User } from '../model/user';
 import { inject } from '@angular/core';
-import { UserService } from '../api/user.service';
+import { UserService } from './user.service';
 
 interface UserState {
   users: User[];

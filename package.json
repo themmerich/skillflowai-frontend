@@ -8,7 +8,8 @@
     "watch": "bun ng build --watch --configuration development",
     "test": "bun ng test",
     "lint": "bun ng lint",
-    "format": "prettier --write \"src/**/*.{ts,html,css,scss,json}\""
+    "format": "prettier --write \"src/**/*.{ts,html,css,scss,json}\"",
+    "sheriff": "npx sheriff list src/main.ts"
   },
   "private": true,
   "dependencies": {

@@ -1,5 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Role } from '../../domains/admin/model/role';
+
+interface Role {
+  id: number;
+  name: string;
+}
 
 @Pipe({
   name: 'roleNames',

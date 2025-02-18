@@ -1,5 +1,5 @@
 import { Component, inject, Signal } from '@angular/core';
-import { TableComponent } from '@components/table/table.component';
+import { TableComponent } from '@ui/table/table.component';
 import { User } from '../../model/user';
 import { Button } from 'primeng/button';
 import { UserCreateComponent } from '../user-create/user-create.component';
