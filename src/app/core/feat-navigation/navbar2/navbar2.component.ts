@@ -93,7 +93,7 @@ export class Navbar2Component implements OnInit {
       {
         icon: 'pi pi-stopwatch',
         label: 'core.nav.trainings',
-        routerLink: 'home/organization/list',
+        routerLink: 'home/training/list',
       },
     ];
   }

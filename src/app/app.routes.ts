@@ -29,9 +29,9 @@ export const routes: Routes = [
         title: 'Dashboard',
       },
       {
-        path: 'organization',
+        path: 'core',
         canActivate: [authGuard],
-        loadChildren: () => import('./domains/organization/api/organizations.routes').then((m) => m.organizationsRoutes),
+        loadChildren: () => import('./core/api/core.routes').then((m) => m.coreRoutes),
       },
       {
         path: 'admin',
@@ -39,9 +39,14 @@ export const routes: Routes = [
         loadChildren: () => import('./domains/admin/api/admin.routes').then((m) => m.adminRoutes),
       },
       {
-        path: 'core',
+        path: 'organization',
         canActivate: [authGuard],
-        loadChildren: () => import('./core/api/core.routes').then((m) => m.coreRoutes),
+        loadChildren: () => import('./domains/organization/api/organizations.routes').then((m) => m.organizationsRoutes),
+      },
+      {
+        path: 'training',
+        canActivate: [authGuard],
+        loadChildren: () => import('./domains/training/api/training.routes').then((m) => m.trainingRoutes),
       },
     ],
   },

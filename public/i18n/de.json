@@ -118,6 +118,9 @@
       "lastname": "Nachname",
       "birthdate": "Geburtsdatum",
       "email": "E-Mail",
+      "phoneWork": "Telefon (Arbeit)",
+      "phonePrivate": "Telefon (Privat)",
+      "mobile": "Handy",
       "created": "Angelegt am",
       "table": {
       },
@@ -142,6 +145,16 @@
         "ok": "Löschen",
         "cancel": "Abbrechen"
       }
+    }
+  },
+  "training": {
+    "list": {
+      "title": "Schulungen"
+    },
+    "details": {
+      "name": "Name",
+      "description": "Beschreibung",
+      "interval": "Interval"
     }
   }
 }

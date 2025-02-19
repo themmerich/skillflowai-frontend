@@ -24,6 +24,9 @@ export class MemberFormComponent implements OnChanges {
     id: new FormControl<number | undefined>(undefined, {
       nonNullable: true,
     }),
+    title: new FormControl<string>('', {
+      nonNullable: true,
+    }),
     firstname: new FormControl<string>('', {
       nonNullable: true,
       validators: Validators.required,
@@ -35,6 +38,15 @@ export class MemberFormComponent implements OnChanges {
     email: new FormControl<string>('', {
       nonNullable: true,
       validators: [Validators.required, Validators.email],
+    }),
+    phoneWork: new FormControl<string>('', {
+      nonNullable: true,
+    }),
+    phonePrivate: new FormControl<string>('', {
+      nonNullable: true,
+    }),
+    mobile: new FormControl<string>('', {
+      nonNullable: true,
     }),
     birthdate: new FormControl<Date | null>(null),
     address: new FormGroup({
@@ -80,10 +92,6 @@ export class MemberFormComponent implements OnChanges {
     const control = this.form.controls.email;
     if (control.errors?.['required']) return 'organization.member.error.emailRequired';
     if (control.errors?.['email']) return 'organization.member.error.emailInvalid';
-    return '';
-  }
-
-  getRolesErrorMessage(): string {
     return '';
   }
 

@@ -2,7 +2,7 @@
   header="{{ 'organization.member.edit.title' | translate }}"
   [modal]="true"
   [visible]="visible"
-  [style]="{ width: '40rem', height: '40rem', minWidth: '600px', minHeight: '450px' }"
+  [style]="{ width: '40rem', height: '45rem', minWidth: '600px', minHeight: '450px' }"
 >
   <sf-member-form (submitMember)="update($event)" (cancelMember)="cancel()" [member]="member" />
 </p-dialog>

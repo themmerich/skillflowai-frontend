@@ -118,6 +118,9 @@
       "lastname": "Last name",
       "birthdate": "Birth date",
       "email": "Email address",
+      "phoneWork": "Phone (Work)",
+      "phonePrivate": "Phone (Private)",
+      "mobile": "Mobile",
       "created": "Created on",
       "roles": "Roles",
       "table": {
@@ -143,6 +146,16 @@
         "ok": "Delete",
         "cancel": "Cancel"
       }
+    }
+  },
+  "training": {
+    "list": {
+      "title": "Trainings"
+    },
+    "details": {
+      "name": "Name",
+      "description": "Description",
+      "interval": "Interval"
     }
   }
 }
