@@ -66,20 +66,20 @@ export class MemberFormComponent implements OnChanges {
 
   getFirstnameErrorMessage(): string {
     const control = this.form.controls.firstname;
-    if (control.errors?.['required']) return 'member.error.firstnameRequired';
+    if (control.errors?.['required']) return 'organization.member.error.firstnameRequired';
     return '';
   }
 
   getLastnameErrorMessage(): string {
     const control = this.form.controls.lastname;
-    if (control.errors?.['required']) return 'member.error.lastnameRequired';
+    if (control.errors?.['required']) return 'organization.member.error.lastnameRequired';
     return '';
   }
 
   getEmailErrorMessage(): string {
     const control = this.form.controls.email;
-    if (control.errors?.['required']) return 'member.error.emailRequired';
-    if (control.errors?.['email']) return 'member.error.emailInvalid';
+    if (control.errors?.['required']) return 'organization.member.error.emailRequired';
+    if (control.errors?.['email']) return 'organization.member.error.emailInvalid';
     return '';
   }
 

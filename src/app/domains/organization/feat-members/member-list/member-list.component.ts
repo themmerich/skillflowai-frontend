@@ -22,10 +22,10 @@ export class MemberListComponent {
   selectedMember?: Member;
 
   columns = [
-    { field: 'firstname', header: 'member.firstname', type: 'string', sort: true },
-    { field: 'lastname', header: 'member.lastname', type: 'string', sort: true },
-    { field: 'email', header: 'member.email', type: 'string', sort: true },
-    { field: 'birthdate', header: 'member.birthdate', type: 'date', sort: true },
+    { field: 'firstname', header: 'organization.member.firstname', type: 'string', sort: true },
+    { field: 'lastname', header: 'organization.member.lastname', type: 'string', sort: true },
+    { field: 'email', header: 'organization.member.email', type: 'string', sort: true },
+    { field: 'birthdate', header: 'organization.member.birthdate', type: 'date', sort: true },
   ];
 
   onEdit(event: Member) {

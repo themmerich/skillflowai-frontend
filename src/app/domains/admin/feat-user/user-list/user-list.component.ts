@@ -22,11 +22,11 @@ export class UserListComponent {
   selectedUser?: User;
 
   columns = [
-    { field: 'firstname', header: 'user.firstname', type: 'string', sort: true },
-    { field: 'lastname', header: 'user.lastname', type: 'string', sort: true },
-    { field: 'email', header: 'user.email', type: 'string', sort: true },
-    { field: 'birthdate', header: 'user.birthdate', type: 'date', sort: true },
-    { field: 'roles', header: 'user.roles', type: 'roles', sort: false },
+    { field: 'firstname', header: 'admin.user.firstname', type: 'string', sort: true },
+    { field: 'lastname', header: 'admin.user.lastname', type: 'string', sort: true },
+    { field: 'email', header: 'admin.user.email', type: 'string', sort: true },
+    { field: 'birthdate', header: 'admin.user.birthdate', type: 'date', sort: true },
+    { field: 'roles', header: 'admin.user.roles', type: 'roles', sort: false },
   ];
 
   onEdit(event: User) {

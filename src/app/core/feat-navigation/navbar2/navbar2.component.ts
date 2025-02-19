@@ -24,7 +24,7 @@ export class Navbar2Component implements OnInit {
   router = inject(Router);
   globalStore = inject(GlobalStore);
 
-  selectedNav?: string = 'nav.dashboard';
+  selectedNav?: string = 'core.nav.dashboard';
   bottomNavs: MenuItem[] = [];
   navs: MenuItem[] = [];
 
@@ -60,39 +60,39 @@ export class Navbar2Component implements OnInit {
     this.bottomNavs = [
       {
         icon: 'pi pi-question-circle',
-        label: 'nav.faq',
+        label: 'core.nav.faq',
         routerLink: 'home/core/faq',
       },
       {
         icon: 'pi pi-cog',
-        label: 'nav.admin',
+        label: 'core.nav.admin',
         routerLink: 'home/admin',
       },
       {
         icon: 'pi pi-power-off',
-        label: 'nav.logout',
+        label: 'core.nav.logout',
       },
     ];
 
     this.navs = [
       {
         icon: 'pi pi-gauge',
-        label: 'nav.dashboard',
+        label: 'core.nav.dashboard',
         routerLink: 'home/dashboard',
       },
       {
         icon: 'pi pi-home',
-        label: 'nav.organization',
+        label: 'core.nav.organization',
         routerLink: 'home/organization',
       },
       {
         icon: 'pi pi-users',
-        label: 'nav.members',
+        label: 'core.nav.members',
         routerLink: 'home/organization/list',
       },
       {
         icon: 'pi pi-stopwatch',
-        label: 'nav.trainings',
+        label: 'core.nav.trainings',
         routerLink: 'home/organization/list',
       },
     ];
@@ -102,11 +102,7 @@ export class Navbar2Component implements OnInit {
     this.selectedNav = item.label;
     if (item.routerLink) {
       this.router.navigate([item.routerLink]);
-    } else if (item.label === 'nav.theme-switch') {
-      this.onThemeSwitch();
-    } else if (item.label === 'nav.language-switch') {
-      this.onLanguageChange();
-    } else if (item.label === 'nav.logout') {
+    } else if (item.label === 'core.nav.logout') {
       this.logout();
     }
   }

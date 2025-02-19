@@ -1,6 +1,6 @@
 <div class="px-6 py-20 md:px-12 lg:px-20 flex items-center justify-center">
   <div class="p-12 shadow text-center lg:w-[30rem] backdrop-blur-md rounded-xl bg-[rgba(255,255,255,0.1)]">
-    <div class="text-4xl font-medium mb-12 text-primary-contrast">{{ 'register.title' | translate }}</div>
+    <div class="text-4xl font-medium mb-12 text-primary-contrast">{{ 'core.register.title' | translate }}</div>
     <form [formGroup]="registerForm" (ngSubmit)="register()">
       <sf-login-input [control]="registerForm.controls.organization" fieldName="organization" />
       <sf-login-input [control]="registerForm.controls.firstname" fieldName="firstname" />
@@ -12,9 +12,9 @@
         type="submit"
         class="max-w-40 w-full rounded-full apearance-none border-0 p-4 outline-0 text-xl mb-6 font-medium bg-white/30 hover:bg-white/40 active:bg-white/20 text-primary-contrast/80 cursor-pointer transition-colors duration-150"
       >
-        {{ 'button.register' | translate }}
+        {{ 'shared.button.register' | translate }}
       </button>
-      <a class="cursor-pointer font-medium block text-center text-primary-contrast">{{ 'register.terms' | translate }}</a>
+      <a class="cursor-pointer font-medium block text-center text-primary-contrast">{{ 'core.register.terms' | translate }}</a>
     </form>
   </div>
 </div>

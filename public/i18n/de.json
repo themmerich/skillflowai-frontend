@@ -1,139 +1,147 @@
 {
-  "general": {
-    "datePattern": "dd.mm.yyyy"
-  },
-  "button": {
-    "login": "Einloggen",
-    "cancel": "Abbrechen",
-    "save": "Speichern",
-    "register": "Registrieren"
-  },
-  "message": {
-    "success": "Erfolgreich",
-    "info": "Info",
-    "warn": "Warnung",
-    "error": "Fehler"
-  },
-  "login": {
-    "title": "Willkommen Zurück",
-    "or": "Oder",
-    "username": "Benutzer",
-    "firstname": "Vorname",
-    "lastname": "Nachname",
-    "email": "E-Mail",
-    "organization": "Organisation",
-    "password": "Passwort",
-    "rememberMe": "Angemeldet bleiben",
-    "forgotPassword": "Passwort vergessen?",
-    "noAccount": "Noch keinen Account?",
-    "createOne": "Lege einen an!",
-    "register": "Registrieren"
-  },
-  "dashboard": {
-    "title": "Dashboard"
-  },
-  "register": {
-    "title": "Registration",
-    "terms": "Mit click auf Registieren, erklären Sie sich mit unseren Bestimmungen einverstanden."
-  },
-  "notFound": {
-    "title": "Bist du verloren?",
-    "message": "Tut mir leid, wir konnten die Seite nicht finden.",
-    "backButton": "Zurück zur Startseite"
-  },
-  "nav": {
-    "dashboard": "Dashboard",
-    "organization": "Organisation",
-    "members": "Mitglieder",
-    "trainings": "Schulungen",
-    "faq": "FAQ",
-    "admin": "Admin",
-    "not-found": "404",
-    "theme-switch": "Theme Switch",
-    "language-switch": "Sprache Ändern",
-    "logout": "Ausloggen"
-  },
-  "table": {
-    "currentPageReport": "Zeige {first} bis {last} von {totalRecords} Einträgen"
-  },
-  "member": {
-    "firstname": "Vorname",
-    "lastname": "Nachname",
-    "birthdate": "Geburtsdatum",
-    "email": "E-Mail",
-    "created": "Angelegt am",
+  "shared": {
+    "patterns": {
+      "datePattern": "dd.mm.yyyy"
+    },
     "table": {
+      "currentPageReport": "Zeige {first} bis {last} von {totalRecords} Einträgen"
     },
-    "list": {
-      "title": "Mitglieder"
+    "button": {
+      "login": "Einloggen",
+      "cancel": "Abbrechen",
+      "save": "Speichern",
+      "register": "Registrieren"
     },
-    "create": {
-      "title": "Benutzer anlegen"
+    "message": {
+      "success": "Erfolgreich",
+      "info": "Info",
+      "warn": "Warnung",
+      "error": "Fehler"
     },
-    "edit": {
-      "title": "Benutzer bearbeiten"
-    },
-    "error": {
-      "firstnameRequired": "Vorname wird benötigt.",
-      "lastnameRequired": "Nachname wird benötigt.",
-      "emailRequired": "E-Mail wird benötigt.",
-      "emailInvalid": "E-Mail ist nicht valide."
-    },
-    "delete": {
-      "title": "Benutzer löschen",
-      "message": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?",
-      "ok": "Löschen",
-      "cancel": "Abbrechen"
+    "address": {
+      "street": "Straße",
+      "number": "Hausnummer",
+      "zip": "PLZ",
+      "city": "Ort",
+      "country": "Land"
     }
   },
-  "user": {
-    "firstname": "Vorname",
-    "lastname": "Nachname",
-    "birthdate": "Geburtsdatum",
-    "email": "E-Mail",
-    "created": "Angelegt am",
-    "roles": "Rollen",
-    "table": {
+  "core": {
+    "login": {
+      "title": "Willkommen Zurück",
+      "or": "Oder",
+      "username": "Benutzer",
+      "firstname": "Vorname",
+      "lastname": "Nachname",
+      "email": "E-Mail",
+      "organization": "Organisation",
+      "password": "Passwort",
+      "rememberMe": "Angemeldet bleiben",
+      "forgotPassword": "Passwort vergessen?",
+      "noAccount": "Noch keinen Account?",
+      "createOne": "Lege einen an!",
+      "register": "Registrieren"
     },
-    "list": {
-      "title": "Mitglieder"
+    "register": {
+      "title": "Registration",
+      "terms": "Mit click auf Registieren, erklären Sie sich mit unseren Bestimmungen einverstanden."
     },
-    "create": {
-      "title": "Benutzer anlegen"
+    "dashboard": {
+      "title": "Dashboard"
     },
-    "edit": {
-      "title": "Benutzer bearbeiten"
+    "notFound": {
+      "title": "Bist du verloren?",
+      "message": "Tut mir leid, wir konnten die Seite nicht finden.",
+      "backButton": "Zurück zur Startseite"
     },
-    "error": {
-      "firstnameRequired": "Vorname wird benötigt.",
-      "lastnameRequired": "Nachname wird benötigt.",
-      "emailRequired": "E-Mail wird benötigt.",
-      "emailInvalid": "E-Mail ist nicht valide."
-    },
-    "delete": {
-      "title": "Benutzer löschen",
-      "message": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?",
-      "ok": "Löschen",
-      "cancel": "Abbrechen"
+    "nav": {
+      "dashboard": "Dashboard",
+      "organization": "Organisation",
+      "members": "Mitglieder",
+      "trainings": "Schulungen",
+      "faq": "FAQ",
+      "admin": "Admin",
+      "not-found": "404",
+      "theme-switch": "Theme Switch",
+      "language-switch": "Sprache Ändern",
+      "logout": "Ausloggen"
+    }
+  },
+  "admin": {
+    "user": {
+      "firstname": "Vorname",
+      "lastname": "Nachname",
+      "birthdate": "Geburtsdatum",
+      "email": "E-Mail",
+      "created": "Angelegt am",
+      "roles": "Rollen",
+      "table": {
+      },
+      "list": {
+        "title": "Mitglieder"
+      },
+      "create": {
+        "title": "Benutzer anlegen"
+      },
+      "edit": {
+        "title": "Benutzer bearbeiten"
+      },
+      "error": {
+        "firstnameRequired": "Vorname wird benötigt.",
+        "lastnameRequired": "Nachname wird benötigt.",
+        "emailRequired": "E-Mail wird benötigt.",
+        "emailInvalid": "E-Mail ist nicht valide."
+      },
+      "delete": {
+        "title": "Benutzer löschen",
+        "message": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?",
+        "ok": "Löschen",
+        "cancel": "Abbrechen"
+      }
     }
   },
   "organization": {
-    "title": "Organisation",
-    "name": "Name",
-    "website": "Webseite",
-    "phone": "Telefon",
-    "email": "E-Mail",
-    "notes": "Notizen",
-    "picture": "Profil Bild",
-    "messages": {
-      "updated": "Organisation wurde aktualisiert"
+    "details": {
+      "title": "Organisation",
+      "name": "Name",
+      "website": "Webseite",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "notes": "Notizen",
+      "picture": "Profil Bild",
+      "messages": {
+        "updated": "Organisation wurde aktualisiert"
+      }
+    },
+    "member": {
+      "firstname": "Vorname",
+      "lastname": "Nachname",
+      "birthdate": "Geburtsdatum",
+      "email": "E-Mail",
+      "created": "Angelegt am",
+      "table": {
+      },
+      "list": {
+        "title": "Mitglieder"
+      },
+      "create": {
+        "title": "Mitglied anlegen"
+      },
+      "edit": {
+        "title": "Mitglied bearbeiten"
+      },
+      "error": {
+        "firstnameRequired": "Vorname wird benötigt.",
+        "lastnameRequired": "Nachname wird benötigt.",
+        "emailRequired": "E-Mail wird benötigt.",
+        "emailInvalid": "E-Mail ist nicht valide."
+      },
+      "delete": {
+        "title": "Benutzer löschen",
+        "message": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?",
+        "ok": "Löschen",
+        "cancel": "Abbrechen"
+      }
     }
-  },
-  "address": {
-    "street": "Straße",
-    "number": "Hausnummer",
-    "zip": "PLZ",
-    "city": "Ort",
-    "country": "Land"
   }
 }

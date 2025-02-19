@@ -23,7 +23,7 @@ export class LoginInputComponent implements OnInit {
   ngOnInit() {
     if (this.fieldName) {
       this.id = this.fieldName;
-      this.placeholder = 'login.' + this.fieldName;
+      this.placeholder = 'core.login.' + this.fieldName;
     }
   }
 }

@@ -85,11 +85,11 @@ export class OrganizationDetailsComponent implements OnInit {
 
   onUpload(event: FileUploadEvent): void {
     console.log(event);
-    this.translateService.get(['message.success', 'organization.messages.updated']).subscribe((translations) => {
+    this.translateService.get(['shared.message.success', 'organization.details.messages.updated']).subscribe((translations) => {
       this.messageService.add({
         severity: 'success',
-        summary: translations['message.success'],
-        detail: translations['organization.messages.updated'],
+        summary: translations['shared.message.success'],
+        detail: translations['organization.details.messages.updated'],
       });
     });
   }
@@ -113,11 +113,11 @@ export class OrganizationDetailsComponent implements OnInit {
     };
     this.orgStore.update(org);
 
-    this.translateService.get(['message.success', 'organization.messages.updated']).subscribe((translations) => {
+    this.translateService.get(['shared.message.success', 'organization.details.messages.updated']).subscribe((translations) => {
       this.messageService.add({
         severity: 'success',
-        summary: translations['message.success'],
-        detail: translations['organization.messages.updated'],
+        summary: translations['shared.message.success'],
+        detail: translations['organization.details.messages.updated'],
       });
     });
   }

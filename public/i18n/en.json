@@ -1,140 +1,148 @@
 {
-  "general": {
-    "datePattern": "mm/dd/yyyy"
-  },
-  "button": {
-    "login": "Login",
-    "cancel": "Cancel",
-    "save": "Save",
-    "register": "Register"
-  },
-  "message": {
-    "success": "Success",
-    "info": "Info",
-    "warn": "Warning",
-    "error": "Error"
-  },
-  "login": {
-    "title": "Welcome Back",
-    "or": "Or",
-    "username": "User name",
-    "firstname": "First name",
-    "lastname": "Last name",
-    "email": "Email address",
-    "organization": "Organization",
-    "password": "Password",
-    "rememberMe": "Remember me",
-    "forgotPassword": "Forgot your Password?",
-    "noAccount": "Don't have an account?",
-    "createOne": "Create today!",
-    "register": "Register"
-  },
-  "dashboard": {
-    "title": "Dashboard"
-  },
-  "register": {
-    "title": "Registration",
-    "terms": "By clicking Register, you agree on our terms and conditions."
-  },
-  "notFound": {
-    "title": "Are you lost?",
-    "message": "Sorry, we couldn't find the page.",
-    "backButton": "Go back to home page"
-  },
-  "nav": {
-    "dashboard": "Dashboard",
-    "organization": "Organization",
-    "members": "Members",
-    "trainings": "Trainings",
-    "faq": "FAQ",
-    "admin": "Admin",
-    "not-found": "404",
-    "theme-switch": "Theme Switch",
-    "language-switch": "Language Switch",
-    "logout": "Logout"
-  },
-  "table": {
-    "currentPageReport": "Showing {first} to {last} of {totalRecords} entries"
-  },
-  "member": {
-    "firstname": "First name",
-    "lastname": "Last name",
-    "birthdate": "Birth date",
-    "email": "Email address",
-    "created": "Created on",
-    "roles": "Roles",
+  "shared": {
+    "patterns": {
+      "datePattern": "mm/dd/yyyy"
+    },
     "table": {
+      "currentPageReport": "Showing {first} to {last} of {totalRecords} entries"
     },
-    "list": {
-      "title": "Members"
+    "button": {
+      "login": "Login",
+      "cancel": "Cancel",
+      "save": "Save",
+      "register": "Register"
     },
-    "create": {
-      "title": "Create user"
+    "message": {
+      "success": "Success",
+      "info": "Info",
+      "warn": "Warning",
+      "error": "Error"
     },
-    "edit": {
-      "title": "Edit user"
-    },
-    "error": {
-      "firstnameRequired": "First name is required.",
-      "lastnameRequired": "Last name is required.",
-      "emailRequired": "Email is required.",
-      "emailInvalid": "Input is not a valid email."
-    },
-    "delete": {
-      "title": "Delete User",
-      "message": "Are you sure you want to delete this user?",
-      "ok": "Delete",
-      "cancel": "Cancel"
+    "address": {
+      "street": "Street",
+      "number": "Number",
+      "zip": "Zip code",
+      "city": "City",
+      "country": "Country"
     }
   },
-  "user": {
-    "firstname": "First name",
-    "lastname": "Last name",
-    "birthdate": "Birth date",
-    "email": "Email address",
-    "created": "Created on",
-    "roles": "Roles",
-    "table": {
+  "core": {
+    "login": {
+      "title": "Welcome Back",
+      "or": "Or",
+      "username": "User name",
+      "firstname": "First name",
+      "lastname": "Last name",
+      "email": "Email address",
+      "organization": "Organization",
+      "password": "Password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot your Password?",
+      "noAccount": "Don't have an account?",
+      "createOne": "Create today!",
+      "register": "Register"
     },
-    "list": {
-      "title": "Members"
+    "register": {
+      "title": "Registration",
+      "terms": "By clicking Register, you agree on our terms and conditions."
     },
-    "create": {
-      "title": "Create user"
+    "dashboard": {
+      "title": "Dashboard"
     },
-    "edit": {
-      "title": "Edit user"
+    "notFound": {
+      "title": "Are you lost?",
+      "message": "Sorry, we couldn't find the page.",
+      "backButton": "Go back to home page"
     },
-    "error": {
-      "firstnameRequired": "First name is required.",
-      "lastnameRequired": "Last name is required.",
-      "emailRequired": "Email is required.",
-      "emailInvalid": "Input is not a valid email."
-    },
-    "delete": {
-      "title": "Delete User",
-      "message": "Are you sure you want to delete this user?",
-      "ok": "Delete",
-      "cancel": "Cancel"
+    "nav": {
+      "dashboard": "Dashboard",
+      "organization": "Organization",
+      "members": "Members",
+      "trainings": "Trainings",
+      "faq": "FAQ",
+      "admin": "Admin",
+      "not-found": "404",
+      "theme-switch": "Theme Switch",
+      "language-switch": "Language Switch",
+      "logout": "Logout"
+    }
+  },
+  "admin": {
+    "user": {
+      "firstname": "First name",
+      "lastname": "Last name",
+      "birthdate": "Birth date",
+      "email": "Email address",
+      "created": "Created on",
+      "roles": "Roles",
+      "table": {
+      },
+      "list": {
+        "title": "Members"
+      },
+      "create": {
+        "title": "Create user"
+      },
+      "edit": {
+        "title": "Edit user"
+      },
+      "error": {
+        "firstnameRequired": "First name is required.",
+        "lastnameRequired": "Last name is required.",
+        "emailRequired": "Email is required.",
+        "emailInvalid": "Input is not a valid email."
+      },
+      "delete": {
+        "title": "Delete User",
+        "message": "Are you sure you want to delete this user?",
+        "ok": "Delete",
+        "cancel": "Cancel"
+      }
     }
   },
   "organization": {
-    "title": "Organization",
-    "name": "Name",
-    "website": "Website",
-    "phone": "Phone",
-    "email": "Email",
-    "notes": "Notes",
-    "picture": "Profil Picture",
-    "messages": {
-      "updated": "Organization has been updated"
+    "details": {
+      "title": "Organization",
+      "name": "Name",
+      "website": "Website",
+      "phone": "Phone",
+      "email": "Email",
+      "notes": "Notes",
+      "picture": "Profil Picture",
+      "messages": {
+        "updated": "Organization has been updated"
+      }
+    },
+    "member": {
+      "firstname": "First name",
+      "lastname": "Last name",
+      "birthdate": "Birth date",
+      "email": "Email address",
+      "created": "Created on",
+      "roles": "Roles",
+      "table": {
+      },
+      "list": {
+        "title": "Members"
+      },
+      "create": {
+        "title": "Create member"
+      },
+      "edit": {
+        "title": "Edit member"
+      },
+      "error": {
+        "firstnameRequired": "First name is required.",
+        "lastnameRequired": "Last name is required.",
+        "emailRequired": "Email is required.",
+        "emailInvalid": "Input is not a valid email."
+      },
+      "delete": {
+        "title": "Delete User",
+        "message": "Are you sure you want to delete this user?",
+        "ok": "Delete",
+        "cancel": "Cancel"
+      }
     }
-  },
-  "address": {
-    "street": "Street",
-    "number": "Number",
-    "zip": "Zip code",
-    "city": "City",
-    "country": "Country"
   }
 }

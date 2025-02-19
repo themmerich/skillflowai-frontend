@@ -36,7 +36,7 @@ export class TableComponent {
   selectedData: any;
   currentPageReportTemplate = '';
 
-  private currentPageReport = 'table.currentPageReport';
+  private currentPageReport = 'shared.table.currentPageReport';
 
   loading: boolean = true;
   multiSortMeta: SortMeta[] = [
@@ -66,15 +66,15 @@ export class TableComponent {
 
   confirmDelete(event: any) {
     this.translateService
-      .get(['user.delete.title', 'user.delete.message', 'user.delete.ok', 'user.delete.cancel'])
+      .get(['admin.user.delete.title', 'admin.user.delete.message', 'admin.user.delete.ok', 'admin.user.delete.cancel'])
       .subscribe((translations) => {
         this.confirmationService.confirm({
-          message: translations['user.delete.message'],
-          header: translations['user.delete.title'],
+          message: translations['admin.user.delete.message'],
+          header: translations['admin.user.delete.title'],
           icon: 'pi pi-exclamation-triangle',
-          acceptLabel: translations['user.delete.ok'],
+          acceptLabel: translations['admin.user.delete.ok'],
           acceptIcon: 'pi pi-check',
-          rejectLabel: translations['user.delete.cancel'],
+          rejectLabel: translations['admin.user.delete.cancel'],
           rejectIcon: 'pi pi-times',
           accept: () => this.onDelete(event),
         });

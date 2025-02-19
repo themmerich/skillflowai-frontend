@@ -20,16 +20,16 @@ export class NavbarComponent implements OnInit {
     this.items = [
       { label: 'Dashboard', icon: 'pi pi-fw pi-home', route: 'dashboard' },
       {
-        label: 'General',
+        label: 'Core',
         icon: 'pi pi-fw pi-info-circle',
         items: [
-          { label: 'About', icon: 'pi pi-fw pi-info-circle', route: 'general/about' },
+          { label: 'About', icon: 'pi pi-fw pi-info-circle', route: 'core/about' },
           { label: 'Organisations', icon: 'pi pi-fw pi-question-circle', route: 'organizations' },
-          { label: '404', icon: 'pi pi-fw pi-envelope', route: 'general/not-found' },
+          { label: '404', icon: 'pi pi-fw pi-envelope', route: 'core/not-found' },
         ],
       },
-      { label: 'FAQ', icon: 'pi pi-fw pi-question-circle', route: 'general/faq' },
-      { label: '404', icon: 'pi pi-fw pi-envelope', route: 'general/not-found' },
+      { label: 'FAQ', icon: 'pi pi-fw pi-question-circle', route: 'core/faq' },
+      { label: '404', icon: 'pi pi-fw pi-envelope', route: 'core/not-found' },
     ];
   }
 

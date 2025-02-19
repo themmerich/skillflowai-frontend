@@ -101,20 +101,20 @@ export class UserFormComponent implements OnChanges, OnInit, OnDestroy {
 
   getFirstnameErrorMessage(): string {
     const control = this.form.controls.firstname;
-    if (control.errors?.['required']) return 'user.error.firstnameRequired';
+    if (control.errors?.['required']) return 'admin.user.error.firstnameRequired';
     return '';
   }
 
   getLastnameErrorMessage(): string {
     const control = this.form.controls.lastname;
-    if (control.errors?.['required']) return 'user.error.lastnameRequired';
+    if (control.errors?.['required']) return 'admin.user.error.lastnameRequired';
     return '';
   }
 
   getEmailErrorMessage(): string {
     const control = this.form.controls.email;
-    if (control.errors?.['required']) return 'user.error.emailRequired';
-    if (control.errors?.['email']) return 'user.error.emailInvalid';
+    if (control.errors?.['required']) return 'admin.user.error.emailRequired';
+    if (control.errors?.['email']) return 'admin.user.error.emailInvalid';
     return '';
   }
 
