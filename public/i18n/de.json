@@ -7,10 +7,8 @@
       "currentPageReport": "Zeige {first} bis {last} von {totalRecords} Einträgen"
     },
     "button": {
-      "login": "Einloggen",
-      "cancel": "Abbrechen",
       "save": "Speichern",
-      "register": "Registrieren"
+      "cancel": "Abbrechen"
     },
     "message": {
       "success": "Erfolgreich",
@@ -28,7 +26,7 @@
   },
   "core": {
     "login": {
-      "title": "Willkommen Zurück",
+      "title": "SkillFlowAI",
       "or": "Oder",
       "username": "Benutzer",
       "firstname": "Vorname",
@@ -38,13 +36,15 @@
       "password": "Passwort",
       "rememberMe": "Angemeldet bleiben",
       "forgotPassword": "Passwort vergessen?",
-      "noAccount": "Noch keinen Account?",
-      "createOne": "Lege einen an!",
-      "register": "Registrieren"
+      "noAccount": "Sie haben noch kein Konto?",
+      "createOne": "Registrieren",
+      "button": "Fortfahren"
     },
     "register": {
-      "title": "Registration",
-      "terms": "Mit click auf Registieren, erklären Sie sich mit unseren Bestimmungen einverstanden."
+      "title": "SkillFlowAI",
+      "alreadyAccount": "Sie haben bereits ein Konto?",
+      "login": "Anmelden",
+      "button": "Fortfahren"
     },
     "dashboard": {
       "title": "Dashboard"

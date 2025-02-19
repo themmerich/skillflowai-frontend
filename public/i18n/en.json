@@ -7,10 +7,8 @@
       "currentPageReport": "Showing {first} to {last} of {totalRecords} entries"
     },
     "button": {
-      "login": "Login",
-      "cancel": "Cancel",
       "save": "Save",
-      "register": "Register"
+      "cancel": "Cancel"
     },
     "message": {
       "success": "Success",
@@ -28,7 +26,7 @@
   },
   "core": {
     "login": {
-      "title": "Welcome Back",
+      "title": "SkillFlowAI",
       "or": "Or",
       "username": "User name",
       "firstname": "First name",
@@ -40,11 +38,13 @@
       "forgotPassword": "Forgot your Password?",
       "noAccount": "Don't have an account?",
       "createOne": "Create today!",
-      "register": "Register"
+      "button": "Continue"
     },
     "register": {
-      "title": "Registration",
-      "terms": "By clicking Register, you agree on our terms and conditions."
+      "title": "SkillFlowAI",
+      "alreadyAccount": "Already have an account?",
+      "login": "Login",
+      "button": "Continue"
     },
     "dashboard": {
       "title": "Dashboard"

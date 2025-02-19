@@ -1,0 +1,92 @@
+<div class="py-20 px-6 md:px-12 lg:px-20 flex items-center justify-center">
+  <div
+    class="max-w-xl w-full flex flex-col items-center gap-8 bg-surface-0 dark:bg-surface-900 pt-12 pb-6 px-6 rounded-3xl shadow-[0px_24px_48px_0px_rgba(0,0,0,0.04)]"
+  >
+    <div>
+      <svg
+        class="fill-surface-900 dark:fill-surface-0 transition-all"
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="33"
+        viewBox="0 0 32 33"
+        fill="none"
+      >
+        <path d="M16 0.5C7.16344 0.5 0 7.66344 0 16.5C8.83656 16.5 16 9.33656 16 0.5Z" />
+        <path d="M16 32.5C24.8366 32.5 32 25.3366 32 16.5C23.1634 16.5 16 23.6634 16 32.5Z" />
+        <path d="M16 0.5C24.8366 0.5 32 7.66344 32 16.5C23.1634 16.5 16 9.33656 16 0.5Z" />
+        <path d="M16 32.5C7.16344 32.5 -7.72516e-07 25.3366 0 16.5C8.83656 16.5 16 23.6634 16 32.5Z" />
+      </svg>
+    </div>
+    <h1 class="text-center text-3xl font-medium text-surface-900 dark:text-surface-0">{{ 'core.register.title' | translate }}</h1>
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="flex flex-col w-full gap-6">
+      <div class="flex flex-col gap-4 w-full">
+        <!-- organization -->
+        <div class="flex flex-col gap-2">
+          <label for="organization">{{ 'core.login.organization' | translate }}</label>
+          <input
+            pInputText
+            id="organization"
+            formControlName="organization"
+            placeholder="{{ 'core.login.organization' | translate }}"
+            class="w-full dark:!bg-surface-900"
+          />
+        </div>
+        <!-- first name -->
+        <div class="flex flex-col gap-2">
+          <label for="firstname">{{ 'core.login.firstname' | translate }}</label>
+          <input
+            pInputText
+            id="firstname"
+            formControlName="firstname"
+            placeholder="{{ 'core.login.firstname' | translate }}"
+            class="w-full dark:!bg-surface-900"
+          />
+        </div>
+        <!-- last name -->
+        <div class="flex flex-col gap-2">
+          <label for="lastname">{{ 'core.login.lastname' | translate }}</label>
+          <input
+            pInputText
+            id="lastname"
+            formControlName="lastname"
+            placeholder="{{ 'core.login.lastname' | translate }}"
+            class="w-full dark:!bg-surface-900"
+          />
+        </div>
+        <!-- email -->
+        <div class="flex flex-col gap-2">
+          <label for="email">{{ 'core.login.email' | translate }}</label>
+          <input
+            pInputText
+            id="email"
+            formControlName="email"
+            placeholder="{{ 'core.login.email' | translate }}"
+            class="w-full dark:!bg-surface-900"
+          />
+        </div>
+        <!-- password -->
+        <div class="flex flex-col gap-2">
+          <label for="password">{{ 'core.login.password' | translate }}</label>
+          <input
+            pInputText
+            id="password"
+            type="password"
+            formControlName="password"
+            placeholder="{{ 'core.login.password' | translate }}"
+            class="w-full dark:!bg-surface-900"
+          />
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button pButton type="submit" class="w-full">{{ 'core.register.button' | translate }}</button>
+    </form>
+
+    <!-- Login -->
+    <div class="mt-2 text-surface-700 dark:text-surface-300 font-medium">
+      {{ 'core.register.alreadyAccount' | translate }}
+      <a routerLink="/login" class="text-primary hover:text-primary-emphasis transition-all">{{ 'core.register.login' | translate }}</a>
+    </div>
+  </div>
+</div>
