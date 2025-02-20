@@ -21,11 +21,10 @@ interface Column {
   styleUrl: './table.component.scss',
 })
 export class TableComponent {
-  @Input() emptyMsg: string = 'No items found';
-  @Input() searchPlaceholder: string = 'Search keyword';
   @Input() data!: any;
   @Input() columns!: Column[];
   @Input() showButtons: boolean = false;
+  @Input() prefix: string = '';
 
   @Output() rowSelect = new EventEmitter<any>();
   @Output() delete = new EventEmitter<any>();
@@ -37,6 +36,8 @@ export class TableComponent {
   currentPageReportTemplate = '';
 
   private currentPageReport = 'shared.table.currentPageReport';
+  private searchPlaceholder = 'shared.table.searchPlaceholder';
+  emptyMsg = 'shared.table.emptyMessage';
 
   loading: boolean = true;
   multiSortMeta: SortMeta[] = [
@@ -66,15 +67,15 @@ export class TableComponent {
 
   confirmDelete(event: any) {
     this.translateService
-      .get(['admin.user.delete.title', 'admin.user.delete.message', 'admin.user.delete.ok', 'admin.user.delete.cancel'])
+      .get([this.prefix + '.delete.title', this.prefix + '.delete.message', this.prefix + '.delete.ok', this.prefix + '.delete.cancel'])
       .subscribe((translations) => {
         this.confirmationService.confirm({
-          message: translations['admin.user.delete.message'],
-          header: translations['admin.user.delete.title'],
+          message: translations[this.prefix + '.delete.message'],
+          header: translations[this.prefix + '.delete.title'],
           icon: 'pi pi-exclamation-triangle',
-          acceptLabel: translations['admin.user.delete.ok'],
+          acceptLabel: translations[this.prefix + '.delete.ok'],
           acceptIcon: 'pi pi-check',
-          rejectLabel: translations['admin.user.delete.cancel'],
+          rejectLabel: translations[this.prefix + '.delete.cancel'],
           rejectIcon: 'pi pi-times',
           accept: () => this.onDelete(event),
         });

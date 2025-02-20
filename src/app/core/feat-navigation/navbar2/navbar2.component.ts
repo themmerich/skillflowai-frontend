@@ -21,8 +21,8 @@ import { updatePrimaryPalette } from '@primeng/themes';
 export class Navbar2Component implements OnInit {
   translationService = inject(TranslateService);
   authService = inject(AuthService);
-  router = inject(Router);
   globalStore = inject(GlobalStore);
+  router = inject(Router);
 
   selectedNav?: string = 'core.nav.dashboard';
   bottomNavs: MenuItem[] = [];
@@ -56,7 +56,18 @@ export class Navbar2Component implements OnInit {
   currentLanguage = this.globalStore.language;
   currentThemeMode = this.globalStore.themeMode;
 
+  navigationMap: Record<string, string> = {
+    '/home/dashboard': 'core.nav.dashboard',
+    '/home/organization/details': 'core.nav.organization',
+    '/home/organization/list': 'core.nav.members',
+    '/home/training/list': 'core.nav.trainings',
+    '/home/core/faq': 'core.nav.faq',
+    '/home/admin/users': 'core.nav.admin',
+  };
+
   ngOnInit() {
+    this.selectedNav = this.navigationMap[this.router.url];
+
     this.bottomNavs = [
       {
         icon: 'pi pi-question-circle',

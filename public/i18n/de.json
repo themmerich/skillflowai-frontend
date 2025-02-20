@@ -4,7 +4,9 @@
       "datePattern": "dd.mm.yyyy"
     },
     "table": {
-      "currentPageReport": "Zeige {first} bis {last} von {totalRecords} Einträgen"
+      "currentPageReport": "Zeige {first} bis {last} von {totalRecords} Einträgen",
+      "emptyMessage": "Keine Einträge gefunden",
+      "searchPlaceholder": "Suchen"
     },
     "button": {
       "save": "Speichern",
@@ -140,8 +142,8 @@
         "emailInvalid": "E-Mail ist nicht valide."
       },
       "delete": {
-        "title": "Benutzer löschen",
-        "message": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?",
+        "title": "Mitglied löschen",
+        "message": "Sind Sie sicher, dass Sie dieses Mitglied löschen möchten?",
         "ok": "Löschen",
         "cancel": "Abbrechen"
       }
