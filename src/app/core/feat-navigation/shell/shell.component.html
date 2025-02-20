@@ -1,0 +1,57 @@
+<div class="relative flex gap-2 h-screen bg-surface-50 dark:bg-surface-900 p-2">
+  <!-- Sidebar -->
+  <div id="app-sidebar-15" class="h-full hidden lg:block lg:static absolute left-0 top-0 py-4 pl-4 lg:p-0 z-50">
+    <sf-sidebar />
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1 flex flex-col gap-6 p-4 rounded-2xl border border-surface bg-surface-0 dark:bg-surface-950">
+    <div class="flex sm:items-center flex-wrap sm:flex-row flex-col pb-4 justify-between border-b border-dashed border-surface gap-4">
+      <div class="flex items-center gap-2">
+        <!-- Drawer -->
+        <a class="cursor-pointer block lg:hidden text-surface-700 dark:text-surface-100 mr-2" (click)="toggleSidebar()">
+          <i class="pi pi-bars !text-2xl"></i>
+        </a>
+        <p-drawer [(visible)]="showDrawer">
+          <sf-sidebar />
+        </p-drawer>
+
+        <!-- Search Input -->
+        <p-inputgroup class="p-input-icon-left">
+          <p-inputgroup-addon>
+            <i class="pi pi-search"></i>
+          </p-inputgroup-addon>
+          <input pInputText placeholder="Search" />
+        </p-inputgroup>
+      </div>
+
+      <!-- Notifications, Buttons & Avatar -->
+      <div class="flex items-center gap-2">
+        <button pButton icon="pi pi-palette" class="p-button-outlined p-button-secondary text-xs" (click)="onColorChange()"></button>
+
+        <!-- language switch -->
+        @if (currentLanguage() === 'de') {
+          <button pButton class="p-button-outlined p-button-secondary text-xs" (click)="onLanguageChange()">DE</button>
+        } @else {
+          <button pButton class="p-button-outlined p-button-secondary text-xs" (click)="onLanguageChange()">EN</button>
+        }
+
+        <!-- theme switch -->
+        @if (currentThemeMode() === 'dark') {
+          <button pButton icon="pi pi-sun" class="p-button-outlined p-button-secondary" (click)="onThemeSwitch()"></button>
+        } @else {
+          <button pButton icon="pi pi-moon" class="p-button-outlined p-button-secondary" (click)="onThemeSwitch()"></button>
+        }
+
+        <!-- profile picture -->
+        <button pButton icon="pi pi-bell" class="p-button-outlined p-button-secondary"></button>
+        <p-avatar image="profile/angular.png" size="large" shape="circle"></p-avatar>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 border-surface rounded-xl border-dashed">
+      <router-outlet />
+    </div>
+  </div>
+</div>

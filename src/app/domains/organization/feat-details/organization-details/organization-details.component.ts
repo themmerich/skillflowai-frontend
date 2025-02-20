@@ -84,7 +84,6 @@ export class OrganizationDetailsComponent implements OnInit {
   }
 
   onUpload(event: FileUploadEvent): void {
-    console.log(event);
     this.translateService.get(['shared.message.success', 'organization.details.messages.updated']).subscribe((translations) => {
       this.messageService.add({
         severity: 'success',

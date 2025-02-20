@@ -31,7 +31,6 @@ export class Login2Component {
 
   login() {
     if (this.loginForm.valid && this.loginForm.value.email && this.loginForm.value.password) {
-      console.log(this.loginForm.value);
       this.authService
         .login({
           username: this.loginForm.value.email,
