@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-// @ts-expect-error needed for google feature
-import { google } from 'google-maps';
+//import { google } from 'google-maps';
 import { FloatLabel } from 'primeng/floatlabel';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputText } from 'primeng/inputtext';
@@ -33,11 +32,11 @@ export class AddressAutocompleteComponent implements OnInit {
   mappedAddress?: MappedAddress;
 
   ngOnInit() {
-    this.registerListener();
+    //this.registerListener();
     this.addressInput.nativeElement.value = this.address ? this.address : '';
   }
 
-  registerListener() {
+  /*registerListener() {
     const autocomplete = new google.maps.places.Autocomplete(this.addressInput.nativeElement, {
       componentRestrictions: { country: this.countryRestrictions },
       types: this.adressTypes,
@@ -74,5 +73,5 @@ export class AddressAutocompleteComponent implements OnInit {
 
   get addressText(): MappedAddress | undefined {
     return this.mappedAddress;
-  }
+  }*/
 }

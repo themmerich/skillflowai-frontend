@@ -1,92 +1,13 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col h-full">
   <div class="flex-1 overflow-auto p-4">
-    <!-- first name -->
-    <div class="mb-4">
-      <p-floatlabel class="w-full" variant="on">
-        <input pInputText id="firstname" class="w-full" autocomplete="off" formControlName="firstname" />
-        <label for="firstname">{{ 'organization.member.firstname' | translate }}<span class="text-red-500">*</span></label>
-      </p-floatlabel>
-      @if (form.controls.firstname.invalid && form.controls.firstname.dirty) {
-        <p-message severity="error" variant="simple" size="small">{{ getFirstnameErrorMessage() | translate }}</p-message>
-      }
-    </div>
-    <!-- last name -->
-    <div class="mb-4">
-      <p-floatlabel variant="on" class="w-full">
-        <input pInputText id="lastname" class="w-full" autocomplete="off" formControlName="lastname" />
-        <label for="lastname" class="font-semibold"
-          >{{ 'organization.member.lastname' | translate }}<span class="text-red-500">*</span></label
-        >
-      </p-floatlabel>
-      @if (form.controls.lastname.invalid && form.controls.lastname.dirty) {
-        <p-message severity="error" variant="simple" size="small">{{ getLastnameErrorMessage() | translate }}</p-message>
-      }
-    </div>
-    <!-- email -->
-    <div class="mb-4">
-      <p-floatlabel variant="on" class="w-full">
-        <input pInputText id="email" class="w-full" autocomplete="off" formControlName="email" />
-        <label for="email">{{ 'organization.member.email' | translate }}<span class="text-red-500">*</span></label>
-      </p-floatlabel>
-      @if (form.controls.email.invalid && form.controls.email.dirty) {
-        <p-message severity="error" variant="simple" size="small">{{ getEmailErrorMessage() | translate }}</p-message>
-      }
-    </div>
-    <!-- phone work -->
-    <div class="mb-4">
-      <p-floatlabel variant="on" class="w-full">
-        <input pInputText id="phoneWork" class="w-full" autocomplete="off" formControlName="phoneWork" />
-        <label for="phoneWork" class="font-semibold">{{ 'organization.member.phoneWork' | translate }}</label>
-      </p-floatlabel>
-    </div>
-    <!-- phone private -->
-    <div class="mb-4">
-      <p-floatlabel variant="on" class="w-full">
-        <input pInputText id="phonePrivate" class="w-full" autocomplete="off" formControlName="phonePrivate" />
-        <label for="phonePrivate" class="font-semibold">{{ 'organization.member.phonePrivate' | translate }}</label>
-      </p-floatlabel>
-    </div>
-    <!-- mobile -->
-    <div class="mb-4">
-      <p-floatlabel variant="on" class="w-full">
-        <input pInputText id="mobile" class="w-full" autocomplete="off" formControlName="mobile" />
-        <label for="mobile" class="font-semibold">{{ 'organization.member.mobile' | translate }}</label>
-      </p-floatlabel>
-    </div>
-    <!-- birth date -->
-    <div class="mb-4">
-      <p-floatlabel variant="on" class="w-full">
-        <p-datePicker
-          id="birthdate"
-          class="w-full custom-calendar"
-          formControlName="birthdate"
-          dateFormat="dd.mm.yy"
-          [showIcon]="true"
-          [showOnFocus]="false"
-          appendTo="body"
-        />
-        <label for="birthdate">{{ 'organization.member.birthdate' | translate }}</label>
-      </p-floatlabel>
-    </div>
-    <!-- street and number -->
-    <div class="mb-4 grid grid-cols-3 gap-4" formGroupName="address">
-      <sf-address-autocomplete [formGroup]="form.controls.address" class="col-span-2 w-full" (setAddress)="updateAddress($event)" />
-      <p-floatlabel variant="on" class="w-full">
-        <input pInputText id="number" class="w-full" autocomplete="off" formControlName="number" />
-        <label for="number" class="font-semibold">{{ 'shared.address.number' | translate }}</label>
-      </p-floatlabel>
-    </div>
-    <!-- zip and city -->
-    <div class="mb-4 grid grid-cols-3 gap-4" formGroupName="address">
-      <p-floatlabel variant="on" class="w-full">
-        <input pInputText id="zip" class="w-full" autocomplete="off" formControlName="zip" />
-        <label for="zip" class="font-semibold">{{ 'shared.address.zip' | translate }}</label>
-      </p-floatlabel>
-      <p-floatlabel variant="on" class="col-span-2 w-full">
-        <input pInputText id="city" class="w-full" autocomplete="off" formControlName="city" />
-        <label for="city" class="font-semibold">{{ 'shared.address.city' | translate }}</label>
-      </p-floatlabel>
-    </div>
+    <sf-form-input id="firstname" [prefix]="'organization.member'" [required]="true" />
+    <sf-form-input id="lastname" [prefix]="'organization.member'" [required]="true" />
+    <sf-form-input id="email" [prefix]="'organization.member'" [required]="true" />
+    <sf-form-input id="phoneWork" [prefix]="'organization.member'" />
+    <sf-form-input id="phonePrivate" [prefix]="'organization.member'" />
+    <sf-form-input id="mobile" [prefix]="'organization.member'" />
+    <sf-form-date id="birthdate" [prefix]="'organization.member'" />
+    <sf-form-address />
   </div>
   <!-- buttons -->
   <div class="flex justify-end gap-2">

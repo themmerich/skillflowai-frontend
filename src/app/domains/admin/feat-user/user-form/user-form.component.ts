@@ -1,30 +1,26 @@
 import { Component, EventEmitter, inject, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core';
 import { Button } from 'primeng/button';
-import { DatePicker } from 'primeng/datepicker';
-import { FloatLabel } from 'primeng/floatlabel';
-import { InputText } from 'primeng/inputtext';
-import { Message } from 'primeng/message';
-import { MultiSelect } from 'primeng/multiselect';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Role } from '../../model/role';
 import { User } from '../../model/user';
 import { RoleService } from '../../data/role.service';
 import { Subject, takeUntil } from 'rxjs';
-import { AddressAutocompleteComponent } from '@ui/address-autocomplete/address-autocomplete.component';
+import { FormAddressComponent } from '@ui/form-address/form-address.component';
+import { FormDateComponent } from '@ui/form-date/form-date.component';
+import { FormInputComponent } from '@ui/form-input/form-input.component';
+import { FormMultiselectComponent } from '@ui/form-multiselect/form-multiselect.component';
 
 @Component({
   selector: 'sf-user-form',
   imports: [
     Button,
-    DatePicker,
-    FloatLabel,
-    InputText,
-    Message,
-    MultiSelect,
     ReactiveFormsModule,
     TranslatePipe,
-    AddressAutocompleteComponent,
+    FormAddressComponent,
+    FormDateComponent,
+    FormInputComponent,
+    FormMultiselectComponent,
   ],
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.scss',

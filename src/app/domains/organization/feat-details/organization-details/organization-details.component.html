@@ -41,7 +41,10 @@
 
         <!-- street and number -->
         <div class="mb-4 grid grid-cols-3 gap-4" formGroupName="address">
-          <sf-address-autocomplete [formGroup]="orgForm.controls.address" class="col-span-2 w-full" (setAddress)="updateAddress($event)" />
+          <p-floatlabel variant="on" class="col-span-2 w-full">
+            <input pInputText id="street" class="w-full" autocomplete="off" formControlName="street" />
+            <label for="street" class="font-semibold">{{ 'shared.address.street' | translate }}</label>
+          </p-floatlabel>
           <p-floatlabel variant="on" class="w-full">
             <input pInputText id="number" class="w-full" autocomplete="off" formControlName="number" />
             <label for="number" class="font-semibold">{{ 'shared.address.number' | translate }}</label>

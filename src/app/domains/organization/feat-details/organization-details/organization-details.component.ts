@@ -5,7 +5,6 @@ import { InputText } from 'primeng/inputtext';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { OrganizationStore } from '../../data/organization.store';
-import { AddressAutocompleteComponent } from '@ui/address-autocomplete/address-autocomplete.component';
 import { Textarea } from 'primeng/textarea';
 import { Divider } from 'primeng/divider';
 import { Organization } from '../../model/organization';
@@ -16,19 +15,7 @@ import { Image } from 'primeng/image';
 
 @Component({
   selector: 'sf-organization-details',
-  imports: [
-    Button,
-    FloatLabel,
-    InputText,
-    ReactiveFormsModule,
-    TranslatePipe,
-    AddressAutocompleteComponent,
-    Textarea,
-    Divider,
-    Toast,
-    FileUpload,
-    Image,
-  ],
+  imports: [Button, FloatLabel, InputText, ReactiveFormsModule, TranslatePipe, Textarea, Divider, Toast, FileUpload, Image],
   templateUrl: './organization-details.component.html',
   styleUrl: './organization-details.component.scss',
   providers: [MessageService],
@@ -84,23 +71,13 @@ export class OrganizationDetailsComponent implements OnInit {
   }
 
   onUpload(event: FileUploadEvent): void {
+    console.log(event);
     this.translateService.get(['shared.message.success', 'organization.details.messages.updated']).subscribe((translations) => {
       this.messageService.add({
         severity: 'success',
         summary: translations['shared.message.success'],
         detail: translations['organization.details.messages.updated'],
       });
-    });
-  }
-
-  updateAddress(event: any) {
-    this.orgForm.patchValue({
-      address: {
-        street: event.route,
-        number: event.street_number,
-        zip: event.postal_code,
-        city: event.locality,
-      },
     });
   }
 

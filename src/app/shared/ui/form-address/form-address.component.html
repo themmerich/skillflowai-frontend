@@ -1,0 +1,22 @@
+<!-- street and number -->
+<div class="mb-4 grid grid-cols-3 gap-4" [formGroup]="address">
+  <p-floatlabel variant="on" class="w-full col-span-2">
+    <input pInputText id="street" class="w-full" autocomplete="off" formControlName="street" />
+    <label for="street" class="font-semibold">{{ 'shared.address.street' | translate }}</label>
+  </p-floatlabel>
+  <p-floatlabel variant="on" class="w-full">
+    <input pInputText id="number" class="w-full" autocomplete="off" formControlName="number" />
+    <label for="number" class="font-semibold">{{ 'shared.address.number' | translate }}</label>
+  </p-floatlabel>
+</div>
+<!-- zip and city -->
+<div class="mb-4 grid grid-cols-3 gap-4" [formGroup]="address">
+  <p-floatlabel variant="on" class="w-full">
+    <input pInputText id="zip" class="w-full" autocomplete="off" formControlName="zip" />
+    <label for="zip" class="font-semibold">{{ 'shared.address.zip' | translate }}</label>
+  </p-floatlabel>
+  <p-floatlabel variant="on" class="col-span-2 w-full">
+    <input pInputText id="city" class="w-full" autocomplete="off" formControlName="city" />
+    <label for="city" class="font-semibold">{{ 'shared.address.city' | translate }}</label>
+  </p-floatlabel>
+</div>

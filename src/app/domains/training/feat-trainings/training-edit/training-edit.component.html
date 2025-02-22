@@ -1,0 +1,8 @@
+<p-dialog
+  header="{{ 'training.edit.title' | translate }}"
+  [modal]="true"
+  [visible]="visible"
+  [style]="{ width: '40rem', height: '45rem', minWidth: '600px', minHeight: '450px' }"
+>
+  <sf-training-form (submitTraining)="update($event)" (cancelTraining)="cancel()" [training]="training" />
+</p-dialog>

@@ -136,10 +136,16 @@
         "title": "Mitglied bearbeiten"
       },
       "error": {
-        "firstnameRequired": "Vorname wird benötigt.",
-        "lastnameRequired": "Nachname wird benötigt.",
-        "emailRequired": "E-Mail wird benötigt.",
-        "emailInvalid": "E-Mail ist nicht valide."
+        "firstname": {
+          "required": "Vorname wird benötigt."
+        },
+        "lastname": {
+          "required": "Nachname wird benötigt."
+        },
+        "email": {
+          "required": "E-Mail wird benötigt.",
+          "invalid": "E-Mail ist nicht valide."
+        }
       },
       "delete": {
         "title": "Mitglied löschen",
@@ -150,13 +156,27 @@
     }
   },
   "training": {
+    "name": "Name",
+    "description": "Beschreibung",
+    "interval": "Zeitraum",
+    "materials": "Materialien",
+    "questions": "Fragen",
+    "numberOfQuestions": "Anzahl Fragen",
+    "numberOfCorrectQuestions": "Anzahl nötiger korrekter Antworten",
+    "notes": "Notizen",
     "list": {
       "title": "Schulungen"
     },
-    "details": {
-      "name": "Name",
-      "description": "Beschreibung",
-      "interval": "Interval"
+    "edit": {
+      "title": "Schulung bearbeiten"
+    },
+    "create": {
+      "title": "Schulung anlegen"
+    },
+    "error": {
+      "name": {
+        "required": "Name wird benötigt."
+      }
     }
   }
 }

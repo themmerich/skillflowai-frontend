@@ -1,17 +1,15 @@
 import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
-import { AddressAutocompleteComponent } from '@ui/address-autocomplete/address-autocomplete.component';
 import { Button } from 'primeng/button';
-import { DatePicker } from 'primeng/datepicker';
-import { FloatLabel } from 'primeng/floatlabel';
-import { InputText } from 'primeng/inputtext';
-import { Message } from 'primeng/message';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Member } from '../../model/member';
+import { FormInputComponent } from '@ui/form-input/form-input.component';
+import { FormAddressComponent } from '@ui/form-address/form-address.component';
+import { FormDateComponent } from '@ui/form-date/form-date.component';
 
 @Component({
   selector: 'sf-member-form',
-  imports: [AddressAutocompleteComponent, Button, DatePicker, FloatLabel, InputText, Message, ReactiveFormsModule, TranslatePipe],
+  imports: [Button, ReactiveFormsModule, TranslatePipe, FormInputComponent, FormAddressComponent, FormDateComponent],
   templateUrl: './member-form.component.html',
   styleUrl: './member-form.component.scss',
 })
@@ -74,25 +72,6 @@ export class MemberFormComponent implements OnChanges {
       this.form.controls.firstname.markAsPristine();
       this.form.controls.firstname.markAsUntouched();
     }
-  }
-
-  getFirstnameErrorMessage(): string {
-    const control = this.form.controls.firstname;
-    if (control.errors?.['required']) return 'organization.member.error.firstnameRequired';
-    return '';
-  }
-
-  getLastnameErrorMessage(): string {
-    const control = this.form.controls.lastname;
-    if (control.errors?.['required']) return 'organization.member.error.lastnameRequired';
-    return '';
-  }
-
-  getEmailErrorMessage(): string {
-    const control = this.form.controls.email;
-    if (control.errors?.['required']) return 'organization.member.error.emailRequired';
-    if (control.errors?.['email']) return 'organization.member.error.emailInvalid';
-    return '';
   }
 
   onSubmit() {

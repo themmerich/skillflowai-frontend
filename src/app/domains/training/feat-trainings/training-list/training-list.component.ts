@@ -5,10 +5,11 @@ import { TableComponent } from '@ui/table/table.component';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Training } from '../../model/training';
 import { TrainingStore } from '../../data/training.store';
+import { TrainingEditComponent } from '../training-edit/training-edit.component';
 
 @Component({
   selector: 'sf-training-list',
-  imports: [Button, Divider, TableComponent, TranslatePipe],
+  imports: [Button, Divider, TableComponent, TranslatePipe, TrainingEditComponent],
   templateUrl: './training-list.component.html',
   styleUrl: './training-list.component.scss',
 })
@@ -20,9 +21,9 @@ export class TrainingListComponent {
   selectedTraining?: Training;
 
   columns = [
-    { field: 'name', header: 'training.details.name', type: 'string', sort: true },
-    { field: 'description', header: 'training.details.description', type: 'string', sort: true },
-    { field: 'interval', header: 'training.details.interval', type: 'string', sort: true },
+    { field: 'name', header: 'training.name', type: 'string', sort: true },
+    { field: 'description', header: 'training.description', type: 'string', sort: true },
+    { field: 'interval', header: 'training.interval', type: 'string', sort: true },
   ];
 
   onEdit(event: Training) {
