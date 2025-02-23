@@ -6,10 +6,11 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { Training } from '../../model/training';
 import { TrainingStore } from '../../data/training.store';
 import { TrainingEditComponent } from '../training-edit/training-edit.component';
+import { TrainingCreateComponent } from '../training-create/training-create.component';
 
 @Component({
   selector: 'sf-training-list',
-  imports: [Button, Divider, TableComponent, TranslatePipe, TrainingEditComponent],
+  imports: [Button, Divider, TableComponent, TranslatePipe, TrainingEditComponent, TrainingCreateComponent],
   templateUrl: './training-list.component.html',
   styleUrl: './training-list.component.scss',
 })

@@ -2,10 +2,10 @@
   <div class="flex-1 overflow-auto p-4">
     <sf-form-input id="name" [prefix]="'training'" [required]="true" />
     <sf-form-input id="description" [prefix]="'training'" />
-    <sf-form-input id="interval" [prefix]="'training'" />
+    <sf-form-select id="interval" [prefix]="'training'" [options]="availableIntervals" [optionLabel]="'name'" />
     <sf-form-input id="numberOfQuestions" [prefix]="'training'" />
     <sf-form-input id="numberOfCorrectQuestions" [prefix]="'training'" />
-    <sf-form-input id="notes" [prefix]="'training'" />
+    <sf-form-textarea id="notes" [prefix]="'training'" />
   </div>
 
   <!-- buttons -->

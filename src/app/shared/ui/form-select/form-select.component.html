@@ -1,0 +1,14 @@
+<div class="mb-4">
+  <p-floatlabel variant="on" class="w-full">
+    <p-select [id]="id" class="w-full" [formControl]="formControl" [options]="options" [optionLabel]="optionLabel" appendTo="body" />
+    <label [for]="id">
+      {{ label | translate }}
+      @if (required) {
+        <span class="text-red-500">*</span>
+      }
+    </label>
+  </p-floatlabel>
+  @if (formControl.invalid && formControl.dirty) {
+    <p-message severity="error" variant="simple" size="small">{{ getErrorMessage() | translate }}</p-message>
+  }
+</div>
