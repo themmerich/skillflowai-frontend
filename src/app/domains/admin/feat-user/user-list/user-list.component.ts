@@ -26,7 +26,7 @@ export class UserListComponent {
     { field: 'lastname', header: 'admin.user.lastname', type: 'string', sort: true },
     { field: 'email', header: 'admin.user.email', type: 'string', sort: true },
     { field: 'birthdate', header: 'admin.user.birthdate', type: 'date', sort: true },
-    { field: 'roles', header: 'admin.user.roles', type: 'roles', sort: false },
+    { field: 'roles', header: 'admin.user.roles', type: 'options', sort: false },
   ];
 
   onEdit(event: User) {

@@ -29,9 +29,9 @@ export class TrainingFormComponent implements OnInit, OnChanges, OnDestroy {
     name: new FormControl<string>('', { nonNullable: true, validators: Validators.required }),
     description: new FormControl<string>('', { nonNullable: true }),
     interval: new FormControl<Interval | null>(null),
-    numberOfQuestions: new FormControl<number>(0, { nonNullable: true }),
-    numberOfCorrectQuestions: new FormControl<number>(0, { nonNullable: true }),
-    notes: new FormControl<string>('', { nonNullable: true, validators: Validators.required }),
+    numberOfQuestions: new FormControl<number | null>(null),
+    numberOfCorrectQuestions: new FormControl<number | null>(null),
+    notes: new FormControl<string>('', { nonNullable: true }),
   });
 
   ngOnChanges() {

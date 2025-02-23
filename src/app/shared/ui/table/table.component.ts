@@ -3,9 +3,10 @@ import { TableModule } from 'primeng/table';
 import { ConfirmationService, SortMeta } from 'primeng/api';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { DatePipe } from '@angular/common';
-import { RoleNamesPipe } from '../pipes/role.pipe';
 import { ButtonDirective } from 'primeng/button';
 import { ConfirmDialog } from 'primeng/confirmdialog';
+import { OptionNamePipe } from '@ui/pipes/option.pipe';
+import { OptionNamesPipe } from '@ui/pipes/options.pipe';
 
 interface Column {
   field: string;
@@ -16,7 +17,17 @@ interface Column {
 
 @Component({
   selector: 'sf-table',
-  imports: [TableModule, TranslatePipe, DatePipe, RoleNamesPipe, ButtonDirective, ConfirmDialog],
+  imports: [
+    TableModule,
+    TranslatePipe,
+    DatePipe,
+    ButtonDirective,
+    ConfirmDialog,
+    OptionNamesPipe,
+    OptionNamesPipe,
+    OptionNamesPipe,
+    OptionNamePipe,
+  ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
 })

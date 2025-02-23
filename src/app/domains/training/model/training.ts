@@ -9,8 +9,8 @@ export interface Training {
   interval?: Interval | null;
   materials?: Material[];
   questions?: Question[];
-  numberOfQuestions?: number;
-  numberOfCorrectQuestions?: number;
+  numberOfQuestions?: number | null;
+  numberOfCorrectQuestions?: number | null;
   notes?: string;
   created?: Date;
 }

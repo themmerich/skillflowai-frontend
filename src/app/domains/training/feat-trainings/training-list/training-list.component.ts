@@ -24,7 +24,7 @@ export class TrainingListComponent {
   columns = [
     { field: 'name', header: 'training.name', type: 'string', sort: true },
     { field: 'description', header: 'training.description', type: 'string', sort: true },
-    { field: 'interval', header: 'training.interval', type: 'string', sort: true },
+    { field: 'interval', header: 'training.interval', type: 'option', sort: false },
   ];
 
   onEdit(event: Training) {

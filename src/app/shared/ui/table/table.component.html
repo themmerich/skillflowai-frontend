@@ -50,8 +50,10 @@
       @for (col of columns; track col.field) {
         @if (col.type === 'date') {
           <td>{{ rowData[col.field] | date: 'dd.MM.yyyy' }}</td>
-        } @else if (col.type === 'roles') {
-          <td>{{ rowData[col.field] | roleNames }}</td>
+        } @else if (col.type === 'option') {
+          <td>{{ rowData[col.field] | optionName }}</td>
+        } @else if (col.type === 'options') {
+          <td>{{ rowData[col.field] | optionNames }}</td>
         } @else {
           <td>{{ rowData[col.field] }}</td>
         }

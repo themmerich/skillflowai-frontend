@@ -9,7 +9,7 @@
     <sf-form-date id="birthdate" [prefix]="'organization.member'" />
     <sf-form-address />
   </div>
-  <!-- buttons -->
+
   <div class="flex justify-end gap-2">
     <p-button label="{{ 'shared.button.cancel' | translate }}" severity="secondary" (click)="onCancel()" />
     <p-button label="{{ 'shared.button.save' | translate }}" type="submit" disabled="{{ !(form.dirty && form.valid) }}" />

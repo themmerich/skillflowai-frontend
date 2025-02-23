@@ -146,13 +146,13 @@
         "email": {
           "required": "Email is required.",
           "invalid": "Input is not a valid email."
-        },
-        "delete": {
-          "title": "Delete Member",
-          "message": "Are you sure you want to delete this member?",
-          "ok": "Delete",
-          "cancel": "Cancel"
         }
+      },
+      "delete": {
+        "title": "Delete Member",
+        "message": "Are you sure you want to delete this member?",
+        "ok": "Delete",
+        "cancel": "Cancel"
       }
     }
   },
@@ -178,6 +178,12 @@
       "name": {
         "required": "Name is required."
       }
+    },
+    "delete": {
+      "title": "Delete Training",
+      "message": "Are you sure you want to delete this training?",
+      "ok": "Delete",
+      "cancel": "Cancel"
     }
   }
 }
