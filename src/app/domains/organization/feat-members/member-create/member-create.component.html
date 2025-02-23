@@ -1,9 +1,10 @@
 <p-dialog
   header="{{ 'organization.member.create.title' | translate }}"
   [modal]="true"
-  [visible]="visible"
+  [(visible)]="visible"
   [style]="{ width: '40rem', height: '45rem', minWidth: '600px', minHeight: '450px' }"
   (onShow)="resetForm()"
+  (onHide)="cancel()"
 >
   <sf-member-form (submitMember)="create($event)" (cancelMember)="cancel()" />
 </p-dialog>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { ConfirmationService, SortMeta } from 'primeng/api';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
@@ -31,10 +31,11 @@ interface Column {
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
 })
-export class TableComponent {
+export class TableComponent implements OnInit {
   @Input() data!: any;
   @Input() columns!: Column[];
-  @Input() showButtons: boolean = false;
+  @Input() showEdit: boolean = false;
+  @Input() showDelete: boolean = false;
   @Input() prefix: string = '';
 
   @Output() rowSelect = new EventEmitter<any>();
@@ -45,6 +46,7 @@ export class TableComponent {
   confirmationService = inject(ConfirmationService);
   selectedData: any;
   currentPageReportTemplate = '';
+  key = 'key';
 
   private currentPageReport = 'shared.table.currentPageReport';
   private searchPlaceholder = 'shared.table.searchPlaceholder';
@@ -71,6 +73,10 @@ export class TableComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.key = this.prefix + '.key';
+  }
+
   onRowSelect(event: any) {
     this.selectedData = event.data;
     this.rowSelect.emit(event.data);
@@ -89,6 +95,7 @@ export class TableComponent {
           rejectLabel: translations[this.prefix + '.delete.cancel'],
           rejectIcon: 'pi pi-times',
           accept: () => this.onDelete(event),
+          key: this.prefix + '.key',
         });
       });
   }
@@ -99,5 +106,24 @@ export class TableComponent {
 
   onEdit(event: any) {
     this.edit.emit(event);
+  }
+
+  getIcon(value: string): string {
+    switch (value) {
+      case 'youtube':
+        return 'pi pi-youtube';
+      case 'pdf':
+        return 'pi pi-file-pdf';
+      case 'word':
+        return 'pi pi-file-word';
+      case 'excel':
+        return 'pi pi-file-excel';
+      case 'jpg':
+        return 'pi pi-image';
+      case 'avi':
+        return 'pi pi-video';
+      default:
+        return '';
+    }
   }
 }

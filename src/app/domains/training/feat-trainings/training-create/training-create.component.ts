@@ -4,15 +4,17 @@ import { TrainingFormComponent } from '../training-form/training-form.component'
 import { TranslatePipe } from '@ngx-translate/core';
 import { Training } from '../../model/training';
 import { TrainingStore } from '../../data/training.store';
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from 'primeng/tabs';
 
 @Component({
   selector: 'sf-training-create',
-  imports: [Dialog, TrainingFormComponent, TranslatePipe],
+  imports: [Dialog, TrainingFormComponent, TranslatePipe, Tabs, TabList, Tab, TabPanels, TabPanel],
   templateUrl: './training-create.component.html',
   styleUrl: './training-create.component.scss',
 })
 export class TrainingCreateComponent {
   @Input() visible: boolean = false;
+  @Input() training!: Training;
   @Output() showCreateDialog = new EventEmitter<boolean>();
   @ViewChild(TrainingFormComponent) trainingFormComponent!: TrainingFormComponent;
   trainingStore = inject(TrainingStore);

@@ -1,9 +1,23 @@
 <p-dialog
   header="{{ 'training.create.title' | translate }}"
   [modal]="true"
-  [visible]="visible"
+  [(visible)]="visible"
   [style]="{ width: '40rem', height: '45rem', minWidth: '600px', minHeight: '450px' }"
   (onShow)="resetForm()"
+  (onHide)="cancel()"
 >
-  <sf-training-form (submitTraining)="create($event)" (cancelTraining)="cancel()" />
+  <p-tabs value="0">
+    <p-tablist>
+      <p-tab value="0">{{ 'training.create.tabDetails' | translate }}</p-tab>
+      <p-tab value="1">{{ 'training.create.tabMaterials' | translate }}</p-tab>
+      <p-tab value="2">{{ 'training.create.tabQuestions' | translate }}</p-tab>
+    </p-tablist>
+    <p-tabpanels>
+      <p-tabpanel value="0">
+        <sf-training-form (submitTraining)="create($event)" (cancelTraining)="cancel()" [training]="training" />
+      </p-tabpanel>
+      <p-tabpanel value="1"></p-tabpanel>
+      <p-tabpanel value="2"></p-tabpanel>
+    </p-tabpanels>
+  </p-tabs>
 </p-dialog>

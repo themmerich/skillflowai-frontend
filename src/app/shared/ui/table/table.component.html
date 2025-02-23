@@ -39,7 +39,7 @@
           <th>{{ col.header | translate }}</th>
         }
       }
-      @if (showButtons) {
+      @if (showEdit || showDelete) {
         <th></th>
       }
     </tr>
@@ -54,20 +54,26 @@
           <td>{{ rowData[col.field] | optionName }}</td>
         } @else if (col.type === 'options') {
           <td>{{ rowData[col.field] | optionNames }}</td>
+        } @else if (col.type === 'icon') {
+          <td><i [class]="getIcon(rowData[col.field])"></i></td>
         } @else {
           <td>{{ rowData[col.field] }}</td>
         }
       }
-      @if (showButtons) {
+      @if (showEdit || showDelete) {
         <td>
-          <button pButton type="button" icon="pi pi-pencil" class="p-button-sm p-button-text" (click)="onEdit(rowData)"></button>
-          <button
-            pButton
-            type="button"
-            icon="pi pi-trash"
-            class="p-button-sm p-button-text p-button-danger"
-            (click)="confirmDelete(rowData)"
-          ></button>
+          @if (showEdit) {
+            <button pButton type="button" icon="pi pi-pencil" class="p-button-sm p-button-text" (click)="onEdit(rowData)"></button>
+          }
+          @if (showDelete) {
+            <button
+              pButton
+              type="button"
+              icon="pi pi-trash"
+              class="p-button-sm p-button-text p-button-danger"
+              (click)="confirmDelete(rowData)"
+            ></button>
+          }
         </td>
       }
     </tr>
@@ -78,5 +84,5 @@
       <td colspan="5">{{ emptyMsg | translate }}</td>
     </tr>
   </ng-template>
+  <p-confirmDialog [key]="key" />
 </p-table>
-<p-confirmDialog />

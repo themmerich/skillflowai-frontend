@@ -5,13 +5,14 @@
     [data]="data()"
     [columns]="columns"
     [prefix]="'training'"
-    [showButtons]="true"
+    [showDelete]="true"
+    [showEdit]="true"
     (delete)="onDelete($event)"
     (edit)="onEdit($event)"
   />
   <div class="flex justify-end mt-4">
     <p-button icon="pi pi-plus" [rounded]="true" (click)="addTraining()" />
-    <sf-training-create [visible]="showCreateDialog" (showCreateDialog)="onHideCreateDialog($event)" />
+    <sf-training-create [visible]="showCreateDialog" [training]="createNewTraining()" (showCreateDialog)="onHideCreateDialog($event)" />
     <sf-training-edit [visible]="showEditDialog" [training]="selectedTraining" (showEditDialog)="onHideEditDialog($event)" />
   </div>
 </div>

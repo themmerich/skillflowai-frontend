@@ -17,7 +17,7 @@ import { Interval } from '../../model/interval';
   styleUrl: './training-form.component.scss',
 })
 export class TrainingFormComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() training?: Training;
+  @Input() training!: Training;
   @Output() submitTraining = new EventEmitter<Training>();
   @Output() cancelTraining = new EventEmitter<void>();
 
@@ -63,6 +63,7 @@ export class TrainingFormComponent implements OnInit, OnChanges, OnDestroy {
     const formValue = this.form.getRawValue();
     const newTraining: Training = {
       ...formValue,
+      materials: this.training.materials,
     };
     this.submitTraining.emit(newTraining);
   }

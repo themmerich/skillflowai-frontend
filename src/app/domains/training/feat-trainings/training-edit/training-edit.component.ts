@@ -4,16 +4,18 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { TrainingFormComponent } from '../training-form/training-form.component';
 import { Training } from '../../model/training';
 import { TrainingStore } from '../../data/training.store';
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from 'primeng/tabs';
+import { TrainingMaterialsComponent } from '../training-materials/training-materials.component';
 
 @Component({
   selector: 'sf-training-edit',
-  imports: [Dialog, TranslatePipe, TrainingFormComponent],
+  imports: [Dialog, TranslatePipe, TrainingFormComponent, Tab, TabList, TabPanel, TabPanels, Tabs, TrainingMaterialsComponent],
   templateUrl: './training-edit.component.html',
   styleUrl: './training-edit.component.scss',
 })
 export class TrainingEditComponent {
   @Input() visible: boolean = false;
-  @Input() training?: Training;
+  @Input() training!: Training;
   @Output() showEditDialog = new EventEmitter<boolean>();
   trainingStore = inject(TrainingStore);
 

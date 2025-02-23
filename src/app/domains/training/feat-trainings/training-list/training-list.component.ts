@@ -19,7 +19,7 @@ export class TrainingListComponent {
   data: Signal<Training[]> = this.trainingStore.trainings;
   showCreateDialog: boolean = false;
   showEditDialog: boolean = false;
-  selectedTraining?: Training;
+  selectedTraining!: Training;
 
   columns = [
     { field: 'name', header: 'training.name', type: 'string', sort: true },
@@ -46,5 +46,14 @@ export class TrainingListComponent {
 
   onHideEditDialog(event: boolean) {
     this.showEditDialog = event;
+  }
+
+  createNewTraining(): Training {
+    return {
+      name: '',
+      description: '',
+      interval: null,
+      materials: [],
+    } as Training;
   }
 }

@@ -7,7 +7,7 @@ export interface Training {
   name: string;
   description?: string;
   interval?: Interval | null;
-  materials?: Material[];
+  materials: Material[];
   questions?: Question[];
   numberOfQuestions?: number | null;
   numberOfCorrectQuestions?: number | null;
