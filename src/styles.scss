@@ -9,3 +9,25 @@
   @tailwind components;
   @tailwind utilities;
 }
+
+// height adjustment for materials-table
+.materials-height .p-datatable-table-container {
+  height: 435px;
+  overflow-y: auto;
+}
+
+.materials-height .p-paginator {
+  position: sticky;
+  bottom: 0;
+}
+
+// height adjustments for questions-treetable
+.questions-height .p-treetable-wrapper {
+  height: 435px;
+  overflow-y: auto;
+}
+
+.questions-height .p-paginator {
+  position: sticky;
+  bottom: 0;
+}

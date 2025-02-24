@@ -1,38 +1,39 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { TableModule } from 'primeng/table';
-import { ConfirmationService, SortMeta } from 'primeng/api';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { DatePipe, NgClass } from '@angular/common';
 import { ButtonDirective } from 'primeng/button';
 import { ConfirmDialog } from 'primeng/confirmdialog';
+import { DatePipe, NgClass } from '@angular/common';
 import { OptionNamePipe } from '@ui/pipes/option.pipe';
 import { OptionNamesPipe } from '@ui/pipes/options.pipe';
+import { TableModule } from 'primeng/table';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { ConfirmationService, SortMeta } from 'primeng/api';
+import { TreeTableModule } from 'primeng/treetable';
 
 interface Column {
   field: string;
   header: string;
   type: string;
-  sort: boolean;
+  sort?: boolean;
+  headerStyle: string;
 }
 
 @Component({
-  selector: 'sf-table',
+  selector: 'sf-tree-table',
   imports: [
-    TableModule,
-    TranslatePipe,
-    DatePipe,
     ButtonDirective,
     ConfirmDialog,
-    OptionNamesPipe,
-    OptionNamesPipe,
-    OptionNamesPipe,
+    DatePipe,
     OptionNamePipe,
+    OptionNamesPipe,
+    TableModule,
+    TranslatePipe,
+    TreeTableModule,
     NgClass,
   ],
-  templateUrl: './table.component.html',
-  styleUrl: './table.component.scss',
+  templateUrl: './tree-table.component.html',
+  styleUrl: './tree-table.component.scss',
 })
-export class TableComponent implements OnInit {
+export class TreeTableComponent implements OnInit {
   @Input() data!: any;
   @Input() columns!: Column[];
   @Input() showEdit: boolean = false;
@@ -124,6 +125,10 @@ export class TableComponent implements OnInit {
         return 'pi pi-image text-primary';
       case 'avi':
         return 'pi pi-video text-primary';
+      case 'yes':
+        return 'pi pi-check text-emerald-500';
+      case 'no':
+        return 'pi pi-times text-red-500';
       default:
         return '';
     }

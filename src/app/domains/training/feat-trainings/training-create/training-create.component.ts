@@ -5,10 +5,11 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { Training } from '../../model/training';
 import { TrainingStore } from '../../data/training.store';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from 'primeng/tabs';
+import { TrainingMaterialsComponent } from '../training-materials/training-materials.component';
 
 @Component({
   selector: 'sf-training-create',
-  imports: [Dialog, TrainingDetailsComponent, TranslatePipe, Tabs, TabList, Tab, TabPanels, TabPanel],
+  imports: [Dialog, TrainingDetailsComponent, TranslatePipe, Tabs, TabList, Tab, TabPanels, TabPanel, TrainingMaterialsComponent],
   templateUrl: './training-create.component.html',
   styleUrl: './training-create.component.scss',
 })

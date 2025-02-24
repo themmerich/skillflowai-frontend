@@ -1,13 +1,14 @@
-import { Component, inject, Input, OnChanges, Signal, signal } from '@angular/core';
+import { Component, inject, Input, OnChanges } from '@angular/core';
 import { Training } from '../../model/training';
 import { TableComponent } from '@ui/table/table.component';
-import { Button } from 'primeng/button';
 import { Material } from '../../model/material';
 import { TrainingStore } from '../../data/training.store';
+import { ToolbarModule } from 'primeng/toolbar';
+import { ToolbarComponent } from '@ui/toolbar/toolbar.component';
 
 @Component({
   selector: 'sf-training-materials',
-  imports: [TableComponent, Button],
+  imports: [TableComponent, ToolbarModule, ToolbarComponent],
   templateUrl: './training-materials.component.html',
   styleUrl: './training-materials.component.scss',
 })

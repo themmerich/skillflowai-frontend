@@ -2,7 +2,7 @@
   header="{{ 'training.edit.title' | translate }}"
   [modal]="true"
   [(visible)]="visible"
-  [style]="{ width: '55rem', height: '45rem', minWidth: '600px', minHeight: '450px' }"
+  [style]="{ width: '70rem', height: '45rem', minWidth: '600px', minHeight: '450px' }"
   (onHide)="cancel()"
 >
   <p-tabs value="0">
@@ -21,7 +21,9 @@
       <p-tabpanel value="1">
         <sf-training-materials [training]="training" />
       </p-tabpanel>
-      <p-tabpanel value="2"></p-tabpanel>
+      <p-tabpanel value="2">
+        <sf-training-questions [training]="training" />
+      </p-tabpanel>
     </p-tabpanels>
   </p-tabs>
 </p-dialog>

@@ -6,10 +6,22 @@ import { Training } from '../../model/training';
 import { TrainingStore } from '../../data/training.store';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from 'primeng/tabs';
 import { TrainingMaterialsComponent } from '../training-materials/training-materials.component';
+import { TrainingQuestionsComponent } from '../training-questions/training-questions.component';
 
 @Component({
   selector: 'sf-training-edit',
-  imports: [Dialog, TranslatePipe, TrainingDetailsComponent, Tab, TabList, TabPanel, TabPanels, Tabs, TrainingMaterialsComponent],
+  imports: [
+    Dialog,
+    TranslatePipe,
+    TrainingDetailsComponent,
+    Tab,
+    TabList,
+    TabPanel,
+    TabPanels,
+    Tabs,
+    TrainingMaterialsComponent,
+    TrainingQuestionsComponent,
+  ],
   templateUrl: './training-edit.component.html',
   styleUrl: './training-edit.component.scss',
 })

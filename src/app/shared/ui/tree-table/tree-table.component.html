@@ -1,7 +1,6 @@
-<p-table
-  #dt2
+<p-treeTable
+  #tt1
   dataKey="id"
-  stripedRows
   [value]="data"
   [columns]="columns"
   [resizableColumns]="true"
@@ -13,7 +12,6 @@
   [currentPageReportTemplate]="currentPageReportTemplate"
   selectionMode="single"
   [(selection)]="selectedData"
-  (onRowSelect)="onRowSelect($event)"
   metaKeySelection="false"
   [ngClass]="customClass"
 >
@@ -31,14 +29,10 @@
     </div>
   </ng-template-->
 
-  <ng-template #header>
+  <ng-template #header let-columns>
     <tr>
       @for (col of columns; track col.field) {
-        @if (col.sort) {
-          <th pSortableColumn="{{ col.field }}">{{ col.header | translate }} <p-sortIcon field="{{ col.field }}" /></th>
-        } @else {
-          <th>{{ col.header | translate }}</th>
-        }
+        <th style="{{ col.headerStyle }}">{{ col.header | translate }}</th>
       }
       @if (showEdit || showDelete) {
         <th></th>
@@ -46,25 +40,52 @@
     </tr>
   </ng-template>
 
-  <ng-template #body let-rowData let-columns="columns">
-    <tr [pSelectableRow]="rowData">
-      @for (col of columns; track col.field) {
+  <ng-template #body let-rowNode let-rowData="rowData" let-columns="columns">
+    <tr [ttRow]="rowNode">
+      @for (col of columns; track col.field; let index = $index) {
         @if (col.type === 'date') {
-          <td>{{ rowData[col.field] | date: 'dd.MM.yyyy' }}</td>
+          <td>
+            @if (index === 0) {
+              <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+            }
+            {{ rowData[col.field] | date: 'dd.MM.yyyy' }}
+          </td>
         } @else if (col.type === 'option') {
-          <td>{{ rowData[col.field] | optionName }}</td>
+          <td>
+            @if (index === 0) {
+              <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+            }
+            {{ rowData[col.field] | optionName }}
+          </td>
         } @else if (col.type === 'options') {
-          <td>{{ rowData[col.field] | optionNames }}</td>
+          <td>
+            @if (index === 0) {
+              <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+            }
+            {{ rowData[col.field] | optionNames }}
+          </td>
         } @else if (col.type === 'icon') {
-          <td><i [class]="getIcon(rowData[col.field])"></i></td>
+          <td class="text-center">
+            @if (index === 0) {
+              <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+            }
+            <i [class]="getIcon(rowData[col.field])"></i>
+          </td>
         } @else {
-          <td>{{ rowData[col.field] }}</td>
+          <td>
+            @if (index === 0) {
+              <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+            }
+            {{ rowData[col.field] }}
+          </td>
         }
       }
       @if (showEdit || showDelete) {
-        <td>
-          @if (showEdit) {
+        <td class="text-center">
+          @if (showEdit && rowData['isParent'] === true) {
             <button pButton type="button" icon="pi pi-pencil" class="p-button-sm p-button-text" (click)="onEdit(rowData)"></button>
+          } @else {
+            <button pButton disabled type="button" icon="pi pi-pencil" class="p-button-sm p-button-text text-transparent"></button>
           }
           @if (showDelete) {
             <button
@@ -86,4 +107,4 @@
     </tr>
   </ng-template>
   <p-confirmDialog [key]="key" />
-</p-table>
+</p-treeTable>

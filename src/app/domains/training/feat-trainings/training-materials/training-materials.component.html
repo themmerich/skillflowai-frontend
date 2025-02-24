@@ -1,6 +1,9 @@
-<sf-table [data]="data" [columns]="columns" [prefix]="'training.material'" [showDelete]="true" (delete)="onDelete($event)" />
-<div class="flex justify-end mt-4">
-  <p-button icon="pi pi-plus" [rounded]="true" (click)="addMaterial()" />
-  <!--sf-training-create [visible]="showCreateDialog" (showCreateDialog)="onHideCreateDialog($event)" />
-  <sf-training-edit [visible]="showEditDialog" [training]="selectedTraining" (showEditDialog)="onHideEditDialog($event)" /-->
-</div>
+<sf-toolbar [showAdd]="true" (addItem)="addMaterial()" />
+<sf-table
+  [data]="data"
+  [columns]="columns"
+  [prefix]="'training.material'"
+  [showDelete]="true"
+  (delete)="onDelete($event)"
+  [customClass]="'materials-height'"
+/>

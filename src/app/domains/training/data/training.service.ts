@@ -5,6 +5,8 @@ import { Observable, of } from 'rxjs';
 import { Training } from '../model/training';
 import { Interval } from '../model/interval';
 import { Material } from '../model/material';
+import { Question } from '../model/question';
+import { Answer } from '../model/answer';
 
 @Injectable({
   providedIn: 'root',
@@ -52,6 +54,71 @@ export class TrainingService {
             description: 'Ein Schaubild zum Thema',
             type: 'jpg',
           } as Material,
+        ],
+        questions: [
+          {
+            id: 1,
+            question: 'Wie legt man in Angular eine neue Komponente an?',
+            answers: [
+              {
+                id: 11,
+                answer: 'ng generate component my-component',
+                isCorrect: true,
+              } as Answer,
+              {
+                id: 12,
+                answer: 'ng g c my-component',
+                isCorrect: true,
+              } as Answer,
+              {
+                id: 13,
+                answer: 'ng create my-component',
+                isCorrect: false,
+              } as Answer,
+            ],
+          } as Question,
+          {
+            id: 2,
+            question: 'Was kann man nutzen um Modul-Grenzen zu sichern?',
+            answers: [
+              {
+                id: 14,
+                answer: 'Den Sheriff',
+                isCorrect: true,
+              } as Answer,
+              {
+                id: 15,
+                answer: 'Einen Nx Workspace',
+                isCorrect: true,
+              } as Answer,
+              {
+                id: 16,
+                answer: 'Einen Hund',
+                isCorrect: false,
+              } as Answer,
+            ],
+          } as Question,
+          {
+            id: 3,
+            question: 'Was ist der Unterschied zwischen einem Subject und einem Behavior Subject?',
+            answers: [
+              {
+                id: 17,
+                answer: 'Keine Ahnung!',
+                isCorrect: false,
+              } as Answer,
+              {
+                id: 18,
+                answer: 'Ein Behavior Subject hat immer einen Wert.',
+                isCorrect: true,
+              } as Answer,
+              {
+                id: 19,
+                answer: 'Ein Subject hat immer einen Wert.',
+                isCorrect: false,
+              } as Answer,
+            ],
+          } as Question,
         ],
         numberOfQuestions: 5,
         numberOfCorrectQuestions: 3,

@@ -160,7 +160,6 @@
     "description": "Beschreibung",
     "interval": "Zeitraum",
     "materials": "Materialien",
-    "questions": "Fragen",
     "numberOfQuestions": "Anzahl Fragen",
     "numberOfCorrectQuestions": "Anzahl nötiger korrekter Antworten",
     "notes": "Notizen",
@@ -197,6 +196,16 @@
       "delete": {
         "title": "Schulungsmaterial löschen",
         "message": "Sind Sie sicher, dass Sie dieses Schulungsmaterial löschen möchten?",
+        "ok": "Löschen",
+        "cancel": "Abbrechen"
+      }
+    },
+    "questions": {
+      "question": "Frage / Antwort",
+      "isCorrect": "Antwort korrekt?",
+      "delete": {
+        "title": "Frage/Antwort löschen",
+        "message": "Sind Sie sicher, dass Sie diese Frage/Antwort löschen möchten?",
         "ok": "Löschen",
         "cancel": "Abbrechen"
       }

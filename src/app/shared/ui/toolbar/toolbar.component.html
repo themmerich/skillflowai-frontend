@@ -1,0 +1,13 @@
+<p-toolbar class="mb-4" styleClass="border-0 p-0 shadow-none">
+  <div class="w-full flex justify-end">
+    @if (showAdd) {
+      <p-button icon="pi pi-plus" class="mr-2" text severity="secondary" (click)="onAdd()" />
+    }
+    @if (showPrint) {
+      <p-button icon="pi pi-print" class="mr-2" text severity="secondary" />
+    }
+    @if (showUpload) {
+      <p-button icon="pi pi-upload" text severity="secondary" />
+    }
+  </div>
+</p-toolbar>
