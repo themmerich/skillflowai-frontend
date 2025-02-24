@@ -111,17 +111,17 @@ export class TableComponent implements OnInit {
   getIcon(value: string): string {
     switch (value) {
       case 'youtube':
-        return 'pi pi-youtube';
+        return 'pi pi-youtube text-primary';
       case 'pdf':
-        return 'pi pi-file-pdf';
+        return 'pi pi-file-pdf text-primary';
       case 'word':
-        return 'pi pi-file-word';
+        return 'pi pi-file-word text-primary';
       case 'excel':
-        return 'pi pi-file-excel';
+        return 'pi pi-file-excel text-primary';
       case 'jpg':
-        return 'pi pi-image';
+        return 'pi pi-image text-primary';
       case 'avi':
-        return 'pi pi-video';
+        return 'pi pi-video text-primary';
       default:
         return '';
     }

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Dialog } from 'primeng/dialog';
 import { TranslatePipe } from '@ngx-translate/core';
-import { TrainingFormComponent } from '../training-form/training-form.component';
+import { TrainingDetailsComponent } from '../training-details/training-details.component';
 import { Training } from '../../model/training';
 import { TrainingStore } from '../../data/training.store';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from 'primeng/tabs';
@@ -9,7 +9,7 @@ import { TrainingMaterialsComponent } from '../training-materials/training-mater
 
 @Component({
   selector: 'sf-training-edit',
-  imports: [Dialog, TranslatePipe, TrainingFormComponent, Tab, TabList, TabPanel, TabPanels, Tabs, TrainingMaterialsComponent],
+  imports: [Dialog, TranslatePipe, TrainingDetailsComponent, Tab, TabList, TabPanel, TabPanels, Tabs, TrainingMaterialsComponent],
   templateUrl: './training-edit.component.html',
   styleUrl: './training-edit.component.scss',
 })

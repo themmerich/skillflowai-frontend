@@ -11,12 +11,12 @@ import { IntervalService } from '../../data/interval.service';
 import { Interval } from '../../model/interval';
 
 @Component({
-  selector: 'sf-training-form',
+  selector: 'sf-training-details',
   imports: [FormsModule, ReactiveFormsModule, TranslatePipe, Button, FormInputComponent, FormTextareaComponent, FormSelectComponent],
-  templateUrl: './training-form.component.html',
-  styleUrl: './training-form.component.scss',
+  templateUrl: './training-details.component.html',
+  styleUrl: './training-details.component.scss',
 })
-export class TrainingFormComponent implements OnInit, OnChanges, OnDestroy {
+export class TrainingDetailsComponent implements OnInit, OnChanges, OnDestroy {
   @Input() training!: Training;
   @Output() submitTraining = new EventEmitter<Training>();
   @Output() cancelTraining = new EventEmitter<void>();
