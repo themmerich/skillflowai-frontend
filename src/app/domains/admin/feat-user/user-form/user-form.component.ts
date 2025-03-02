@@ -6,22 +6,13 @@ import { Role } from '../../model/role';
 import { User } from '../../model/user';
 import { RoleService } from '../../data/role.service';
 import { Subject, takeUntil } from 'rxjs';
-import { FormAddressComponent } from '@ui/form-address/form-address.component';
 import { FormDateComponent } from '@ui/form-date/form-date.component';
 import { FormInputComponent } from '@ui/form-input/form-input.component';
 import { FormMultiselectComponent } from '@ui/form-multiselect/form-multiselect.component';
 
 @Component({
   selector: 'sf-user-form',
-  imports: [
-    Button,
-    ReactiveFormsModule,
-    TranslatePipe,
-    FormAddressComponent,
-    FormDateComponent,
-    FormInputComponent,
-    FormMultiselectComponent,
-  ],
+  imports: [Button, ReactiveFormsModule, TranslatePipe, FormDateComponent, FormInputComponent, FormMultiselectComponent],
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.scss',
 })
@@ -35,9 +26,6 @@ export class UserFormComponent implements OnChanges, OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   form = new FormGroup({
-    id: new FormControl<number | undefined>(undefined, {
-      nonNullable: true,
-    }),
     firstname: new FormControl<string>('', {
       nonNullable: true,
       validators: Validators.required,
@@ -53,20 +41,6 @@ export class UserFormComponent implements OnChanges, OnInit, OnDestroy {
     birthdate: new FormControl<Date | null>(null),
     roles: new FormControl<Role[]>([], {
       nonNullable: true,
-    }),
-    address: new FormGroup({
-      street: new FormControl<string>('', {
-        nonNullable: true,
-      }),
-      number: new FormControl<string>('', {
-        nonNullable: true,
-      }),
-      zip: new FormControl<string>('', {
-        nonNullable: true,
-      }),
-      city: new FormControl<string>('', {
-        nonNullable: true,
-      }),
     }),
   });
 
@@ -95,29 +69,6 @@ export class UserFormComponent implements OnChanges, OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  getFirstnameErrorMessage(): string {
-    const control = this.form.controls.firstname;
-    if (control.errors?.['required']) return 'admin.user.error.firstnameRequired';
-    return '';
-  }
-
-  getLastnameErrorMessage(): string {
-    const control = this.form.controls.lastname;
-    if (control.errors?.['required']) return 'admin.user.error.lastnameRequired';
-    return '';
-  }
-
-  getEmailErrorMessage(): string {
-    const control = this.form.controls.email;
-    if (control.errors?.['required']) return 'admin.user.error.emailRequired';
-    if (control.errors?.['email']) return 'admin.user.error.emailInvalid';
-    return '';
-  }
-
-  getRolesErrorMessage(): string {
-    return '';
-  }
-
   onSubmit() {
     const formValue = this.form.getRawValue();
     const newUser: User = {
@@ -128,16 +79,5 @@ export class UserFormComponent implements OnChanges, OnInit, OnDestroy {
 
   onCancel() {
     this.cancelUser.emit();
-  }
-
-  updateAddress(event: any) {
-    this.form.patchValue({
-      address: {
-        street: event.route,
-        number: event.street_number,
-        zip: event.postal_code,
-        city: event.locality,
-      },
-    });
   }
 }

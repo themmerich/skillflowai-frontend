@@ -99,6 +99,11 @@
         "message": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?",
         "ok": "Löschen",
         "cancel": "Abbrechen"
+      },
+      "messages": {
+        "created": "Benutzer wurde hinzugefügt",
+        "updated": "Benutzer wurde aktualisiert",
+        "deleted": "Benutzer wurde gelöscht"
       }
     }
   },
@@ -124,6 +129,7 @@
       "phonePrivate": "Telefon (Privat)",
       "mobile": "Handy",
       "created": "Angelegt am",
+      "roles": "Rollen",
       "table": {
       },
       "list": {

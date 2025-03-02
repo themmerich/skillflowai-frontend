@@ -11,23 +11,23 @@
 }
 
 // height adjustments for trainings-treetable
-.trainings-height .p-treetable-wrapper {
+.treetable-height .p-treetable-wrapper {
   height: 600px;
   overflow-y: auto;
 }
 
-.trainings-height .p-paginator {
+.treetable-height .p-paginator {
   position: sticky;
   bottom: 0;
 }
 
 // height adjustment for members-table
-.members-height .p-datatable-table-container {
+.table-height .p-datatable-table-container {
   height: 600px;
   overflow-y: auto;
 }
 
-.members-height .p-paginator {
+.table-height .p-paginator {
   position: sticky;
   bottom: 0;
 }

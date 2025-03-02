@@ -76,9 +76,15 @@
         }
       }
       @if (showEdit || showDelete) {
-        <td>
+        <td class="text-center">
           @if (showEdit) {
-            <button pButton type="button" icon="pi pi-pencil" class="p-button-sm p-button-text" (click)="onEdit(rowData)"></button>
+            <button
+              pButton
+              type="button"
+              icon="pi pi-pencil"
+              class="p-button-sm p-button-text text-emerald-500"
+              (click)="onEdit(rowData)"
+            ></button>
           }
           @if (showDelete) {
             <button

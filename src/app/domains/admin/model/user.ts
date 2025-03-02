@@ -1,8 +1,7 @@
 import { Role } from './role';
-import { Address } from './address';
 
 export interface User {
-  id?: number;
+  id?: string;
   firstname: string;
   lastname: string;
   email: string;
@@ -10,5 +9,4 @@ export interface User {
   roles: Role[];
   birthdate: Date | null;
   created?: Date;
-  address?: Address;
 }

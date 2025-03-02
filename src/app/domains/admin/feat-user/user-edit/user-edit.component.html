@@ -2,7 +2,7 @@
   header="{{ 'admin.user.edit.title' | translate }}"
   [modal]="true"
   [(visible)]="visible"
-  [style]="{ width: '40rem', height: '40rem', minWidth: '600px', minHeight: '450px' }"
+  [style]="{ width: '40rem', height: '30rem', minWidth: '600px', minHeight: '450px' }"
   (onHide)="cancel()"
 >
   <sf-user-form (submitUser)="update($event)" (cancelUser)="cancel()" [user]="user" />

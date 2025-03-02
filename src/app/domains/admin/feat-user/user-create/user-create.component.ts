@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserFormComponent } from '../user-form/user-form.component';
 import { User } from '../../model/user';
 import { UserStore } from '../../data/user.store';
+import { UpdateMessage } from '../../../../shared/model/update-message';
 
 @Component({
   selector: 'sf-user-create',
@@ -15,19 +16,22 @@ import { UserStore } from '../../data/user.store';
 export class UserCreateComponent {
   @Input() visible: boolean = false;
   @Output() showCreateDialog = new EventEmitter<boolean>();
+  @Output() showMessage = new EventEmitter<UpdateMessage>();
   @ViewChild(UserFormComponent) userFormComponent!: UserFormComponent;
+
   userStore = inject(UserStore);
 
   create(user: User) {
-    user.id = this.getRandomInt(3, 100);
+    user.id = crypto.randomUUID();
     this.userStore.addUser(user);
 
     this.visible = false;
     this.showCreateDialog.emit(false);
-  }
 
-  getRandomInt(min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    this.showMessage.emit({
+      severity: 'success',
+      message: 'admin.user.messages.created',
+    });
   }
 
   cancel() {

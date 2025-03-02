@@ -31,7 +31,7 @@ export const UserStore = signalStore(
       addUser(user: User): void {
         patchState(state, { users: [...state.users(), user] });
       },
-      removeUser(userId: number | undefined): void {
+      removeUser(userId: string | undefined): void {
         if (userId) {
           patchState(state, { users: state.users().filter((user) => user.id !== userId) });
         }

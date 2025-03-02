@@ -99,6 +99,11 @@
         "message": "Are you sure you want to delete this user?",
         "ok": "Delete",
         "cancel": "Cancel"
+      },
+      "messages": {
+        "created": "User has been created",
+        "updated": "User has been updated",
+        "deleted": "User has been deleted"
       }
     }
   },
@@ -207,7 +212,7 @@
       "edit": {
         "title": "Edit Lesson",
         "tabDetails": "Details",
-        "tabMaterials": "Materials",
+        "tabMaterials": "Materials"
       },
       "create": {
         "title": "Create Lesson",

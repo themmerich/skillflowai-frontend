@@ -144,4 +144,11 @@ export class TreeTableComponent implements OnInit {
     }
     return this.columns.length;
   }
+
+  getChildRowStyle(rowData: any) {
+    if (rowData.type === 'lesson') {
+      return 'text-primary';
+    }
+    return '';
+  }
 }
