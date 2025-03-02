@@ -170,6 +170,7 @@
     "name": "Name",
     "description": "Description",
     "defaultInterval": "Interval",
+    "rating": "Rating",
     "lessons": "Lessons",
     "numberOfQuestions": "Number of Questions",
     "numberOfCorrectQuestions": "Number of correct Questions",

@@ -49,7 +49,8 @@ export class TrainingListComponent {
   columns = [
     { field: 'name', header: 'training.name', type: 'string', sort: true, headerStyle: 'width: 30%' },
     { field: 'description', header: 'training.description', type: 'string', sort: true, headerStyle: 'width: 30%' },
-    { field: 'interval', header: 'training.defaultInterval', type: 'option', sort: false, headerStyle: 'width: 20%' },
+    { field: 'interval', header: 'training.defaultInterval', type: 'option', sort: false, headerStyle: 'width: 15%' },
+    { field: 'rating', header: 'training.rating', type: 'rating', sort: false, headerStyle: 'width: 15%' },
   ];
 
   convertTrainingToTreeNode(data?: Training[]): TreeNode[] {
@@ -61,6 +62,7 @@ export class TrainingListComponent {
           name: item.name,
           description: item.description,
           interval: item.defaultInterval,
+          rating: item.rating,
           showEdit: true,
           type: 'training',
           prefix: 'training',
@@ -80,6 +82,7 @@ export class TrainingListComponent {
         name: item.name,
         description: item.description,
         interval: null,
+        rating: null,
         showEdit: true,
         type: 'lesson',
         prefix: 'training.lesson',

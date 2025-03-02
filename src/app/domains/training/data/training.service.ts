@@ -22,6 +22,7 @@ export class TrainingService {
         name: 'Sicherheitsschulung 1',
         description: 'Die erste ihrer Art',
         defaultInterval: { id: '8a2a4f3b-45ae-4132-b89d-fb2d38e6ba00', name: 'Alle 5 Jahre' } as Interval,
+        rating: 5,
         lessons: [
           {
             id: '48154c23-b8b2-45ec-b120-6e45773a3f11',
@@ -78,6 +79,7 @@ export class TrainingService {
         name: 'Sicherheitsschulung 2',
         description: 'Die zweite ihrer Art',
         defaultInterval: { id: 'ed1ef0fa-6081-4f9c-bb40-65aab221a873', name: 'Alle 6 Monate' } as Interval,
+        rating: 3,
         lessons: [
           {
             id: 'f48255bc-994a-4fc8-bbf3-fa9df656af83',
@@ -96,6 +98,7 @@ export class TrainingService {
         name: 'Sicherheitsschulung 3',
         description: 'Die dritte ihrer Art',
         defaultInterval: { id: 'ed1ef0fa-6081-4f9c-bb40-65aab221a873', name: 'Alle 6 Monate' } as Interval,
+        rating: 3.5,
         lessons: [],
         notes: 'Dies ist eine erweiterte Sicherheitsüberprüfung, die nur der Einsatzleiter durchführen muss.',
         created: new Date(),

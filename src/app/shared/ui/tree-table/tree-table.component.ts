@@ -8,6 +8,8 @@ import { TableModule } from 'primeng/table';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { ConfirmationService, SortMeta, TreeNode } from 'primeng/api';
 import { TreeTableModule } from 'primeng/treetable';
+import { Rating } from 'primeng/rating';
+import { FormsModule } from '@angular/forms';
 
 interface Column {
   field: string;
@@ -29,6 +31,8 @@ interface Column {
     TranslatePipe,
     TreeTableModule,
     NgClass,
+    Rating,
+    FormsModule,
   ],
   templateUrl: './tree-table.component.html',
   styleUrl: './tree-table.component.scss',

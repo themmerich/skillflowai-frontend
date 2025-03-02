@@ -170,6 +170,7 @@
     "name": "Name",
     "description": "Beschreibung",
     "defaultInterval": "Zeitraum",
+    "rating": "Bewertung",
     "lessons": "Lektionen",
     "numberOfQuestions": "Anzahl Fragen",
     "numberOfCorrectQuestions": "Anzahl nötiger korrekter Antworten",

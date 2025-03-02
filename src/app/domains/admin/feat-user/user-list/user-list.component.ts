@@ -1,7 +1,6 @@
 import { Component, inject, signal, Signal } from '@angular/core';
 import { TableComponent } from '@ui/table/table.component';
 import { User } from '../../model/user';
-import { Button } from 'primeng/button';
 import { UserCreateComponent } from '../user-create/user-create.component';
 import { UserEditComponent } from '../user-edit/user-edit.component';
 import { UserStore } from '../../data/user.store';
@@ -14,7 +13,7 @@ import { UpdateMessage } from '../../../../shared/model/update-message';
 
 @Component({
   selector: 'sf-user-list',
-  imports: [TableComponent, Button, UserCreateComponent, UserEditComponent, Divider, TranslatePipe, Toast, ToolbarComponent],
+  imports: [TableComponent, UserCreateComponent, UserEditComponent, Divider, TranslatePipe, Toast, ToolbarComponent],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss',
   providers: [MessageService],

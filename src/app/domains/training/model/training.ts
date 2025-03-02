@@ -8,5 +8,6 @@ export interface Training {
   defaultInterval?: Interval | null;
   notes?: string;
   lessons: Lesson[];
+  rating?: number;
   created?: Date;
 }
