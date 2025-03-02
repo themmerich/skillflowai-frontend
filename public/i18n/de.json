@@ -147,6 +147,11 @@
           "invalid": "E-Mail ist nicht valide."
         }
       },
+      "messages": {
+        "created": "Mitglied wurde hinzugefügt",
+        "updated": "Mitglied wurde aktualisiert",
+        "deleted": "Mitglied wurde gelöscht"
+      },
       "delete": {
         "title": "Mitglied löschen",
         "message": "Sind Sie sicher, dass Sie dieses Mitglied löschen möchten?",
@@ -158,8 +163,8 @@
   "training": {
     "name": "Name",
     "description": "Beschreibung",
-    "interval": "Zeitraum",
-    "materials": "Materialien",
+    "defaultInterval": "Zeitraum",
+    "lessons": "Lektionen",
     "numberOfQuestions": "Anzahl Fragen",
     "numberOfCorrectQuestions": "Anzahl nötiger korrekter Antworten",
     "notes": "Notizen",
@@ -169,14 +174,19 @@
     "edit": {
       "title": "Schulung bearbeiten",
       "tabDetails": "Details",
-      "tabMaterials": "Materialien",
+      "tabLessons": "Lektionen",
       "tabQuestions": "Fragen"
     },
     "create": {
       "title": "Schulung anlegen",
       "tabDetails": "Details",
-      "tabMaterials": "Materialien",
+      "tabLessons": "Lektionen",
       "tabQuestions": "Fragen"
+    },
+    "messages": {
+      "created": "Schulung wurde hinzugefügt",
+      "updated": "Schulung wurde aktualisiert",
+      "deleted": "Schulung wurde gelöscht"
     },
     "error": {
       "name": {
@@ -188,6 +198,31 @@
       "message": "Sind Sie sicher, dass Sie diese Schulung löschen möchten?",
       "ok": "Löschen",
       "cancel": "Abbrechen"
+    },
+    "lesson": {
+      "name": "Name",
+      "description": "Beschreibung",
+      "notes": "Notizen",
+      "edit": {
+        "title": "Lektion bearbeiten",
+        "tabDetails": "Details",
+        "tabMaterials": "Materialien"
+      },
+      "create": {
+        "title": "Lektion anlegen",
+        "tabDetails": "Details",
+        "tabMaterials": "Materialien"
+      },
+      "messages": {
+        "updated": "Lektion wurde aktualisiert",
+        "deleted": "Lektion wurde gelöscht"
+      },
+      "delete": {
+        "title": "Lektion löschen",
+        "message": "Sind Sie sicher, dass Sie diese Lektion löschen möchten?",
+        "ok": "Löschen",
+        "cancel": "Abbrechen"
+      }
     },
     "material": {
       "name": "Name",

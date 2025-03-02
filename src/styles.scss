@@ -10,13 +10,35 @@
   @tailwind utilities;
 }
 
-// height adjustment for materials-table
-.materials-height .p-datatable-table-container {
-  height: 435px;
+// height adjustments for trainings-treetable
+.trainings-height .p-treetable-wrapper {
+  height: 600px;
   overflow-y: auto;
 }
 
-.materials-height .p-paginator {
+.trainings-height .p-paginator {
+  position: sticky;
+  bottom: 0;
+}
+
+// height adjustment for members-table
+.members-height .p-datatable-table-container {
+  height: 600px;
+  overflow-y: auto;
+}
+
+.members-height .p-paginator {
+  position: sticky;
+  bottom: 0;
+}
+
+// height adjustment for members-table
+.lessons-height .p-datatable-table-container {
+  height: 430px;
+  overflow-y: auto;
+}
+
+.lessons-height .p-paginator {
   position: sticky;
   bottom: 0;
 }

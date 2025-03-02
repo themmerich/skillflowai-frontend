@@ -5,8 +5,7 @@ import { Observable, of } from 'rxjs';
 import { Training } from '../model/training';
 import { Interval } from '../model/interval';
 import { Material } from '../model/material';
-import { Question } from '../model/question';
-import { Answer } from '../model/answer';
+import { Lesson } from '../model/lesson';
 
 @Injectable({
   providedIn: 'root',
@@ -19,119 +18,85 @@ export class TrainingService {
     //return this.http.get<Training[]>(this.apiUrl + '/training');
     return of([
       {
-        id: 1,
+        id: 'e9e34d21-7ec1-497a-a5fb-c64261963ebc',
         name: 'Sicherheitsschulung 1',
         description: 'Die erste ihrer Art',
-        interval: { id: 1, name: 'Alle 5 Jahre' } as Interval,
-        materials: [
+        defaultInterval: { id: '8a2a4f3b-45ae-4132-b89d-fb2d38e6ba00', name: 'Alle 5 Jahre' } as Interval,
+        lessons: [
           {
-            id: 1,
-            name: 'Schulungsunterlagen 1',
-            description: 'Ein paar Unterlagen zum Thema',
-            type: 'pdf',
-          } as Material,
+            id: '48154c23-b8b2-45ec-b120-6e45773a3f11',
+            name: 'Teil 1',
+            description: 'Die erste ihrer Art',
+            materials: [
+              {
+                id: '09b7aa23-76a4-4e76-95a6-eb377ee5feae',
+                name: 'Schulungsunterlagen 1',
+                description: 'Ein paar Unterlagen zum Thema',
+                type: 'pdf',
+              } as Material,
+              {
+                id: '969e4862-28e4-48d4-ae2a-aa5f63361e03',
+                name: 'Schulungsunterlagen 2',
+                description: 'Mehr Unterlagen',
+                type: 'word',
+              } as Material,
+              {
+                id: '3958f428-0251-48b3-b124-d073ebe1191d',
+                name: 'Schulungsvideo',
+                description: 'Ein erstes Video zum Thema',
+                type: 'avi',
+              } as Material,
+              {
+                id: '3a12d237-8fb0-4181-ba53-beab4d71708d',
+                name: 'Externes Schulungsvideo',
+                description: 'Von YouTube',
+                type: 'youtube',
+              } as Material,
+            ],
+            notes: 'some notes to lesson 1',
+          } as Lesson,
           {
-            id: 2,
-            name: 'Schulungsunterlagen 2',
-            description: 'Mehr Unterlagen',
-            type: 'word',
-          } as Material,
-          {
-            id: 3,
-            name: 'Schulungsvideo',
-            description: 'Ein erstes Video zum Thema',
-            type: 'avi',
-          } as Material,
-          {
-            id: 4,
-            name: 'Externes Schulungsvideo',
-            description: 'Von YouTube',
-            type: 'youtube',
-          } as Material,
-          {
-            id: 5,
-            name: 'Schulungsbild',
-            description: 'Ein Schaubild zum Thema',
-            type: 'jpg',
-          } as Material,
+            id: 'f55e7616-154a-45b7-abd0-26cf8ec2c02d',
+            name: 'Teil 2',
+            description: 'Die zweite ihrer Art',
+            materials: [
+              {
+                id: '15653324-0f9f-4d7f-9088-0e2af72962e8',
+                name: 'Schulungsbild',
+                description: 'Ein Schaubild zum Thema',
+                type: 'jpg',
+              } as Material,
+            ],
+            notes: 'some notes to lesson 1',
+          } as Lesson,
         ],
-        questions: [
-          {
-            id: 1,
-            question: 'Wie legt man in Angular eine neue Komponente an?',
-            answers: [
-              {
-                id: 11,
-                answer: 'ng generate component my-component',
-                isCorrect: true,
-              } as Answer,
-              {
-                id: 12,
-                answer: 'ng g c my-component',
-                isCorrect: true,
-              } as Answer,
-              {
-                id: 13,
-                answer: 'ng create my-component',
-                isCorrect: false,
-              } as Answer,
-            ],
-          } as Question,
-          {
-            id: 2,
-            question: 'Was kann man nutzen um Modul-Grenzen zu sichern?',
-            answers: [
-              {
-                id: 14,
-                answer: 'Den Sheriff',
-                isCorrect: true,
-              } as Answer,
-              {
-                id: 15,
-                answer: 'Einen Nx Workspace',
-                isCorrect: true,
-              } as Answer,
-              {
-                id: 16,
-                answer: 'Einen Hund',
-                isCorrect: false,
-              } as Answer,
-            ],
-          } as Question,
-          {
-            id: 3,
-            question: 'Was ist der Unterschied zwischen einem Subject und einem Behavior Subject?',
-            answers: [
-              {
-                id: 17,
-                answer: 'Keine Ahnung!',
-                isCorrect: false,
-              } as Answer,
-              {
-                id: 18,
-                answer: 'Ein Behavior Subject hat immer einen Wert.',
-                isCorrect: true,
-              } as Answer,
-              {
-                id: 19,
-                answer: 'Ein Subject hat immer einen Wert.',
-                isCorrect: false,
-              } as Answer,
-            ],
-          } as Question,
-        ],
-        numberOfQuestions: 5,
-        numberOfCorrectQuestions: 3,
         notes: 'Dies ist eine standardmäßige Sicherheitsüberprüfung, die regelmäßig durchgeführt werden sollte.',
         created: new Date(),
       } as Training,
       {
-        id: 2,
+        id: '1d70ca1e-b61c-4182-8467-ccc860366f37',
         name: 'Sicherheitsschulung 2',
         description: 'Die zweite ihrer Art',
-        interval: { id: 4, name: 'Alle 6 Monate' } as Interval,
-        numberOfQuestions: 10,
-        numberOfCorrectQuestions: 7,
+        defaultInterval: { id: 'ed1ef0fa-6081-4f9c-bb40-65aab221a873', name: 'Alle 6 Monate' } as Interval,
+        lessons: [
+          {
+            id: 'f48255bc-994a-4fc8-bbf3-fa9df656af83',
+            name: 'Teil 21',
+            description: 'Die erste ihrer Art von Schulung 2',
+            materials: [],
+            notes: '',
+            created: new Date(),
+          } as Lesson,
+        ],
+        notes: 'Dies ist eine erweiterte Sicherheitsüberprüfung, die nur der Einsatzleiter durchführen muss.',
+        created: new Date(),
+      } as Training,
+      {
+        id: '49a807dc-9ef2-4aba-99b8-8debc9e46e64',
+        name: 'Sicherheitsschulung 3',
+        description: 'Die dritte ihrer Art',
+        defaultInterval: { id: 'ed1ef0fa-6081-4f9c-bb40-65aab221a873', name: 'Alle 6 Monate' } as Interval,
+        lessons: [],
         notes: 'Dies ist eine erweiterte Sicherheitsüberprüfung, die nur der Einsatzleiter durchführen muss.',
         created: new Date(),
       } as Training,

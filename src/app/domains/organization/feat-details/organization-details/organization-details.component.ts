@@ -89,6 +89,9 @@ export class OrganizationDetailsComponent implements OnInit {
     };
     this.orgStore.update(org);
 
+    this.orgForm.markAsPristine();
+    this.orgForm.markAsUntouched();
+
     this.translateService.get(['shared.message.success', 'organization.details.messages.updated']).subscribe((translations) => {
       this.messageService.add({
         severity: 'success',

@@ -6,7 +6,7 @@ import { OptionNamePipe } from '@ui/pipes/option.pipe';
 import { OptionNamesPipe } from '@ui/pipes/options.pipe';
 import { TableModule } from 'primeng/table';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { ConfirmationService, SortMeta } from 'primeng/api';
+import { ConfirmationService, SortMeta, TreeNode } from 'primeng/api';
 import { TreeTableModule } from 'primeng/treetable';
 
 interface Column {
@@ -87,15 +87,15 @@ export class TreeTableComponent implements OnInit {
 
   confirmDelete(event: any) {
     this.translateService
-      .get([this.prefix + '.delete.title', this.prefix + '.delete.message', this.prefix + '.delete.ok', this.prefix + '.delete.cancel'])
+      .get([event.prefix + '.delete.title', event.prefix + '.delete.message', event.prefix + '.delete.ok', event.prefix + '.delete.cancel'])
       .subscribe((translations) => {
         this.confirmationService.confirm({
-          message: translations[this.prefix + '.delete.message'],
-          header: translations[this.prefix + '.delete.title'],
+          message: translations[event.prefix + '.delete.message'],
+          header: translations[event.prefix + '.delete.title'],
           icon: 'pi pi-exclamation-triangle',
-          acceptLabel: translations[this.prefix + '.delete.ok'],
+          acceptLabel: translations[event.prefix + '.delete.ok'],
           acceptIcon: 'pi pi-check',
-          rejectLabel: translations[this.prefix + '.delete.cancel'],
+          rejectLabel: translations[event.prefix + '.delete.cancel'],
           rejectIcon: 'pi pi-times',
           accept: () => this.onDelete(event),
           key: this.prefix + '.key',
@@ -109,6 +109,10 @@ export class TreeTableComponent implements OnInit {
 
   onEdit(event: any) {
     this.edit.emit(event);
+  }
+
+  rowTrackBy(index: number, node: TreeNode) {
+    return node.key;
   }
 
   getIcon(value: string): string {
@@ -132,5 +136,12 @@ export class TreeTableComponent implements OnInit {
       default:
         return '';
     }
+  }
+
+  getColumnLength() {
+    if (this.showEdit || this.showDelete) {
+      return this.columns.length + 1;
+    }
+    return this.columns.length;
   }
 }

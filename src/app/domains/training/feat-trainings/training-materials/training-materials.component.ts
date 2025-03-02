@@ -1,10 +1,10 @@
 import { Component, inject, Input, OnChanges } from '@angular/core';
-import { Training } from '../../model/training';
 import { TableComponent } from '@ui/table/table.component';
 import { Material } from '../../model/material';
 import { TrainingStore } from '../../data/training.store';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ToolbarComponent } from '@ui/toolbar/toolbar.component';
+import { Lesson } from '../../model/lesson';
 
 @Component({
   selector: 'sf-training-materials',
@@ -13,7 +13,7 @@ import { ToolbarComponent } from '@ui/toolbar/toolbar.component';
   styleUrl: './training-materials.component.scss',
 })
 export class TrainingMaterialsComponent implements OnChanges {
-  @Input() training!: Training;
+  @Input() lesson!: Lesson;
   trainingStore = inject(TrainingStore);
   data?: Material[];
 
@@ -24,15 +24,15 @@ export class TrainingMaterialsComponent implements OnChanges {
   ];
 
   ngOnChanges() {
-    if (this.training) {
-      this.data = this.training.materials;
+    if (this.lesson) {
+      this.data = this.lesson.materials;
     }
   }
 
   onDelete(material: Material) {
-    this.data = this.training.materials.filter((m) => m.id !== material.id);
-    this.training.materials = this.data;
-    this.trainingStore.updateTraining(this.training);
+    this.data = this.lesson.materials.filter((m) => m.id !== material.id);
+    this.lesson.materials = this.data;
+    // TODO: this.trainingStore.updateTraining(this.training);
   }
 
   addMaterial() {

@@ -1,18 +1,25 @@
 <div class="bg-surface-0 dark:bg-surface-900 p-8 shadow rounded-border flex-auto h-full">
   <div class="text-surface-900 dark:text-surface-0 font-semibold text-lg mt-4">{{ 'organization.member.list.title' | translate }}</div>
   <p-divider />
+  <p-toast />
+  <sf-toolbar [showAdd]="true" (addItem)="showCreateDialog.set(true)" />
   <sf-table
     [data]="data()"
     [columns]="columns"
     [prefix]="'organization.member'"
     [showDelete]="true"
     [showEdit]="true"
+    [customClass]="'members-height'"
     (delete)="onDelete($event)"
     (edit)="onEdit($event)"
   />
-  <div class="flex justify-end mt-4">
-    <p-button icon="pi pi-plus" [rounded]="true" (click)="addMember()" />
-    <sf-member-create [visible]="showCreateDialog" (showCreateDialog)="onHideCreateDialog($event)" />
-    <sf-member-edit [visible]="showEditDialog" [member]="selectedMember" (showEditDialog)="onHideEditDialog($event)" />
-  </div>
+
+  <!-- dialogs -->
+  <sf-member-create [visible]="showCreateDialog()" (showCreateDialog)="showCreateDialog.set($event)" (showMessage)="showMessage($event)" />
+  <sf-member-edit
+    [visible]="showEditDialog()"
+    [member]="selectedMember"
+    (showEditDialog)="showEditDialog.set($event)"
+    (showMessage)="showMessage($event)"
+  />
 </div>

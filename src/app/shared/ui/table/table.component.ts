@@ -7,6 +7,8 @@ import { ButtonDirective } from 'primeng/button';
 import { ConfirmDialog } from 'primeng/confirmdialog';
 import { OptionNamePipe } from '@ui/pipes/option.pipe';
 import { OptionNamesPipe } from '@ui/pipes/options.pipe';
+import { Checkbox } from 'primeng/checkbox';
+import { FormsModule } from '@angular/forms';
 
 interface Column {
   field: string;
@@ -28,6 +30,8 @@ interface Column {
     OptionNamesPipe,
     OptionNamePipe,
     NgClass,
+    Checkbox,
+    FormsModule,
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
@@ -39,7 +43,9 @@ export class TableComponent implements OnInit {
   @Input() showDelete: boolean = false;
   @Input() prefix: string = '';
   @Input() customClass: string = '';
+  @Input() reorder = false;
 
+  @Output() rowReorder = new EventEmitter<any>();
   @Output() rowSelect = new EventEmitter<any>();
   @Output() delete = new EventEmitter<any>();
   @Output() edit = new EventEmitter<any>();
@@ -82,6 +88,10 @@ export class TableComponent implements OnInit {
   onRowSelect(event: any) {
     this.selectedData = event.data;
     this.rowSelect.emit(event.data);
+  }
+
+  onRowReorder(event: any) {
+    this.rowReorder.emit(event);
   }
 
   confirmDelete(event: any) {
@@ -127,5 +137,16 @@ export class TableComponent implements OnInit {
       default:
         return '';
     }
+  }
+
+  getColumnLength() {
+    let additionalLength = 0;
+    if (this.showEdit || this.showDelete) {
+      additionalLength++;
+    }
+    if (this.reorder) {
+      additionalLength++;
+    }
+    return this.columns.length + additionalLength;
   }
 }

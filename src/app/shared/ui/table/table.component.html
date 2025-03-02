@@ -14,8 +14,10 @@
   selectionMode="single"
   [(selection)]="selectedData"
   (onRowSelect)="onRowSelect($event)"
+  (onRowReorder)="onRowReorder($event)"
   metaKeySelection="false"
   [ngClass]="customClass"
+  [showGridlines]="true"
 >
   <!--ng-template #caption>
     <div class="flex">
@@ -33,9 +35,14 @@
 
   <ng-template #header>
     <tr>
+      @if (reorder) {
+        <th style="width: 3rem"></th>
+      }
       @for (col of columns; track col.field) {
         @if (col.sort) {
           <th pSortableColumn="{{ col.field }}">{{ col.header | translate }} <p-sortIcon field="{{ col.field }}" /></th>
+        } @else if (reorder) {
+          <th pReorderableColumn>{{ col.header | translate }}</th>
         } @else {
           <th>{{ col.header | translate }}</th>
         }
@@ -46,8 +53,13 @@
     </tr>
   </ng-template>
 
-  <ng-template #body let-rowData let-columns="columns">
-    <tr [pSelectableRow]="rowData">
+  <ng-template #body let-rowData let-columns="columns" let-index="rowIndex">
+    <tr [pSelectableRow]="rowData" [pReorderableRow]="index">
+      @if (reorder) {
+        <td>
+          <span class="pi pi-bars" pReorderableRowHandle></span>
+        </td>
+      }
       @for (col of columns; track col.field) {
         @if (col.type === 'date') {
           <td>{{ rowData[col.field] | date: 'dd.MM.yyyy' }}</td>
@@ -57,6 +69,8 @@
           <td>{{ rowData[col.field] | optionNames }}</td>
         } @else if (col.type === 'icon') {
           <td><i [class]="getIcon(rowData[col.field])"></i></td>
+        } @else if (col.type === 'boolean') {
+          <td class="text-center"><p-checkbox [binary]="true" [ngModel]="rowData[col.field]" disabled /></td>
         } @else {
           <td>{{ rowData[col.field] }}</td>
         }
@@ -82,7 +96,7 @@
 
   <ng-template #emptymessage>
     <tr>
-      <td colspan="5">{{ emptyMsg | translate }}</td>
+      <td [attr.colspan]="getColumnLength()">{{ emptyMsg | translate }}</td>
     </tr>
   </ng-template>
   <p-confirmDialog [key]="key" />

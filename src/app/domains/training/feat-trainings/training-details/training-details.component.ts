@@ -9,6 +9,7 @@ import { FormSelectComponent } from '@ui/form-select/form-select.component';
 import { Subject, takeUntil } from 'rxjs';
 import { IntervalService } from '../../data/interval.service';
 import { Interval } from '../../model/interval';
+import { TrainingStore } from '../../data/training.store';
 
 @Component({
   selector: 'sf-training-details',
@@ -17,31 +18,29 @@ import { Interval } from '../../model/interval';
   styleUrl: './training-details.component.scss',
 })
 export class TrainingDetailsComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() training!: Training;
+  @Input() trainingId!: string;
   @Output() submitTraining = new EventEmitter<Training>();
   @Output() cancelTraining = new EventEmitter<void>();
 
+  training: Training | undefined;
   intervalService = inject(IntervalService);
+  trainingStore = inject(TrainingStore);
   availableIntervals: Interval[] = [];
   private destroy$ = new Subject<void>();
 
   form = new FormGroup({
     name: new FormControl<string>('', { nonNullable: true, validators: Validators.required }),
     description: new FormControl<string>('', { nonNullable: true }),
-    interval: new FormControl<Interval | null>(null),
-    numberOfQuestions: new FormControl<number | null>(null),
-    numberOfCorrectQuestions: new FormControl<number | null>(null),
+    defaultInterval: new FormControl<Interval | null>(null),
     notes: new FormControl<string>('', { nonNullable: true }),
   });
 
   ngOnChanges() {
+    this.form.reset();
+    this.training = this.trainingId ? this.trainingStore.loadById(this.trainingId) : this.createNewTraining();
+
     if (this.training) {
-      this.form.reset();
       this.form.patchValue(this.training);
-    } else {
-      this.form.reset();
-      this.form.controls.name.markAsPristine();
-      this.form.controls.name.markAsUntouched();
     }
   }
 
@@ -63,12 +62,22 @@ export class TrainingDetailsComponent implements OnInit, OnChanges, OnDestroy {
     const formValue = this.form.getRawValue();
     const newTraining: Training = {
       ...formValue,
-      materials: this.training.materials,
+      id: this.training?.id,
+      lessons: this.training?.lessons || [],
     };
     this.submitTraining.emit(newTraining);
   }
 
   onCancel() {
     this.cancelTraining.emit();
+  }
+
+  createNewTraining(): Training {
+    return {
+      name: '',
+      description: '',
+      defaultInterval: null,
+      lessons: [],
+    } as Training;
   }
 }

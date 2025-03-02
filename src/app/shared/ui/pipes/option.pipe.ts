@@ -10,6 +10,9 @@ interface Option {
 })
 export class OptionNamePipe implements PipeTransform {
   transform(option: Option): string {
+    if (!option) {
+      return '';
+    }
     return option.name;
   }
 }

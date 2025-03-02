@@ -8,21 +8,21 @@
   <p-tabs value="0">
     <p-tablist>
       <!-- tab header -->
-      <p-tab value="0">{{ 'training.create.tabDetails' | translate }}</p-tab>
-      <p-tab value="1">{{ 'training.create.tabMaterials' | translate }}</p-tab>
-      <p-tab value="2">{{ 'training.create.tabQuestions' | translate }}</p-tab>
+      <p-tab value="0">{{ 'training.edit.tabDetails' | translate }}</p-tab>
+      <p-tab value="1">{{ 'training.edit.tabLessons' | translate }}</p-tab>
+      <p-tab value="2">{{ 'training.edit.tabQuestions' | translate }}</p-tab>
     </p-tablist>
 
     <!-- tab panels -->
     <p-tabpanels>
       <p-tabpanel value="0">
-        <sf-training-details (submitTraining)="update($event)" (cancelTraining)="cancel()" [training]="training" />
+        <sf-training-details (submitTraining)="update($event)" (cancelTraining)="cancel()" [trainingId]="trainingId" />
       </p-tabpanel>
       <p-tabpanel value="1">
-        <sf-training-materials [training]="training" />
+        <sf-training-lessons [trainingId]="trainingId" (deletedLesson)="deleteLesson()" (reorderedLesson)="reorderLesson()" />
       </p-tabpanel>
       <p-tabpanel value="2">
-        <sf-training-questions [training]="training" />
+        <!--sf-training-questions [training]="training" /-->
       </p-tabpanel>
     </p-tabpanels>
   </p-tabs>

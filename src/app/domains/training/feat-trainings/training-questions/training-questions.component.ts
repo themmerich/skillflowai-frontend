@@ -23,7 +23,7 @@ export class TrainingQuestionsComponent implements OnChanges {
 
   ngOnChanges() {
     if (this.training) {
-      this.data = this.convertQuestionToTreeNode(this.training.questions);
+      // TODO: this.data = this.convertQuestionToTreeNode(this.training.questions);
     }
   }
 

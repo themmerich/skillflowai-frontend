@@ -1,18 +1,37 @@
 <div class="bg-surface-0 dark:bg-surface-900 p-8 shadow rounded-border flex-auto h-full">
   <div class="dark:text-surface-0 font-semibold text-lg mt-4">{{ 'training.list.title' | translate }}</div>
   <p-divider />
-  <sf-table
+  <p-toast />
+  <sf-toolbar [showAdd]="true" (addItem)="showTrainingCreateDialog.set(true)" />
+  <sf-tree-table
     [data]="data()"
     [columns]="columns"
     [prefix]="'training'"
+    [customClass]="'trainings-height'"
     [showDelete]="true"
     [showEdit]="true"
     (delete)="onDelete($event)"
     (edit)="onEdit($event)"
   />
-  <div class="flex justify-end mt-4">
-    <p-button icon="pi pi-plus" [rounded]="true" (click)="addTraining()" />
-    <sf-training-create [visible]="showCreateDialog" [training]="createNewTraining()" (showCreateDialog)="onHideCreateDialog($event)" />
-    <sf-training-edit [visible]="showEditDialog" [training]="selectedTraining" (showEditDialog)="onHideEditDialog($event)" />
-  </div>
+
+  <!-- training dialogs -->
+  <sf-training-create
+    [visible]="showTrainingCreateDialog()"
+    (showCreateDialog)="showTrainingCreateDialog.set($event)"
+    (showMessage)="showMessage($event)"
+  />
+  <sf-training-edit
+    [visible]="showTrainingEditDialog()"
+    [trainingId]="selectedTrainingId()"
+    (showEditDialog)="showTrainingEditDialog.set($event)"
+    (showMessage)="showMessage($event)"
+  />
+  <!-- lesson dialogs -->
+  <sf-lesson-edit
+    [visible]="showLessonEditDialog()"
+    [lessonId]="selectedLessonId()"
+    [trainingId]="selectedTrainingId()"
+    (showLessonEditDialog)="showLessonEditDialog.set($event)"
+    (showMessage)="showMessage($event)"
+  />
 </div>

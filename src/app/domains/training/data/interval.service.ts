@@ -15,23 +15,23 @@ export class IntervalService {
     //return this.http.get<Role[]>(this.apiUrl + '/user');
     return of([
       {
-        id: 1,
+        id: '8a2a4f3b-45ae-4132-b89d-fb2d38e6ba00',
         name: 'Alle 5 Jahre',
       } as Interval,
       {
-        id: 2,
+        id: '6b1ccb97-040b-427d-bb34-d12302f01f0e',
         name: 'Alle 3 Jahre',
       } as Interval,
       {
-        id: 3,
+        id: 'b331c754-9929-4395-aa26-a79d4b2b14e7',
         name: 'Alle 12 Monate',
       } as Interval,
       {
-        id: 4,
+        id: '475c9311-0bf5-4c06-9a9b-004e4e436a64',
         name: 'Alle 6 Monate',
       } as Interval,
       {
-        id: 5,
+        id: 'ed1ef0fa-6081-4f9c-bb40-65aab221a873',
         name: 'Alle 3 Monate',
       } as Interval,
     ]);

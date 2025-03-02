@@ -4,6 +4,7 @@ import { MemberStore } from '../../data/member.store';
 import { Member } from '../../model/member';
 import { Dialog } from 'primeng/dialog';
 import { TranslatePipe } from '@ngx-translate/core';
+import { UpdateMessage } from '../../../../shared/model/update-message';
 
 @Component({
   selector: 'sf-member-create',
@@ -14,7 +15,9 @@ import { TranslatePipe } from '@ngx-translate/core';
 export class MemberCreateComponent {
   @Input() visible: boolean = false;
   @Output() showCreateDialog = new EventEmitter<boolean>();
+  @Output() showMessage = new EventEmitter<UpdateMessage>();
   @ViewChild(MemberFormComponent) memberFormComponent!: MemberFormComponent;
+
   memberStore = inject(MemberStore);
 
   create(member: Member) {
@@ -23,6 +26,11 @@ export class MemberCreateComponent {
 
     this.visible = false;
     this.showCreateDialog.emit(false);
+
+    this.showMessage.emit({
+      severity: 'success',
+      message: 'organization.member.messages.created',
+    });
   }
 
   getRandomInt(min: number, max: number): number {

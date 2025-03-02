@@ -73,7 +73,9 @@
 
         <!-- buttons -->
         <div>
-          <p-button type="submit" class="w-auto">{{ 'shared.button.save' | translate }}</p-button>
+          <p-button type="submit" class="w-auto" disabled="{{ !(orgForm.dirty && orgForm.valid) }}">
+            {{ 'shared.button.save' | translate }}
+          </p-button>
         </div>
       </form>
     </div>

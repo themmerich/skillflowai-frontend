@@ -5,31 +5,34 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { Training } from '../../model/training';
 import { TrainingStore } from '../../data/training.store';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from 'primeng/tabs';
-import { TrainingMaterialsComponent } from '../training-materials/training-materials.component';
+import { TrainingLessonsComponent } from '../training-lessons/training-lessons.component';
+import { UpdateMessage } from '../../../../shared/model/update-message';
 
 @Component({
   selector: 'sf-training-create',
-  imports: [Dialog, TrainingDetailsComponent, TranslatePipe, Tabs, TabList, Tab, TabPanels, TabPanel, TrainingMaterialsComponent],
+  imports: [Dialog, TrainingDetailsComponent, TranslatePipe, Tabs, TabList, Tab, TabPanels, TabPanel, TrainingLessonsComponent],
   templateUrl: './training-create.component.html',
   styleUrl: './training-create.component.scss',
 })
 export class TrainingCreateComponent {
   @Input() visible: boolean = false;
-  @Input() training!: Training;
   @Output() showCreateDialog = new EventEmitter<boolean>();
+  @Output() showMessage = new EventEmitter<UpdateMessage>();
   @ViewChild(TrainingDetailsComponent) trainingFormComponent!: TrainingDetailsComponent;
+
   trainingStore = inject(TrainingStore);
 
   create(training: Training) {
-    training.id = this.getRandomInt(3, 100);
+    training.id = crypto.randomUUID();
     this.trainingStore.addTraining(training);
 
     this.visible = false;
     this.showCreateDialog.emit(false);
-  }
 
-  getRandomInt(min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    this.showMessage.emit({
+      severity: 'success',
+      message: 'training.messages.created',
+    });
   }
 
   cancel() {
