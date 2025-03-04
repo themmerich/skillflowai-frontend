@@ -74,9 +74,13 @@
             <i [class]="getIcon(rowData[col.field])"></i>
           </td>
         } @else if (col.type === 'rating') {
-          <td class="text-center">
-            <p-rating [(ngModel)]="rowData.rating" readonly></p-rating>
-          </td>
+          @if (rowData.type === 'lesson') {
+            <td></td>
+          } @else {
+            <td class="text-center">
+              <p-rating [(ngModel)]="rowData.rating" readonly></p-rating>
+            </td>
+          }
         } @else {
           <td [class]="getChildRowStyle(rowData)">
             @if (index === 0) {

@@ -15,23 +15,13 @@
   />
 
   <!-- training dialogs -->
-  <sf-training-create
-    [visible]="showTrainingCreateDialog()"
-    (showCreateDialog)="showTrainingCreateDialog.set($event)"
-    (showMessage)="showMessage($event)"
-  />
-  <sf-training-edit
-    [visible]="showTrainingEditDialog()"
-    [trainingId]="selectedTrainingId()"
-    (showEditDialog)="showTrainingEditDialog.set($event)"
-    (showMessage)="showMessage($event)"
-  />
+  <sf-training-create [(visible)]="showTrainingCreateDialog" (showMessage)="showMessage($event)" />
+  <sf-training-edit [(visible)]="showTrainingEditDialog" [trainingId]="selectedTrainingId()" (showMessage)="showMessage($event)" />
   <!-- lesson dialogs -->
   <sf-lesson-edit
-    [visible]="showLessonEditDialog()"
+    [(visible)]="showLessonEditDialog"
     [lessonId]="selectedLessonId()"
     [trainingId]="selectedTrainingId()"
-    (showLessonEditDialog)="showLessonEditDialog.set($event)"
     (showMessage)="showMessage($event)"
   />
 </div>

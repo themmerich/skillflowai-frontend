@@ -47,9 +47,9 @@ export class TrainingListComponent {
   });
 
   columns = [
-    { field: 'name', header: 'training.name', type: 'string', sort: true, headerStyle: 'width: 30%' },
-    { field: 'description', header: 'training.description', type: 'string', sort: true, headerStyle: 'width: 30%' },
-    { field: 'interval', header: 'training.defaultInterval', type: 'option', sort: false, headerStyle: 'width: 15%' },
+    { field: 'name', header: 'training.name', type: 'string', sort: true, headerStyle: 'width: 28%' },
+    { field: 'description', header: 'training.description', type: 'string', sort: true, headerStyle: 'width: 28%' },
+    { field: 'interval', header: 'training.defaultInterval', type: 'option', sort: false, headerStyle: 'width: 19%' },
     { field: 'rating', header: 'training.rating', type: 'rating', sort: false, headerStyle: 'width: 15%' },
   ];
 

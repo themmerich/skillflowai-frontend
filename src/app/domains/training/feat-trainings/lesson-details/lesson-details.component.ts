@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, OnChanges, Output } from '@angular/core';
+import { Component, computed, effect, inject, input, output, Signal } from '@angular/core';
 import { Button } from 'primeng/button';
 import { FormInputComponent } from '@ui/form-input/form-input.component';
 import { FormTextareaComponent } from '@ui/form-textarea/form-textarea.component';
@@ -13,13 +13,13 @@ import { Lesson } from '../../model/lesson';
   templateUrl: './lesson-details.component.html',
   styleUrl: './lesson-details.component.scss',
 })
-export class LessonDetailsComponent implements OnChanges {
-  @Input() trainingId!: string;
-  @Input() lessonId!: string;
-  @Output() submitLesson = new EventEmitter<Lesson>();
-  @Output() cancelLesson = new EventEmitter<void>();
+export class LessonDetailsComponent {
+  trainingId = input<string>();
+  lessonId = input<string>();
+  lesson: Signal<Lesson> = computed(() => this.trainingStore.loadOrCreateLesson(this.lessonId()));
+  submitLesson = output<Lesson>();
+  cancelLesson = output<void>();
 
-  lesson: Lesson | undefined;
   trainingStore = inject(TrainingStore);
 
   form = new FormGroup({
@@ -28,34 +28,30 @@ export class LessonDetailsComponent implements OnChanges {
     notes: new FormControl<string>('', { nonNullable: true }),
   });
 
-  ngOnChanges() {
-    this.form.reset();
-    this.lesson = this.lessonId ? this.trainingStore.loadLessonById(this.lessonId) : this.createNewLesson();
-
-    if (this.lesson) {
-      this.form.patchValue(this.lesson);
-    }
+  constructor() {
+    effect(() => {
+      const lesson = this.lesson();
+      if (lesson) {
+        setTimeout(() => {
+          this.form.reset();
+          this.form.patchValue(lesson);
+        });
+      }
+    });
   }
 
   onSubmit() {
     const formValue = this.form.getRawValue();
+    const loadedLesson = this.lesson();
     const newLesson: Lesson = {
       ...formValue,
-      id: this.lesson?.id,
-      materials: this.lesson?.materials || [],
+      id: loadedLesson.id,
+      materials: loadedLesson.materials || [],
     };
     this.submitLesson.emit(newLesson);
   }
 
   onCancel() {
     this.cancelLesson.emit();
-  }
-
-  createNewLesson(): Lesson {
-    return {
-      name: '',
-      description: '',
-      materials: [],
-    } as Lesson;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, inject, input, model, output } from '@angular/core';
 import { Dialog } from 'primeng/dialog';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from 'primeng/tabs';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -14,16 +14,15 @@ import { UpdateMessage } from '../../../../shared/model/update-message';
   styleUrl: './lesson-edit.component.scss',
 })
 export class LessonEditComponent {
-  @Input() visible: boolean = false;
-  @Input() lessonId!: string;
-  @Input() trainingId!: string;
-  @Output() showLessonEditDialog = new EventEmitter<boolean>();
-  @Output() showMessage = new EventEmitter<UpdateMessage>();
+  visible = model.required<boolean>();
+  lessonId = input.required<string>();
+  trainingId = input.required<string>();
+  showMessage = output<UpdateMessage>();
 
   trainingStore = inject(TrainingStore);
 
   update(lesson: Lesson) {
-    const training = this.trainingStore.loadById(this.trainingId);
+    const training = this.trainingStore.loadOrCreateTraining(this.trainingId());
     if (training) {
       training.lessons = training.lessons.map((l) => {
         if (l.id === lesson.id) {
@@ -34,8 +33,7 @@ export class LessonEditComponent {
       this.trainingStore.updateTraining(training);
     }
 
-    this.visible = false;
-    this.showLessonEditDialog.emit(false);
+    this.visible.set(false);
 
     this.showMessage.emit({
       severity: 'success',
@@ -44,7 +42,6 @@ export class LessonEditComponent {
   }
 
   cancel() {
-    this.visible = false;
-    this.showLessonEditDialog.emit(false);
+    this.visible.set(false);
   }
 }

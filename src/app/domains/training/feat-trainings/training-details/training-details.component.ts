@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, computed, effect, inject, input, OnDestroy, OnInit, output, Signal } from '@angular/core';
 import { Training } from '../../model/training';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -17,14 +17,15 @@ import { TrainingStore } from '../../data/training.store';
   templateUrl: './training-details.component.html',
   styleUrl: './training-details.component.scss',
 })
-export class TrainingDetailsComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() trainingId!: string;
-  @Output() submitTraining = new EventEmitter<Training>();
-  @Output() cancelTraining = new EventEmitter<void>();
+export class TrainingDetailsComponent implements OnInit, OnDestroy {
+  trainingId = input<string>();
+  training: Signal<Training> = computed(() => this.trainingStore.loadOrCreateTraining(this.trainingId()));
+  submitTraining = output<Training>();
+  cancelTraining = output<void>();
 
-  training: Training | undefined;
   intervalService = inject(IntervalService);
   trainingStore = inject(TrainingStore);
+
   availableIntervals: Interval[] = [];
   private destroy$ = new Subject<void>();
 
@@ -35,13 +36,16 @@ export class TrainingDetailsComponent implements OnInit, OnChanges, OnDestroy {
     notes: new FormControl<string>('', { nonNullable: true }),
   });
 
-  ngOnChanges() {
-    this.form.reset();
-    this.training = this.trainingId ? this.trainingStore.loadById(this.trainingId) : this.createNewTraining();
-
-    if (this.training) {
-      this.form.patchValue(this.training);
-    }
+  constructor() {
+    effect(() => {
+      const training = this.training();
+      if (training) {
+        setTimeout(() => {
+          this.form.reset();
+          this.form.patchValue(training);
+        });
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -60,24 +64,17 @@ export class TrainingDetailsComponent implements OnInit, OnChanges, OnDestroy {
 
   onSubmit() {
     const formValue = this.form.getRawValue();
+    const loadedTraining = this.training();
     const newTraining: Training = {
       ...formValue,
-      id: this.training?.id,
-      lessons: this.training?.lessons || [],
+      id: loadedTraining.id,
+      lessons: loadedTraining.lessons || [],
+      rating: loadedTraining.rating || 0,
     };
     this.submitTraining.emit(newTraining);
   }
 
   onCancel() {
     this.cancelTraining.emit();
-  }
-
-  createNewTraining(): Training {
-    return {
-      name: '',
-      description: '',
-      defaultInterval: null,
-      lessons: [],
-    } as Training;
   }
 }

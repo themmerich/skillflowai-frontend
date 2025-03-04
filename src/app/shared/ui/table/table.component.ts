@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnChanges, Output } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { ConfirmationService, SortMeta } from 'primeng/api';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
@@ -36,7 +36,7 @@ interface Column {
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnChanges {
   @Input() data!: any;
   @Input() columns!: Column[];
   @Input() showEdit: boolean = false;
@@ -81,7 +81,7 @@ export class TableComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.key = this.prefix + '.key';
   }
 
@@ -107,7 +107,7 @@ export class TableComponent implements OnInit {
           rejectLabel: translations[this.prefix + '.delete.cancel'],
           rejectIcon: 'pi pi-times',
           accept: () => this.onDelete(event),
-          key: this.prefix + '.key',
+          key: this.key,
         });
       });
   }

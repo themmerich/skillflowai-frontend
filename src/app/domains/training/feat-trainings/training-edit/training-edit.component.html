@@ -16,10 +16,10 @@
     <!-- tab panels -->
     <p-tabpanels>
       <p-tabpanel value="0">
-        <sf-training-details (submitTraining)="update($event)" (cancelTraining)="cancel()" [trainingId]="trainingId" />
+        <sf-training-details (submitTraining)="update($event)" (cancelTraining)="cancel()" [trainingId]="trainingId()" />
       </p-tabpanel>
       <p-tabpanel value="1">
-        <sf-training-lessons [trainingId]="trainingId" (deletedLesson)="deleteLesson()" (reorderedLesson)="reorderLesson()" />
+        <sf-training-lessons [trainingId]="trainingId()" (deletedLesson)="deleteLesson()" (reorderedLesson)="reorderLesson()" />
       </p-tabpanel>
       <p-tabpanel value="2">
         <!--sf-training-questions [training]="training" /-->

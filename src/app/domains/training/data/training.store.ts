@@ -21,14 +21,24 @@ export const TrainingStore = signalStore(
       load(): void {
         trainingService.getAll().subscribe((trainings) => patchState(state, { trainings: trainings }));
       },
-      loadById(id: string): Training | undefined {
-        return state.trainings().find((training) => training.id === id);
+      loadOrCreateTraining(id: string | undefined): Training {
+        const newTraining = {
+          name: '',
+          description: '',
+          defaultInterval: null,
+          lessons: [],
+        } as Training;
+
+        if (id) {
+          const training = state.trainings().find((training) => training.id === id);
+          return training ? training : newTraining;
+        }
+        return newTraining;
       },
-      loadLessonById(id: string): Lesson | undefined {
-        return state
-          .trainings()
-          .flatMap((training) => training.lessons)
-          .find((lesson) => lesson.id === id);
+      updateTraining(updatedTraining: Training): void {
+        patchState(state, {
+          trainings: state.trainings().map((training) => (training.id === updatedTraining.id ? updatedTraining : training)),
+        });
       },
       addTraining(training: Training): void {
         patchState(state, { trainings: [...state.trainings(), training] });
@@ -38,19 +48,37 @@ export const TrainingStore = signalStore(
           patchState(state, { trainings: state.trainings().filter((training) => training.id !== trainingId) });
         }
       },
+      loadOrCreateLesson(id: string | undefined): Lesson {
+        const newLesson = {
+          name: '',
+          description: '',
+          materials: [],
+        } as Lesson;
+
+        if (id) {
+          const lesson = state
+            .trainings()
+            .flatMap((training) => training.lessons)
+            .find((lesson) => lesson.id === id);
+          return lesson ? lesson : newLesson;
+        }
+        return newLesson;
+      },
+      updateLessons(trainingId: string | undefined, lessons: Lesson[]): void {
+        if (trainingId) {
+          const training = this.loadOrCreateTraining(trainingId);
+          training.lessons = lessons;
+          this.updateTraining(training);
+        }
+      },
       removeLesson(lessonId: string | undefined, trainingId: string | undefined): void {
         if (trainingId && lessonId) {
-          const training = this.loadById(trainingId);
+          const training = this.loadOrCreateTraining(trainingId);
           if (training) {
             training.lessons = training.lessons.filter((lesson) => lesson.id !== lessonId);
             this.updateTraining(training);
           }
         }
-      },
-      updateTraining(updatedTraining: Training): void {
-        patchState(state, {
-          trainings: state.trainings().map((training) => (training.id === updatedTraining.id ? updatedTraining : training)),
-        });
       },
     };
   }),

@@ -1,8 +1,9 @@
-import { Component, EventEmitter, inject, Input, OnChanges, Output } from '@angular/core';
+import { Component, computed, effect, inject, input, output, Signal } from '@angular/core';
 import { TableComponent } from '@ui/table/table.component';
 import { ToolbarComponent } from '@ui/toolbar/toolbar.component';
 import { Lesson } from '../../model/lesson';
 import { TrainingStore } from '../../data/training.store';
+import { Training } from '../../model/training';
 
 @Component({
   selector: 'sf-training-lessons',
@@ -10,45 +11,34 @@ import { TrainingStore } from '../../data/training.store';
   templateUrl: './training-lessons.component.html',
   styleUrl: './training-lessons.component.scss',
 })
-export class TrainingLessonsComponent implements OnChanges {
-  @Input() trainingId!: string;
-  @Output() deletedLesson = new EventEmitter<boolean>();
-  @Output() reorderedLesson = new EventEmitter<boolean>();
-  data: Lesson[] = [];
-
+export class TrainingLessonsComponent {
   trainingStore = inject(TrainingStore);
+  trainingId = input<string>();
+  training: Signal<Training> = computed(() => this.trainingStore.loadOrCreateTraining(this.trainingId()));
+  data: Lesson[] = [];
+  deletedLesson = output<boolean>();
+  reorderedLesson = output<boolean>();
 
   columns = [
     { field: 'name', header: 'training.lesson.name', type: 'string', sort: false },
     { field: 'description', header: 'training.lesson.description', type: 'string', sort: false },
   ];
 
-  ngOnChanges() {
-    if (this.trainingId) {
-      const training = this.trainingStore.loadById(this.trainingId);
-      if (training) {
-        this.data = training.lessons;
-      }
-    }
+  constructor() {
+    effect(() => {
+      this.data = this.training().lessons;
+    });
   }
 
   onDelete(lesson: Lesson) {
-    const training = this.trainingStore.loadById(this.trainingId);
-    if (training) {
-      this.data = training.lessons.filter((l) => l.id !== lesson.id);
-      training.lessons = this.data;
-      this.trainingStore.updateTraining(training);
-      this.deletedLesson.emit(true);
-    }
+    this.data = this.data.filter((l) => l.id !== lesson.id);
+    this.trainingStore.updateLessons(this.trainingId(), this.data);
+    this.deletedLesson.emit(true);
   }
 
   onReorder() {
-    const training = this.trainingStore.loadById(this.trainingId);
-    if (training) {
-      training.lessons = this.data;
-      this.trainingStore.updateTraining(training);
-      this.reorderedLesson.emit(true);
-    }
+    this.trainingStore.updateLessons(this.trainingId(), this.data);
+    this.reorderedLesson.emit(true);
   }
 
   addLesson() {

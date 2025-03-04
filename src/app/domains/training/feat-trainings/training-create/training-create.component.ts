@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, Output, ViewChild } from '@angular/core';
+import { Component, inject, model, output, ViewChild } from '@angular/core';
 import { Dialog } from 'primeng/dialog';
 import { TrainingDetailsComponent } from '../training-details/training-details.component';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -15,9 +15,8 @@ import { UpdateMessage } from '../../../../shared/model/update-message';
   styleUrl: './training-create.component.scss',
 })
 export class TrainingCreateComponent {
-  @Input() visible: boolean = false;
-  @Output() showCreateDialog = new EventEmitter<boolean>();
-  @Output() showMessage = new EventEmitter<UpdateMessage>();
+  visible = model.required<boolean>();
+  showMessage = output<UpdateMessage>();
   @ViewChild(TrainingDetailsComponent) trainingFormComponent!: TrainingDetailsComponent;
 
   trainingStore = inject(TrainingStore);
@@ -26,8 +25,7 @@ export class TrainingCreateComponent {
     training.id = crypto.randomUUID();
     this.trainingStore.addTraining(training);
 
-    this.visible = false;
-    this.showCreateDialog.emit(false);
+    this.visible.set(false);
 
     this.showMessage.emit({
       severity: 'success',
@@ -36,8 +34,7 @@ export class TrainingCreateComponent {
   }
 
   cancel() {
-    this.visible = false;
-    this.showCreateDialog.emit(false);
+    this.visible.set(false);
   }
 
   resetForm() {

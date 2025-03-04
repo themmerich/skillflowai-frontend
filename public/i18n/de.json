@@ -221,6 +221,7 @@
         "tabMaterials": "Materialien"
       },
       "messages": {
+        "created": "Lektion wurde hinzugefügt",
         "updated": "Lektion wurde aktualisiert",
         "deleted": "Lektion wurde gelöscht"
       },

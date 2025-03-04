@@ -221,6 +221,7 @@
         "tabMaterials": "Materials"
       },
       "messages": {
+        "created": "Lesson has been created",
         "updated": "Lesson has been updated",
         "deleted": "Lesson has been deleted"
       },
