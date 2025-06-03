@@ -8,9 +8,8 @@ describe('FormDateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormDateComponent]
-    })
-    .compileComponents();
+      imports: [FormDateComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FormDateComponent);
     component = fixture.componentInstance;

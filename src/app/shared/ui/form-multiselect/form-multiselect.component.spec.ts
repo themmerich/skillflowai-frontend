@@ -8,9 +8,8 @@ describe('FormMultiselectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormMultiselectComponent]
-    })
-    .compileComponents();
+      imports: [FormMultiselectComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FormMultiselectComponent);
     component = fixture.componentInstance;
