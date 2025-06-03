@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnChanges, Output } from '@angular/core';
 import { ButtonDirective } from 'primeng/button';
 import { ConfirmDialog } from 'primeng/confirmdialog';
 import { DatePipe, NgClass } from '@angular/common';
@@ -37,7 +37,7 @@ interface Column {
   templateUrl: './tree-table.component.html',
   styleUrl: './tree-table.component.scss',
 })
-export class TreeTableComponent implements OnInit {
+export class TreeTableComponent implements OnChanges {
   @Input() data!: any;
   @Input() columns!: Column[];
   @Input() showEdit: boolean = false;
@@ -80,7 +80,7 @@ export class TreeTableComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.key = this.prefix + '.key';
   }
 
@@ -102,7 +102,7 @@ export class TreeTableComponent implements OnInit {
           rejectLabel: translations[event.prefix + '.delete.cancel'],
           rejectIcon: 'pi pi-times',
           accept: () => this.onDelete(event),
-          key: this.prefix + '.key',
+          key: this.key,
         });
       });
   }

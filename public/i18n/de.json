@@ -60,7 +60,7 @@
       "dashboard": "Dashboard",
       "organization": "Organisation",
       "members": "Mitglieder",
-      "trainings": "Schulungen",
+      "courses": "Schulungen",
       "faq": "FAQ",
       "admin": "Admin",
       "not-found": "404",
@@ -166,10 +166,12 @@
       }
     }
   },
-  "training": {
-    "name": "Name",
+  "course": {
+    "id": "ID",
+    "title": "Name",
     "description": "Beschreibung",
-    "defaultInterval": "Zeitraum",
+    "repeatInterval": "Zeitraum",
+    "status": "Status",
     "rating": "Bewertung",
     "lessons": "Lektionen",
     "numberOfQuestions": "Anzahl Fragen",

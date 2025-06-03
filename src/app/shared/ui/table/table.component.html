@@ -71,11 +71,13 @@
           <td><i [class]="getIcon(rowData[col.field])"></i></td>
         } @else if (col.type === 'boolean') {
           <td class="text-center"><p-checkbox [binary]="true" [ngModel]="rowData[col.field]" disabled /></td>
+        } @else if (col.type === 'status') {
+          <td><p-tag value="{{ rowData[col.field] }}" [severity]="getSeverity(rowData[col.field])" /></td>
         } @else {
           <td>{{ rowData[col.field] }}</td>
         }
       }
-      @if (showEdit || showDelete) {
+      @if (showEdit || showDelete || showAdd) {
         <td class="text-center">
           @if (showEdit) {
             <button
@@ -94,6 +96,9 @@
               class="p-button-sm p-button-text p-button-danger"
               (click)="confirmDelete(rowData)"
             ></button>
+          }
+          @if (showAdd) {
+            <button pButton type="button" icon="pi pi-user-plus" class="p-button-sm p-button-text" (click)="onAdd(rowData)"></button>
           }
         </td>
       }

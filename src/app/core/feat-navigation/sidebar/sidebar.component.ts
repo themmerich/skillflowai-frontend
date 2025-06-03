@@ -23,7 +23,7 @@ export class SidebarComponent implements OnInit {
     '/home/dashboard': 'core.nav.dashboard',
     '/home/organization/details': 'core.nav.organization',
     '/home/organization/list': 'core.nav.members',
-    '/home/training/list': 'core.nav.trainings',
+    '/home/course/list': 'core.nav.courses',
     '/home/core/faq': 'core.nav.faq',
     '/home/admin/users': 'core.nav.admin',
   };
@@ -66,8 +66,8 @@ export class SidebarComponent implements OnInit {
       },
       {
         icon: 'pi pi-stopwatch',
-        label: 'core.nav.trainings',
-        routerLink: 'home/training/list',
+        label: 'core.nav.courses',
+        routerLink: 'home/course/list',
       },
     ];
   }

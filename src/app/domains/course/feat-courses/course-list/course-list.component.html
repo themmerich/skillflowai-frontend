@@ -1,0 +1,21 @@
+<div class="bg-surface-0 dark:bg-surface-900 p-8 shadow rounded-border flex-auto h-full">
+  <div class="dark:text-surface-0 font-semibold text-lg mt-4">{{ 'course.list.title' | translate }}</div>
+  <p-divider />
+  <p-toast />
+  <sf-toolbar [showAdd]="true" (addItem)="showCourseCreateDialog.set(true)" />
+  <sf-table
+    [data]="data()"
+    [columns]="columns"
+    [prefix]="'course'"
+    [showDelete]="true"
+    [showEdit]="true"
+    [showAdd]="true"
+    [customClass]="'table-height'"
+    (delete)="onDelete($event)"
+    (edit)="onEdit($event)"
+  />
+
+  <!-- course dialogs -->
+  <!--sf-course-create [(visible)]="showCourseCreateDialog" (showMessage)="showMessage($event)" />
+  <sf-course-edit [(visible)]="showCourseEditDialog" [courseId]="selectedCourseId()" (showMessage)="showMessage($event)" /-->
+</div>

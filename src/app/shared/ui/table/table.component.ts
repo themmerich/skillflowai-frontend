@@ -9,6 +9,7 @@ import { OptionNamePipe } from '@ui/pipes/option.pipe';
 import { OptionNamesPipe } from '@ui/pipes/options.pipe';
 import { Checkbox } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
+import { Tag } from 'primeng/tag';
 
 interface Column {
   field: string;
@@ -32,6 +33,7 @@ interface Column {
     NgClass,
     Checkbox,
     FormsModule,
+    Tag,
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
@@ -41,6 +43,7 @@ export class TableComponent implements OnChanges {
   @Input() columns!: Column[];
   @Input() showEdit: boolean = false;
   @Input() showDelete: boolean = false;
+  @Input() showAdd: boolean = false;
   @Input() prefix: string = '';
   @Input() customClass: string = '';
   @Input() reorder = false;
@@ -49,6 +52,7 @@ export class TableComponent implements OnChanges {
   @Output() rowSelect = new EventEmitter<any>();
   @Output() delete = new EventEmitter<any>();
   @Output() edit = new EventEmitter<any>();
+  @Output() add = new EventEmitter<any>();
 
   translateService = inject(TranslateService);
   confirmationService = inject(ConfirmationService);
@@ -120,6 +124,10 @@ export class TableComponent implements OnChanges {
     this.edit.emit(event);
   }
 
+  onAdd(event: any) {
+    this.add.emit(event);
+  }
+
   getIcon(value: string): string {
     switch (value) {
       case 'youtube':
@@ -148,5 +156,18 @@ export class TableComponent implements OnChanges {
       additionalLength++;
     }
     return this.columns.length + additionalLength;
+  }
+
+  getSeverity(status: string) {
+    switch (status) {
+      case 'DRAFT':
+        return 'warn';
+      case 'PUBLISHED':
+        return 'success';
+      case 'ARCHIVED':
+        return 'danger';
+      default:
+        return 'info';
+    }
   }
 }

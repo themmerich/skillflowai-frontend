@@ -60,7 +60,7 @@
       "dashboard": "Dashboard",
       "organization": "Organization",
       "members": "Members",
-      "trainings": "Trainings",
+      "courses": "Courses",
       "faq": "FAQ",
       "admin": "Admin",
       "not-found": "404",
@@ -166,34 +166,36 @@
       }
     }
   },
-  "training": {
-    "name": "Name",
+  "course": {
+    "id": "ID",
+    "title": "Name",
     "description": "Description",
-    "defaultInterval": "Interval",
+    "repeatInterval": "Interval",
+    "status": "Status",
     "rating": "Rating",
     "lessons": "Lessons",
     "numberOfQuestions": "Number of Questions",
     "numberOfCorrectQuestions": "Number of correct Questions",
     "notes": "Notes",
     "list": {
-      "title": "Trainings"
+      "title": "Courses"
     },
     "edit": {
-      "title": "Edit Training",
+      "title": "Edit Course",
       "tabDetails": "Details",
       "tabLessons": "Lessons",
       "tabQuestions": "Questions"
     },
     "create": {
-      "title": "Create Training",
+      "title": "Create Course",
       "tabDetails": "Details",
       "tabLessons": "Lessons",
       "tabQuestions": "Questions"
     },
     "messages": {
-      "created": "Training has been created",
-      "updated": "Training has been updated",
-      "deleted": "Training has been deleted"
+      "created": "Course has been created",
+      "updated": "Course has been updated",
+      "deleted": "Course has been deleted"
     },
     "error": {
       "name": {
@@ -201,8 +203,8 @@
       }
     },
     "delete": {
-      "title": "Delete Training",
-      "message": "Are you sure you want to delete this training?",
+      "title": "Delete Course",
+      "message": "Are you sure you want to delete this course?",
       "ok": "Delete",
       "cancel": "Cancel"
     },
@@ -237,8 +239,8 @@
       "description": "Description",
       "type": "Type",
       "delete": {
-        "title": "Delete Training Material",
-        "message": "Are you sure you want to delete this training material?",
+        "title": "Delete Course Material",
+        "message": "Are you sure you want to delete this course material?",
         "ok": "Delete",
         "cancel": "Cancel"
       }
